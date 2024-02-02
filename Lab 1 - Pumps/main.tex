@@ -146,7 +146,7 @@
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 301 \\Lab 6: Temperature Measurement Devices} \\
+    \Huge {MEC E 403 \\Lab 1: Centrifugal Pumps} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -154,20 +154,60 @@
     \vspace{1cm} % Adjust vertical spacing
 
     % Date
-    \Large Date: November 21, 2023 \\ % or manually specify a date
-    \vspace{4cm} % Adjust vertical spacing
+    \Large Date: March 1, 2023 \\ % or manually specify a date
+    \vspace{2cm} % Adjust vertical spacing
 
-    % CCID and Student ID in smtaller font
-    \normalsize CCID: abdiep \\
-    \normalsize Student ID: 1664334 \\ 
-    \normalsize Section: D21 \\
-    
-    \vfill % Fill vertical space
-    
+    % % CCID and Student ID in smtaller font
+    % \normalsize Instructor: Lisa Kinsale \\
+    % \normalsize TA: Enrique Millones \& Simin Shabani 
+    % \vspace{1cm} % Adjust vertical spacing
+
+    % \normalsize Group Members:
+    %     Ahmad, Safiya;
+    %     Allegretto, Luca; \\
+    %     Colabella, James; 
+    %     Dadhania, Karan; 
+    %     Sammam, S M Faiaz; 
+
+    % \vspace{1cm} % Adjust vertical spacing
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ll}
+            Instructor & Lisa Kinsale \\
+            TAs & Enrique Millones \\
+            & Simin Shabani \vspace{0.5cm} \\
+            Group Members & Ahmad, Safiya \\
+            & Allegretto, Luca \\
+            & Colabella, James \\
+            & Dadhania, Karan \\
+            & Sammam, S M Faiaz \vspace{0.5cm} \\
+            CCID & abdiep \\
+            Student ID & 1664334 \\
+            Section & H41 \\
+            Group & 13 \\
+        \end{tabular}
+    \end{table}
+    % \normalsize CCID: abdiep \\
+    % \normalsize Student ID: 1664334 \\ 
+    % \normalsize Section: H41 \\
+    % \normalsize Group: 13 \\
+      
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.2\textwidth]{uofa_engineering_logo.png}
+    \end{figure}
     % Additional content (e.g., university logo or other information)
+
+    \vfill % Fill vertical space
+
     
 \end{titlepage}
 \renewcommand\arraystretch{1.5}
+
+\input{Sections/Abstract.tex}
+\input{Sections/Nomenclature.tex}
+\newpage
 
 % Table of Contents (Hyperlinks set to locally black)
 {
@@ -182,16 +222,17 @@
 % seperate page count for main matter
 \pagenumbering{arabic}
 
-\input{Sections/Theory.tex}
-% \input{Sections/Introduction.tex}
-% \input{Sections/Procedure.tex}
-% \input{Sections/Results and Discussion.tex}
-% \input{Sections/Conclusion.tex}
 
-% % \newpage
-% % %\bibliographystyle{IEEEtran}
-% % %\bibliography{citations.bib}
-% % %\bibliography{}
+\input{Sections/Introduction.tex}
+\input{Sections/Theory.tex}
+\input{Sections/Procedure.tex}
+\input{Sections/Results and Discussion.tex}
+\input{Sections/Conclusion.tex}
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{citations.bib}
+\bibliography{}
 
 % \newpage
 % \appendix

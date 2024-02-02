@@ -1,202 +1,39 @@
-% MecE 301 1
-% TEMPERATURE MEASUREMENT
-% Temperature measurement is perhaps the broadest area in engineering measurements. 
-% There are a wide range of sensors and instruments available that allow the measurement of 
-% temperature from cryogenic levels to that found in flames and higher. As always you should 
-% be aware of characteristics such as accuracy, resolution, linearity, usable range, response 
-% time, cost, etc. as well as the underlying principles of operation.
-% NOTE 1: This lab requires you to wire your own circuits. While you are wiring, make 
-% sure your Arduino is not powered on.
-% NOTE 2: Turn on the heater (Figure 5) now so the temperature is stable when you 
-% need to use it.
-% 1 TEMPERATURE SENSOR CALIBRATION
-% CAUTION! The water in the electrically heated water baths become extremely hot 
-% (up to 90 o
-% C). 
-% 1.1 EQUIPMENT - Sensor Calibration
-% The following is a list of the temperature sensors to be calibrated and the equipment used 
-% for the calibration.
-% • Electrically heated water baths with circulating pump. The temperature of each bath 
-% is measured with a 4-wire platinum RTD (cost ~$100). The accuracy of the RTD
-% and RTD meter is approximately 0.3 o
-% C
-% • Arduino Uno
-% • Type K thermocouple (~$1)
-% • Adafruit-AD8495 K-type thermocouple amplifier (~$8)
-% • Honeywell TD5A thermistor (~$5)
-% • Breadboard, jumper wires, and resistors
-% 1.2 PROCEDURE - Sensor Calibration
-% We’ll be using an Arduino, a Type-K thermocouple and thermistor to measure temperature. 
-% We’ll start by building circuits so that our Arduino can read a voltage output from the 
-% thermocouple and thermistor. 
-% The circuits will be built on a breadboard. A schematic of a breadboard is shown in 
-% Figure 1. The horizontal holes of the breadboard are electrically connected, but not across 
-% the middle divider. On each side of the board there are vertical columns which are 
-% electrically connected. These ‘bus strip’ are typically used to supply power and ground to 
-% the circuit. Connect the 5V pin of your Arduino to the “+” bus strip and the GND pin of 
-% your Arduino to the “–“ bus strip.
-% MecE 301 2
-% Figure 1: Schematic of breadboard. Source: computers.tutsplus.com
-% 1.2.1 Thermistor circuit
-% Build the circuit for the Honeywell TD5A thermistor which is found in Figure 2 of the 
-% TD5A data sheet (posted on eClass). The circuit is a simple ‘ballast’ circuit. Before 
-% building the circuit, disconnect the Arduino from your computer. This will prevent 
-% potential damage to the circuitry as you are building it. The resistance value of a resistor 
-% can be determined by the colour bands as shown in Figure 2. If you have a hard time reading 
-% the colours, you can measure the resistance with a multimeter.
-% Figure 2: Resistor colour codes
-% The voltage Vo shown on Figure 2 of the TD5A data sheet is an analog voltage which will 
-% change as the temperature of the thermistor changes. Connect this voltage to pin A0 of your 
-% MecE 301 3
-% Arduino. Connect the Arduino to your computer and open the built-in sketch 
-% ReadAnalogVoltage (File > Examples > 01.Basics > ReadAnalogVoltage).
-% In the void setup section add the line:
-% analogReference(EXTERNAL);
-% In the void loop section change the line: 
-% int sensorValue = analogRead(A0);
-% and change:
-% float voltage = sensorValue * (5.0 / 1023.0);
-% to 
-% float voltage = sensorValue * (3.3 / 1024.0);. 
-% Also, change the line:
-% Serial.println(voltage);
-% to 
-% Serial.println(voltage,3);
-% to make the serial monitor print out three digits.
-% Upload the code and warm up the thermistor with your fingers to verify the voltage 
-% increases as the thermistor warms. 
-% 1.2.2 Adafruit AD8495 circuit and Thermocouple (K Type)
-% (Information for the Adafruit AD8495: https://www.adafruit.com/products/1778)
-% The voltage output of typical thermocouple is on the order of microvolts which is too low 
-% for the Arduino to measure. Therefore, a thermocouple amplifier is used (Adafruit 
-% AD8495, Figure 3). This device amplifies the thermocouple voltage and it also provides a 
-% cold-junction reference so that the thermocouple outputs a voltage referenced to 0 o
-% C. The 
-% cold-junction reference is a silicon transistor similar to the one described in Section 3 of 
-% the lecture notes. The Adafruit AD8495 integrated circuit (IC) has a sensitivity of 5 mV/o
-% C, 
-% and the equation used to convert voltage output from the amplifier to temperature is given 
-% on the underside of the Adafruit (see Figure 3).
-% MecE 301 4
-% (a) (b)
-% Figure 3: Photos of (a) Adafruit AD8495, showing pin designations; (b) Underside of Adafruit showing 
-% voltage-temperature conversion equation.
-% Figure 4 is an image showing the wiring of the Arduino Uno, Adafruit AD8495, and the 
-% thermistor using the breadboard and supplied jumper wires, ready to use for temperature 
-% measurements. The AD8495 board has four pins: V+, GND, OUT, and GND. Connect the 
-% V+ pin to 5 V on the breadboard and both GND pins to ground on the breadboard. Connect 
-% the OUT pin to pin A1 on your Arduino. 
-% MecE 301 5
-% Figure 4: Photo of the Arduino Uno, Adafruit AD8495 Amplifier, thermistor circuit, and breadboard showing 
-% jumpers. 
-% Modify your existing Arduino code report the following to the serial port: i) thermistor
-% voltage, ii) the AD8495 voltage, and iii) convert the AD8495 voltage to temperature (see 
-% MecE 301 6
-% Figure 3 b). (For example, “Serial.print(value1,3); Serial.print(','); 
-% Serial.println(value2,3);” will write two values on a line delimited by a comma).
-% Add a line: delay(100); to your code so that the loop only executes every 100 ms. An 
-% example code is shown in Figure 5. Reconnect the Arduino to your computer. Upload the 
-% code and open the serial monitor. Check that the thermocouple is reporting temperatures 
-% near room temperature (~22 o
-% C). 
-% Figure 5. Example code for measuring the thermistor and thermocouple voltages and thermocouple 
-% temperature. 
-% MecE 301 7
-% 1.2.3 Water bath calibration
-% There are three water baths with temperatures at room temperature, 40 o
-% C, and 60 o
-% C. Place 
-% your thermistor and thermocouple in a water bath and wait for their temperatures to 
-% stabilize (try to suspend them in the water rather than having them touch the bottom or 
-% sides of the container). Then record approximately 50 measurements for each device (i.e. 
-% cut-paste 50 values from the serial monitor into Excel) and record the water bath 
-% temperature. (You can “pause” the serial monitor by unchecking the “Autoscroll” check 
-% box so make it easier to cut-paste). Repeat this procedure for all the water baths.
-% Plot the calibration data for the thermistor in Excel and fit it with a straight line to get the 
-% correlating function. Enter this correlating function into your Arduino code so that you 
-% report the thermistor temperature to the serial monitor. Be sure to enter this correlating 
-% function so that your measurements in the transient tests (below) are in units of 
-% temperature.
-% 2 TRANSIENT RESPONSE
-% 2.1 EQUIPMENT - Transient Response
-% The transient temperature response of the thermocouple and thermistor is investigated 
-% using the equipment used above and 
-% • A heater (Figure 5)
-% • A beaker of room temperature water.
-% NOTE: ensure that your Arduino code reports temperature (not voltage), to the serial 
-% monitor, for both the thermistor and thermocouple.
-% 2.2 PROCEDURE - Transient Response
-% Turn on the heater (Figure 5) if not already on. Modify your Arduino code so that you also 
-% display the time in the serial monitor: if you use Serial.print(micros()); the 
-% time in microseconds will be printed. Your code should write one line which contains the 
-% time and both temperatures (e.g. time,Temp1,Temp2). Also set the loop delay to 1 second 
-% (i.e. use delay(1000); in your loop). Turn on the Arduino serial monitor and display 
-% the time and temperatures of the thermistor and thermocouple. Place the thermistor and 
-% thermocouple in the heater and allow them to come to equilibrium (this might take about 5
-% minutes for the thermistor). Once the temperatures are stable, remove the devices from the 
-% heater as quickly as possible to room temperature air and allow them to cool (keep the 
-% devices stationary as they cool and do not blow on them). Once the temperatures have 
-% stabilized, save the data by cut-pasting it to Excel. Select data starting from just before you 
-% removed the devices to the time the devices had cooled to room temperature (again, 
-% unchecking the “AutoScroll” button is useful). Plot the data.
-% MecE 301 8
-% Figure 5: Heater used for determining time constant of thermocouple and thermistor.
-% Fill the small Petri dish with some water and repeat this experiment using the water to cool 
-% the devices. This time set your loop delay to 10 milliseconds (i.e. use delay(10); in 
-% your loop).
-% Show your data to the teaching assistant before leaving the lab.
-% MecE 301 9
-% 3 REPORT
-% The purpose of the report is to compare the accuracy, resolution (all in terms of o
-% C), and 
-% time constant of the thermocouple and thermistor. When writing your report and presenting 
-% your work, be sure to present/include figures, tables, equations, and assumptions required 
-% to fully detail the answers to the questions below. Follow MecE301 guidelines for tables 
-% and figures.
-% Answer the following:
-% 1) Thermistor: Determine the accuracy and resolution of the thermistor. To find the 
-% resolution of a device divide the resolution of the A/D converter by the sensitivity of the 
-% device (See Section 2 in the Digital lecture notes). Mention any recommendations you 
-% might have for increasing the resolution of the measurement systems.
-% 2) Thermocouple: Determine the accuracy and resolution of the thermocouple. Do this for 
-% two cases: (1) for your temperature measurements obtained by using the Adafruit
-% conversion equation for voltage to temperature (stamped on the Adafruit); and (2) for your 
-% measurements based on a new correlating function that you determine by fitting a linear 
-% correlating function to voltage versus the reference temperature. Comment on which case 
-% (1 or 2) led to the best accuracy, and state why.
-% 3) Determine the time constant of the devices in the two systems (room temperature air and 
-% room temperature water) using the data collected from the transient tests. When you 
-% removed the devices from the heater and placed them in room temperature air or water you 
-% created a step-change for the devices. The devices are first-order systems and the firstorder response to a step change is,
-% (1)
-% where t is the time, t is the time constant, T is the temperature at time t, T0 is the initial 
-% temperature at t=0 (i.e. the time you removed the devices from the heater, it is constant and 
-% is not a variable in the equation), and is the temperature once the system has reached 
-% its new steady-state value after the step change (it is constant and is not a variable in the 
-% equation). 
-% To calculate the time constants, use chi-squared minimization to fit Eq 1 to your 
-% experimental data. Examples on how to use chi-squared minimization in Excel is shown 
-% here: 
-% http://web.chem.ucsb.edu/~laverman/Chem116/PDF116CL/Solver.pdf
-% https://jkp-ads.com/articles/leastsquares.asp
-% https://www.youtube.com/watch?v=Ewp5CF5ba_w
-% (Note: Don’t use the equations given in the examples, use Equation 1 for your fit.)
-% T =T∞ +(T0 −T∞ )e
-% −t
-% τ
-% T∞
-% MecE 301 10
-% The time constant of a temperature measurement device is a function of the rate of heat 
-% transfer to/from the sensor. Discuss why the time constants are different between devices 
-% (i.e. thermocouple vs thermistor) and between the surroundings (i.e. air vs water).
+% Pumps, turbines and fans are machines whose function is to change the energy level of a
+% fluid. A pump or compressor increases the total head or pressure of the fluid while a turbine
+% decreases it and extracts energy from the flow.
+% Turbo machines are widely used. Some examples include
+% • an aircraft jet engine has one or more compressors and turbines,
+% • electricity is generated by passing steam or other gases through a turbine,
+% • liquids are moved long distances and to higher elevations by different types of pumps,
+% • air-conditioning and heating systems use fans to circulate air,
+% • water wheels and windmills are forms of the turbine, which extract power from naturally
+% moving flows.
+% The geometry of turbo machines varies appreciably for the differing types that have been
+% developed. Broadly there are two classes. In the first class there is a pronounced change in
+% radius from the inlet to the discharge; these may be said to be centrifugal turbo machines.
+% This is an important type of turbo machine as there are a great number of pumps, turbines
+% and compressors that fall into this category. The other class consists of axial machines in
+% which the flow is largely parallel to the axis of rotation. Between these extremes are examples
+% in which the flow may proceed along conical surfaces of revolution, and these are sometimes
+% called mixed-flow turbo machines. In all these varying types, however, there must be a
+% rotating member, usually called a rotor, or impeller, to do work on the fluid.
+% Turbo machines are an important piece of technology, and a knowledge of their general
+% characteristics is essential for many branches of engineering. A study of their operation
+% provides an excellent example of the application of fluid mechanics to engineering problems.
+% 2 Objectives
+% • To measure the performance of a centrifugal pump and compare the results with the
+% manufacturer’s specification and theoretical predictions.
+% • To compare the performance of parallel and series pump system configurations.
 
 \section{Introduction}
+\subsection{Background}
+\textbf{TO DO: Reword and find sources for information.}
+Pumps, turbines, and fans are turbo machines whose function is to change the energy level of a fluid. A pump or compressor increases the total head or pressure of the fluid while a turbine decreases it and extracts energy from the flow. Analysis of turbo machines is an important piece of technology, and a knowledge of their general characteristics is essential for many branches of engineering. 
 
-% \noindent The primary objective of this lab is to investigate and familiarize elements of digital measurements such as 
-% word length (number of bits), quantization, resolution, conversion rates, sampling, accuracy, and signal conditioning through the use of an Arduino Uno. 
-% These concepts are important in signal processing and digital communications and familiarity with them is important for future development.
+The geometry of turbo machines varies appreciably for the differing types that have been developed. Broadly there are two classes. In the first class there is a pronounced change in radius from the inlet to the discharge; these may be said to be centrifugal turbo machines. This is an important type of turbo machine as there are a great number of pumps, turbines and compressors that fall into this category. The other class consists of axial machines in which the flow is largely parallel to the axis of rotation. Between these extremes are examples in which the flow may proceed along conical surfaces of revolution, and these are sometimes called mixed-flow turbo machines. In all these varying types, however, there must be a rotating member, usually called a rotor, or impeller, to do work on the fluid.
 
-\noindent The objective of this lab was to investigate the accuracy, resolution, and time constant of a thermistor and thermocouple.
-The thermistor and thermocouple was calibrated using water baths at different temperatures. Next, the step response of the thermistor and 
-thermocouple were investigated by placing them in a heater and then removing them to room temperature air and water.
-
+\subsection{Objectives}
+\begin{enumerate}
+    \item To measure the performance of a centrifugal pump and compare the results with the manufacturer’s specification and theoretical predictions.
+    \item To compare the performance of parallel and series pump system configurations.
+\end{enumerate}

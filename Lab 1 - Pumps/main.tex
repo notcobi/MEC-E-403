@@ -94,8 +94,8 @@
 %-------------------------------------------------------------------------------
 \pagestyle{fancy} % Use the fancy page style
 \fancyhf{} % Clear all header and footer fields
-\fancyhead[L]{MEC E 301} % Left-aligned header
-\fancyhead[C]{Lab 6: Temperature Measurement Devices} % Center header
+\fancyhead[L]{MEC E 403} % Left-aligned header
+\fancyhead[C]{Lab 1: Centrifugal Pumps} % Center header
 \fancyhead[R]{Alex Diep} % Right-aligned header
 \fancyfoot[C]{\thepage} % Centered page number in the footer
 
@@ -205,8 +205,10 @@
 \end{titlepage}
 \renewcommand\arraystretch{1.5}
 
+% no page number or abstract
+\pagenumbering{gobble}
+
 \input{Sections/Abstract.tex}
-\input{Sections/Nomenclature.tex}
 \newpage
 
 % Table of Contents (Hyperlinks set to locally black)
@@ -222,10 +224,10 @@
 % seperate page count for main matter
 \pagenumbering{arabic}
 
-
+\input{Sections/Nomenclature.tex}
 \input{Sections/Introduction.tex}
-\input{Sections/Theory.tex}
 \input{Sections/Procedure.tex}
+\input{Sections/Theory.tex}
 \input{Sections/Results and Discussion.tex}
 \input{Sections/Conclusion.tex}
 

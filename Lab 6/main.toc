@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Procedure}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Equipment}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Setup}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Calibration}{1}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Transient Response}{1}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Results and Discussion}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Calibration}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Transient Response}{2}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Conclusion}{3}{section.4}%
+\contentsline {section}{\numberline {A}Figures}{4}{appendix.A}%
+\contentsline {section}{\numberline {B}Tables}{7}{appendix.B}%
+\contentsline {section}{\numberline {C}Appendix: Thermistor and Thermocouple Calibration}{10}{appendix.C}%
+\contentsline {section}{\numberline {D}Appendix: Thermistor and Thermocouple Transient Response}{12}{appendix.D}%

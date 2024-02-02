@@ -1,0 +1,28 @@
+\section{Appendix: Thermistor and Thermocouple Transient Response}
+\noindent The first order response of the system is 
+\begin{equation*}
+    T = T_{\infty} + (T_0 - T_{\infty})e^{-t/\tau}
+\end{equation*}
+A modelled response was generated using $t$, $T_0$, and $T_{\infty}$ as inputs. A guess of $\tau = 1$ was used.
+
+From Table \ref{tab:thermistor_transient_air}, the thermistor in air at $t = \qty{1}{\second}$, $T_{\infty} = \qty{21.759}{\celsius}$, 
+and $T_0 = \qty{48.457}{\celsius}$ had a modelled temperature response of
+\begin{equation*}
+    T = 21.759 + (48.457 - 21.759)e^{-1/1} = \qty{31.555}{\celsius}
+\end{equation*}
+
+The $\Delta T^2$ was calculated by
+\begin{equation*}
+    \Delta T^2 = (T_{\text{meas}} - T_{\text{model}})^2 
+\end{equation*}
+Continuing with the example above, the $\Delta T^2$ was
+\begin{equation*}
+    \Delta T^2 = (47.389 - 31.555)^2 = \qty{250.701}{\celsius\squared}
+\end{equation*}
+
+The sum of $\Delta T^2$, or the sum of squared error, was calculated by summing all the $\Delta T^2$ values. For the thermistor in air, with 
+the parameters above, the sum of squared error was $\qty{5881.626}{\celsius\squared}$.
+
+Excel's \texttt{Solver} was used to minimize the sum of squared error by varying $\tau$ to find the best fit. The best fit was found to be
+$\tau = \qty{18.698}{\second}$ with a sum of squared error of $\qty{122.338}{\celsius\squared}$. The same procedure was used for the thermocouple in air, 
+thermometer in water, and thermocouple in water. 

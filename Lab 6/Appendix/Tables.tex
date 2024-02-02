@@ -1,0 +1,214 @@
+\section{Tables}
+\label{sec:tables}
+
+% head of deviation table for thermistor
+% use 1 decimal place for temperature
+% Thermistor Deviation Table						
+% 21.2	0.643941754	0.643941754	0.643941754	0.643941754	0.643941754	0.643941754
+% 40	-1.255340005	-1.255340005	-2.249499902	0.070206523	0.070206523	0.070206523
+% 46.9	0.460712431	0.460712431	0.460712431	-0.533447465	0.460712431	0.460712431
+\begin{table}[h]
+    \centering
+    \caption{Deviation table for the thermistor}
+    \label{tab:thermistor_calibration_deviation}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        Reference Temperature & \multicolumn{6}{c}{Measured Temperature} &  & Max Deviation \\
+        \cmidrule{2-7}
+        ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) &  & ($^\circ$C) \\
+        \midrule
+        21.2 & 0.6 & 0.6 & 0.6 & 0.6 & 0.6 & 0.6 & ... & 3.3 \\
+        40.0 & -1.3 & -1.3 & -2.2 & 0.1 & 0.1 & 0.1 & ... & 3.3 \\
+        46.9 & 0.5 & 0.5 & 0.5 & -0.5 & 0.5 & 0.5 & ... & 2.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% head of deviation table for thermocouple 
+% Thermocouple Deviation Table						
+% 21.2	-1.141	-1.141	-1.141	-1.141	-1.141	-1.141
+% 40	-0.605	-0.605	-0.605	-0.605	-0.605	-1.25
+% 53.5	0.719	0.719	0.074	0.719	0.719	0.074
+% Max Deviation
+% 21.2	1.289
+% 40	1.289
+% 53.5	1.289
+\begin{table}[h]
+    \centering
+    \caption{Head of deviation table for the thermocouple using Adafruit conversion equation}
+    \label{tab:thermocouple_calibration_deviation_adafruit}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        Reference Temperature & \multicolumn{6}{c}{Measured Temperature} &  & Max Deviation \\
+        \cmidrule{2-7}
+        ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) &  & ($^\circ$C) \\
+        \midrule
+        21.2 & -1.1 & -1.1 & -1.1 & -1.1 & -1.1 & -1.1 &  ... & 1.3 \\
+        40.0 & -0.6 & -0.6 & -0.6 & -0.6 & -0.6 & -1.3 &  ... & 1.3 \\
+        53.5 & 0.7 & 0.7 & 0.1 & 0.7 & 0.7 & 0.1 &  ... & 1.3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% head of deviation table for thermocouple with linear fit
+% Thermocouple linear fit deviation table						
+% 21.2	0.0	0.0	0.0	0.0	0.0	0.0
+% 40	0.0	0.0	0.0	0.0	0.0	-0.6
+% 54.1	0.3	0.3	-0.3	0.3	0.3	-0.3
+% Max Deviation
+% 21.2	1.4
+% 40	1.2
+% 53.5	1.2
+\begin{table}[h]
+    \centering
+    \caption{Head of deviation table for the thermocouple using linear fit}
+    \label{tab:thermocouple_calibration_deviation_linear}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        Reference Temperature & \multicolumn{6}{c}{Measured Temperature} &  & Max Deviation \\
+        \cmidrule{2-7}
+        ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C) &  & ($^\circ$C) \\
+        \midrule
+        21.2 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 &  ... & 1.4 \\
+        40.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & -0.6 &  ... & 1.2 \\
+        53.5 & 0.3 & 0.3 & -0.3 & 0.3 & 0.3 & -0.3 &  ... & 1.2 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% Transient response in air
+% Table 2.0: Cooling in air experiment			
+% Time (microseconds)	Thermistor Temperature (C)	Thermistor Response	Thermistor (Exp-Theor)^2
+% 0	48.457	48.457	0
+% 1.002568	47.389	47.06318374	0.106156236
+% 2.005144	46.321	45.74212386	0.33509759
+% 3.00772	45.253	44.49003277	0.582118987
+% 4.01028	43.117	43.30332826	0.034718222
+% 5.01284	43.117	42.17857728	0.880637207
+% 6.0154	42.049	41.11254545	0.87694713
+
+\begin{table}
+    \centering
+    \caption{Transient response of the thermistor in air}
+    \label{tab:thermistor_transient_air}
+    \begin{tabular}{ccccc}
+        \toprule
+        Time & Thermistor  & Thermistor Model  & $(\Delta T_{\text{thermistor}})^2$ \\
+        (s) & ($^\circ$C) & ($^\circ$C) & ($^circ$C$^2$)\\
+        \midrule
+        0.000 & 48.457 & 48.457 & 0.000 \\
+        1.003 & 47.389 & 47.063 & 0.106 \\
+        2.005 & 46.321 & 45.742 & 0.335 \\
+        3.008 & 45.253 & 44.490 & 0.582 \\
+        4.010 & 43.117 & 43.303 & 0.035 \\
+        5.013 & 43.117 & 42.179 & 0.881 \\
+        6.015 & 42.049 & 41.113 & 0.877 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% Table 2.0: Cooling in air experiment			
+% Time (microseconds)	Thermocouple Temperature (C)	Thermocouple Response	Thermocouple (Exp-Theor)^2
+% 0	48.418	48.418	0
+% 1.002568	46.484	47.05814709	0.329644885
+% 2.005144	44.551	45.77184907	1.490472446
+% 3.00772	43.262	44.5551373	1.672204067
+% 4.01028	41.328	43.40426516	4.310877004
+% 5.01284	40.684	42.31565203	2.662288336
+% 6.0154	39.395	41.28592986	3.575615747
+\begin{table}
+    \centering
+    \caption{Transient response of the thermocouple in air}
+    \label{tab:thermocouple_transient_air}
+    \begin{tabular}{ccccc}
+        \toprule
+        Time & Thermocouple  & Thermocouple Model  & $(\Delta T_{\text{thermocouple}})^2$ \\
+        (s) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C$^2$)\\
+        \midrule
+        0.000 & 48.418 & 48.418 & 0.000 \\
+        1.003 & 46.484 & 47.058 & 0.330 \\
+        2.005 & 44.551 & 45.772 & 1.490 \\
+        3.008 & 43.262 & 44.555 & 1.672 \\
+        4.010 & 41.328 & 43.404 & 4.311 \\
+        5.013 & 40.684 & 42.316 & 2.662 \\
+        6.015 & 39.395 & 41.286 & 3.576 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% Table 2.1: Cooling in water experiment			
+% Time (microseconds)	Thermistor Temperature (C)	Thermistor Response	Thermistor (Exp-Theor)^2
+% 0	39.914	39.914	0
+% 0.03848	36.71	38.03237331	1.748671173
+% 0.07696	34.574	36.33492802	3.100867488
+% 0.11544	33.506	34.80363569	1.683858378
+% 0.15392	32.438	33.42223258	0.968713769
+% 0.1924	30.302	32.17604692	3.512051841
+\begin{table}
+    \centering
+    \caption{Transient response of the thermistor in water}
+    \label{tab:thermistor_transient_water}
+    \begin{tabular}{ccccc}
+        \toprule
+        Time & Thermistor  & Thermistor Model  & $(\Delta T_{\text{thermistor}})^2$ \\
+        (s) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C$^2$)\\
+        \midrule
+        0.000 & 39.914 & 39.914 & 0.000 \\
+        0.038 & 36.710 & 38.032 & 1.749 \\
+        0.077 & 34.574 & 36.335 & 3.101 \\
+        0.115 & 33.506 & 34.804 & 1.684 \\
+        0.154 & 32.438 & 33.422 & 0.969 \\
+        0.192 & 30.302 & 32.176 & 3.512 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% Table 2.1: Cooling in water experiment			
+% Time (microseconds)	Thermocouple Temperature (C)	Thermocouple Response	Thermocouple (Exp-Theor)^2
+% 0	42.617	42.617	0
+% 0.03848	41.973	39.07143777	8.419063359
+% 0.07696	40.684	36.08315064	21.16781486
+% 0.11544	31.66	33.56454867	3.627305627
+% 0.15392	28.437	31.44180892	9.028876648
+% 0.1924	27.148	29.6527116	6.2735802
+\begin{table}
+    \centering
+    \caption{Transient response of the thermocouple in water}
+    \label{tab:thermocouple_transient_water}
+    \begin{tabular}{ccccc}
+        \toprule
+        Time & Thermocouple  & Thermocouple Model  & $(\Delta T_{\text{thermocouple}})^2$ \\
+        (s) & ($^\circ$C) & ($^\circ$C) & ($^\circ$C$^2$)\\
+        \midrule
+        0.000 & 42.617 & 42.617 & 0.000 \\
+        0.038 & 41.973 & 39.071 & 8.419 \\
+        0.077 & 40.684 & 36.083 & 21.168 \\
+        0.115 & 31.660 & 33.565 & 3.627 \\
+        0.154 & 28.437 & 31.442 & 9.029 \\
+        0.192 & 27.148 & 29.653 & 6.274 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% Air		Water	
+% Thermistor	Thermocouple	Thermistor	Thermocouple
+% T_0	48.457	48.418	39.914	42.617
+% T_infty	21.759	23.281	20.691	20.059
+% tau	18.69803057	18.02662691	0.373547583	0.225033996
+% SS	122.338	46.26568305	35.74509399	69.88833339
+\begin{table}
+    \centering
+    \caption{Steady state temperature and time constant for the thermistor and thermocouple in air and water}
+    \label{tab:steady_state_time_constant}
+    \begin{tabular}{ccccc}
+        \toprule
+        & \multicolumn{2}{c}{Air} & \multicolumn{2}{c}{Water} \\
+        \cmidrule{2-3} \cmidrule{4-5}
+        & Thermistor & Thermocouple & Thermistor & Thermocouple \\  
+        \midrule
+        $T_0$ & $\qty{48.457}{\celsius}$ & $\qty{48.418}{\celsius}$ & $\qty{39.914}{\celsius}$ & $\qty{42.617}{\celsius}$ \\
+        $T_\infty$ & $\qty{21.759}{\celsius}$ & $\qty{23.281}{\celsius}$ & $\qty{20.691}{\celsius}$ & $\qty{20.059}{\celsius}$ \\
+        $\tau$ & $\qty{18.698}{\second}$ & $\qty{18.027}{\second}$ & $\qty{0.374}{\second}$ & $\qty{0.225}{\second}$ \\
+        SS & $\qty{122.338}{\celsius}$ & $\qty{46.266}{\celsius}$ & $\qty{35.745}{\celsius}$ & $\qty{69.888}{\celsius}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+

@@ -65,7 +65,7 @@ where $KE$ is the kinetic energy. Therefore, the rule of thumb for the shutoff h
 For large Reynolds numbers, the flow is dynamically similar in geometrically similar machines when the flow and head coefficients are the same. For geometrically similar machines operating at different conditions (i) and (ii) such that the head and flow coefficients are the same, the following relationships hold:
 \begin{align*}
     \Psi_i &= \Psi_{ii}  \\
-    \frac{H_i}{U_i^2} &= \frac{H_{ii}}{U_{ii}^2} \\
+    \frac{H_i}{U_i^2} &= \frac{H_{ii}}{U_{ii}^2} 
 \end{align*}
 so,
 \begin{align}
@@ -96,7 +96,7 @@ In this experiment, since the inlet and outlet pipe diameters are different, the
     H &= H_t + \frac{v_2^2}{2g} - \frac{v_1^2}{2g} \nonumber \\
     H &= H_t + \frac{v_2^2}{2g} \left(1 - \left(\frac{v_1}{v_2}\right)^2\right) \label{eq:transducer_head}
 \end{align}
-The volume flowrate through the system can be written as
+where $H_t$ is the transducer head, $v_1$ is the velocity at the inlet, and $v_2$ is the velocity at the outlet. The volume flowrate through the system can be written as
 \begin{align}
     Q = \frac{v_2 \pi D_2^2}{4} \label{eq:flowrate}
 \end{align}
@@ -107,4 +107,28 @@ and with the pipe diameters $D_1$ at the inlet and $D_2$ at the outlet, mass con
 With (\ref{eq:flowrate}) and (\ref{eq:mass_conservation}), (\ref{eq:transducer_head}) becomes
 \begin{align}
     H &= H_t + \frac{8Q^2}{\pi^2 D_2^4 g} \left(1 - \left(\frac{D_2}{D_1}\right)^4\ \right) \label{eq:transducer_head2}
+\end{align}
+
+\subsection{Pumps in Series and Parallel}
+When pumps are connected in series, the total head is the sum of the individual heads, and the flow rate is the same as the individual flow rates. \textbf{CITE A FIGURE}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in series.png}
+    \caption{Pumps in Series}
+    \label{fig:series}
+\end{figure}
+\begin{align}
+    H_{\text{series}, t} &= H_{1,t} + H_{2,t} \label{eq:series_head}  \\
+    Q_{\text{series}} &= Q_1 = Q_2 \label{eq:series_flow}
+\end{align} 
+When pumps are connected in parallel, the total head is the average of the individual heads, and the total flow rate is the sum of the individual flow rates.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in parallel.png}
+    \caption{Pumps in Parallel}
+    \label{fig:parallel}
+\end{figure}
+\begin{align}
+    H_{\text{parallel}, t} &= \frac{H_{1,t} + H_{2,t}}{2} \label{eq:parallel_head} \\
+    Q_{\text{parallel}} &= Q_1 + Q_2 \label{eq:parallel_flow}
 \end{align}

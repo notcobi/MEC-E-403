@@ -24,10 +24,14 @@
 \usepackage{pdfpages}
 \usepackage{times}
 \usepackage{mathastext}
+\usepackage{color}
+
 
 % 1.5 spacing equivalent to word
 \usepackage{setspace}
 \linespread{1.25}
+
+%\graphicspath{{Sections/Figures/}}
 
 % Better texttt
 \newcommand{\opus}[1]{%
@@ -137,9 +141,6 @@
 %++++++++++++++++++++++++++++++++++++++++
 \begin{document}
 
-\includepdf[pages=-]{rubric.pdf}
-
-
 \begin{titlepage}
     \centering
     \vspace*{2cm} % Adjust vertical spacing
@@ -181,28 +182,28 @@
 % seperate page count for main matter
 \pagenumbering{arabic}
 
+\input{Sections/Theory.tex}
+% \input{Sections/Introduction.tex}
+% \input{Sections/Procedure.tex}
+% \input{Sections/Results and Discussion.tex}
+% \input{Sections/Conclusion.tex}
 
-\input{Sections/Introduction.tex}
-\input{Sections/Procedure.tex}
-\input{Sections/Results and Discussion.tex}
-\input{Sections/Conclusion.tex}
+% % \newpage
+% % %\bibliographystyle{IEEEtran}
+% % %\bibliography{citations.bib}
+% % %\bibliography{}
 
 % \newpage
-% %\bibliographystyle{IEEEtran}
-% %\bibliography{citations.bib}
-% %\bibliography{}
-
-\newpage
-\appendix
-\renewcommand\thefigure{\thesection.\arabic{figure}}    
-\renewcommand\thetable{\thesection.\arabic{table}}
-\input{Appendix/Figures.tex}
-\newpage
-\input{Appendix/Tables.tex}
-\newpage
-\input{Appendix/Calibration.tex}
-\newpage
-\input{Appendix/Transient.tex}
+% \appendix
+% \renewcommand\thefigure{\thesection.\arabic{figure}}    
+% \renewcommand\thetable{\thesection.\arabic{table}}
+% \input{Appendix/Figures.tex}
+% \newpage
+% \input{Appendix/Tables.tex}
+% \newpage
+% \input{Appendix/Calibration.tex}
+% \newpage
+% \input{Appendix/Transient.tex}
 % \newpage
 % %\input{Appendix/Calibration_data.tex}
 % %\newpage

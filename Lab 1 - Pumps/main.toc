@@ -20,3 +20,7 @@
 \contentsline {section}{\numberline {6}Conclusion}{7}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Technical Recommendations}{8}{subsection.6.1}%
 \contentsline {section}{\numberline {7}References}{9}{section.7}%
+\contentsline {section}{\numberline {A}Appendix: Single Pump Head-Discharge Analysis}{10}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Single Pump Discharge and Heads}{10}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Single Pump Head and Flow Coefficients}{11}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Single Pump Manufaturer's Data}{12}{subsection.A.3}%

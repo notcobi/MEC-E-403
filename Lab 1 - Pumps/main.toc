@@ -31,6 +31,6 @@
 \contentsline {subsubsection}{\numberline {B.1.1}Parallel Experimental Pump Discharge and Head Uncertainty}{19}{subsubsection.B.1.1}%
 \contentsline {subsection}{\numberline {B.2}Series Experimental Pump Discharge and Head}{22}{subsection.B.2}%
 \contentsline {subsubsection}{\numberline {B.2.1}Series Experimental Pump Discharge and Head Uncertainty}{23}{subsubsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.3}Parallel and Series Experimental vs Theoretical Pump Discharge and Head}{26}{subsection.B.3}%
-\contentsline {subsubsection}{\numberline {B.3.1}Parallel Experimental vs Theoretical Pump Discharge and Head}{26}{subsubsection.B.3.1}%
-\contentsline {subsubsection}{\numberline {B.3.2}Series Experimental vs Theoretical Pump Discharge and Head}{27}{subsubsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3}Parallel and Series Experimental vs. Theoretical Pump Discharge and Head}{26}{subsection.B.3}%
+\contentsline {subsubsection}{\numberline {B.3.1}Parallel Experimental vs. Theoretical Pump Discharge and Head}{26}{subsubsection.B.3.1}%
+\contentsline {subsubsection}{\numberline {B.3.2}Series Experimental vs. Theoretical Pump Discharge and Head}{27}{subsubsection.B.3.2}%

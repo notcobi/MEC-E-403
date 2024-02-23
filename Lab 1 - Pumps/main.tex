@@ -1,6 +1,6 @@
 % Document Class and Basic Packages
 %-------------------------------------------------------------------------------
-\documentclass[letterpaper,12pt]{article} % Define the document class and options
+\documentclass[letterpaper,11pt]{article} % Define the document class and options
 \usepackage{graphicx} % For including graphics
 \usepackage[margin=1in]{geometry}
 \usepackage{cite} % Handle citations
@@ -132,8 +132,11 @@
 \renewcommand\cftsecdotsep{\cftdot} % Use dots for section 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
 
+% Siunitx Setup
 \sisetup{group-digits=false} % 666.666 -> 666666 for \qty
 \sisetup{detect-all} % Something to do about unit font and document font
+%\sisetup{per-mode=fraction} % Fractions for per unit typesetting
+
 % \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 % \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 % \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
@@ -198,14 +201,20 @@
 
 \input{Sections/Abstract.tex}
 \newpage
-
+% use roman numerals for page numbers in table of contents
+\pagenumbering{roman}
 % Table of Contents (Hyperlinks set to locally black)
 {
     \hypersetup{hidelinks}
     \tableofcontents
 }
-% use roman numerals for page numbers in table of contents
-\pagenumbering{roman}
+\newpage
+{
+    \hypersetup{linkcolor=black}
+    \listoffigures
+    \listoftables
+}
+
 
 \newpage
 
@@ -228,7 +237,9 @@
 \appendix
 \renewcommand\thefigure{\thesection.\arabic{figure}}    
 \renewcommand\thetable{\thesection.\arabic{table}}
-\input{Appendix/Single Pump Head vs Discharge.tex}
+\input{Appendix/Single Pump Analysis.tex}
+\newpage
+\input{Appendix/Parallel Pump Analysis.tex}
 % \input{Appendix/Figures.tex}
 % \newpage
 % \input{Appendix/Tables.tex}

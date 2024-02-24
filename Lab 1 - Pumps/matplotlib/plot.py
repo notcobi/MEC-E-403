@@ -3,109 +3,465 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\calibration.csv')
+df = pd.read_csv(r"Lab 1 - Pumps\matplotlib\single, parallel, series.csv")
 
-# Sort Thermistor data
-df_thermistor = df[['Thermistor Temperature', 'Thermistor Voltage']]
-
-# Sort Thermocouple data
-df_thermocouple = df[['Thermocouple Temperature', 'Thermocouple Voltage']]
-
-# Linear regression for Thermistor
-thermistor_fit = np.polyfit(df_thermistor['Thermistor Voltage'], df_thermistor['Thermistor Temperature'], 1)
-thermistor_fit_fn = np.poly1d(thermistor_fit)
-
-# Linear regression for Thermocouple
-thermocouple_fit = np.polyfit(df_thermocouple['Thermocouple Voltage'], df_thermocouple['Thermocouple Temperature'], 1)
-thermocouple_fit_fn = np.poly1d(thermocouple_fit)
-
-# Plot the Thermistor data and linear regression
+# Sort Pump Data
+df_single = df[
+    (df["Pump Configuration"] == "Single") & (df["Data Type"] == "Experimental")
+]
+df_parallel = df[
+    (df["Pump Configuration"] == "Parallel") & (df["Data Type"] == "Experimental")
+]
+df_series = df[
+    (df["Pump Configuration"] == "Series") & (df["Data Type"] == "Experimental")
+]
+df_parallel_theoretical = df[
+    (df["Pump Configuration"] == "Parallel") & (df["Data Type"] == "Theoretical")
+]
+df_series_theoretical = df[
+    (df["Pump Configuration"] == "Series") & (df["Data Type"] == "Theoretical")
+]
+df_manufacturer = df[
+    (df["Data Type"] == "Manufacturer") & (df["Pump Configuration"] == "Single")
+]
+df_geometrically_similar = df[(df["Data Type"] == "Geometrically Similar")]
+df_geometrically_dissimilar = df[(df["Data Type"] == "Geometrically Dissimilar")]
+# ----------------------------------------
+# Plot the Single Pump Head and Flow Rate
 plt.figure(1)
-plt.plot(df_thermistor['Thermistor Voltage'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Data', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Thermistor Voltage'], thermistor_fit_fn(df_thermistor['Thermistor Voltage']), 'k--', label='Thermistor Linear Regression')
-plt.xlabel(r'$V$, Voltage (V)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper left')
-plt.text(1.42, 30, r'$T = ' + str(round(thermistor_fit[0], 2)) + 'V  ' + str(round(thermistor_fit[1], 2)) + '$')
-plt.savefig(r'Lab 6\matplotlib\thermistor.png', dpi=300)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 1800]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 1800]["Corrected Head"],
+    "-ko",
+    label="1800 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 2700]["Corrected Head"],
+    "-k^",
+    label="2700 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 3600]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 3600]["Corrected Head"],
+    "-ks",
+    label="3600 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
 
-# Plot the Thermocouple data and linear regression
-plt.figure(2)
-plt.plot(df_thermocouple['Thermocouple Voltage'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Data', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Thermocouple Voltage'], thermocouple_fit_fn(df_thermocouple['Thermocouple Voltage']), 'k--', label='Thermocouple Linear Regression')
-plt.xlabel(r'$V$, Voltage (V)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper left')
-plt.text(1.425, 30, r'$T = ' + str(round(thermocouple_fit[0], 2)) + 'V  ' + str(round(thermocouple_fit[1], 2)) + '$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple.png', dpi=300)
+# Error bars
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 1800]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 1800]["Corrected Head"],
+    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 1800]["Head Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 2700]["Corrected Head"],
+    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 2700]["Head Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 3600]["Volumetric Flow"],
+    df_single[df_single["Pump Speed"] == 3600]["Corrected Head"],
+    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 3600]["Head Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+
+plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
+plt.ylabel(r"$H$, Corrected Head (m)")
+plt.legend(loc="upper right")
+plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Plot", dpi=300)
 
 # ----------------------------------------
-# 	Air		Water	
-# 	Thermistor	Thermocouple	Thermistor	Thermocouple
-# T_0	48.457	48.418	39.914	42.617
-# T_infty	21.759	23.281	20.691	20.059
-# tau	18.69803057	18.02662691	0.373547583	0.225033996
-# SS	122.338	46.26568305	35.74509399	69.88833339
-# The first order response of the system is 
-# \begin{equation*}
-#     T = T_{\infty} + (T_0 - T_{\infty})e^{-t/\tau}
-# \end{equation*}
+# Plot the Single Pump Head coefficient and flow coefficient
+plt.figure(2)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 1800]["Head Coeff"],
+    "-ko",
+    label="Exp. 1800 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 2700]["Head Coeff"],
+    "-k^",
+    label="Exp. 2700 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 3600]["Head Coeff"],
+    "-ks",
+    label="Exp. 3600 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
 
-# Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\transient_air.csv')
+# Error bars
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 1800]["Head Coeff"],
+    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 1800]["Head Coeff Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
 
-# Sort Thermistor data
-df_thermistor = df[['Time', 'Thermistor Temperature', 'Thermistor Response']]
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 2700]["Head Coeff"],
+    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 2700]["Head Coeff Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
 
-# Sort Thermocouple data
-df_thermocouple = df[['Time', 'Thermocouple Temperature', 'Thermocouple Response']]
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 3600]["Head Coeff"],
+    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 3600]["Head Coeff Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
 
-# Plot the Thermistor data and Response
+# Plot the manufacturer data
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Head Coeff"],
+    "--ko",
+    label="Manu. 1800 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Head Coeff"],
+    "--k^",
+    label="Manu. 2700 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Head Coeff"],
+    "--ks",
+    label="Manu. 3600 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+
+# Plot Ideal Line
+# Psi = 1 - 1.53986496 * Phi
+PhiMax = 0.147119554
+PhiMin = 0
+Phi = np.linspace(PhiMin, PhiMax, 25)
+Psi = 1 - 1.53986496 * Phi
+
+plt.plot(Phi, Psi, "-k", label="Ideal Line")
+
+plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
+plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
+plt.legend(loc="upper left")
+plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Coefficients Plot", dpi=300)
+
+# ----------------------------------------
+# Plot the Parallel Pump Head and Flow Rate
 plt.figure(3)
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Response'], 'k--', label='Thermistor Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(40, 30, r'$T = 21.759 + 26.698e^{-t/18.698}$')
-plt.savefig(r'Lab 6\matplotlib\thermistor_transient_air.png', dpi=300)
+plt.plot(
+    df_parallel[df_parallel["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_parallel[df_parallel["Pump Speed"] == 2700]["Corrected Head"],
+    "-ko",
+    label="Experimental",
+    markersize=6,
+    markerfacecolor="k",
+)
 
-# Plot the Thermocouple data and Response
+# Error bars
+plt.errorbar(
+    df_parallel[df_parallel["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_parallel[df_parallel["Pump Speed"] == 2700]["Corrected Head"],
+    xerr=df_parallel[df_parallel["Pump Speed"] == 2700]["Flow Uncertainty"],
+    # yerr = df_parallel[df_parallel["Pump Speed"] == 2700]["Head Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+
+# Theoretical Data
+plt.plot(
+    df_parallel_theoretical[df_parallel_theoretical["Pump Speed"] == 2700][
+        "Volumetric Flow"
+    ],
+    df_parallel_theoretical[df_parallel_theoretical["Pump Speed"] == 2700][
+        "Corrected Head"
+    ],
+    "--k^",
+    label="Theoretical",
+    markersize=6,
+    markerfacecolor="none",
+)
+
+plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
+plt.ylabel(r"$H$, Corrected Head (m)")
+plt.legend(loc="upper right")
+plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Parallel Pump Plot", dpi=300)
+
+# ----------------------------------------
+# Plot the Series Pump Head and Flow Rate
 plt.figure(4)
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Response'], 'k--', label='Thermocouple Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(40, 30, r'$T = 23.281 + 25.137e^{-t/18.027}$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple_transient_air.png', dpi=300)
+plt.plot(
+    df_series[df_series["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_series[df_series["Pump Speed"] == 2700]["Corrected Head"],
+    "-ko",
+    label="Experimental",
+    markersize=6,
+    markerfacecolor="k",
+)
 
-# Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\transient_water.csv')
+# Error bars
+plt.errorbar(
+    df_series[df_series["Pump Speed"] == 2700]["Volumetric Flow"],
+    df_series[df_series["Pump Speed"] == 2700]["Corrected Head"],
+    xerr=df_series[df_series["Pump Speed"] == 2700]["Flow Uncertainty"],
+    # yerr = df_series[df_series["Pump Speed"] == 2700]["Head Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
 
-# Sort Thermistor data
-df_thermistor = df[['Time', 'Thermistor Temperature', 'Thermistor Response']]
+# Theoretical Data
+plt.plot(
+    df_series_theoretical[df_series_theoretical["Pump Speed"] == 2700][
+        "Volumetric Flow"
+    ],
+    df_series_theoretical[df_series_theoretical["Pump Speed"] == 2700][
+        "Corrected Head"
+    ],
+    "--k^",
+    label="Theoretical",
+    markersize=6,
+    markerfacecolor="none",
+)
 
-# Sort Thermocouple data
-df_thermocouple = df[['Time', 'Thermocouple Temperature', 'Thermocouple Response']]
+plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
+plt.ylabel(r"$H$, Corrected Head (m)")
+plt.legend(loc="upper right")
+plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Series Pump Plot", dpi=300)
 
-# Plot the Thermistor data and Response
+# ----------------------------------------
+# Plot the Geometrically Similar Pump Head Coefficient and Flow Coefficient
 plt.figure(5)
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Response'], 'k--', label='Thermistor Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(0.5, 30, r'$T = 20.691 + 19.223e^{-t/0.374}$')
-plt.savefig(r'Lab 6\matplotlib\thermistor_transient_water.png', dpi=300)
+plt.plot(
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.108][
+        "Flow Coeff"
+    ],
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.108][
+        "Head Coeff"
+    ],
+    "-ko",
+    label="108 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.102][
+        "Flow Coeff"
+    ],
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.102][
+        "Head Coeff"
+    ],
+    "--k^",
+    label="102 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.096][
+        "Flow Coeff"
+    ],
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.096][
+        "Head Coeff"
+    ],
+    "-.ks",
+    label="96 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.083][
+        "Flow Coeff"
+    ],
+    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.083][
+        "Head Coeff"
+    ],
+    "-kx",
+    label="83 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
 
-# Plot the Thermocouple data and Response
+plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
+plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
+plt.legend(loc="upper right")
+plt.savefig(
+    r"Lab 1 - Pumps\Sections\Figures\Geometrically Similar Pump Coefficients Plot",
+    dpi=300,
+)
+
+# ----------------------------------------
+# Plot the Geometrically Dissimilar Pump Head Coefficient and Flow Coefficient
 plt.figure(6)
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Response'], 'k--', label='Thermocouple Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(0.5, 30, r'$T = 20.059 + 22.558e^{-t/0.225}$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple_transient_water.png', dpi=300)
-plt.show()
+plt.plot(
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.108
+    ]["Flow Coeff"],
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.108
+    ]["Head Coeff"],
+    "-ko",
+    label="108 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.102
+    ]["Flow Coeff"],
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.102
+    ]["Head Coeff"],
+    "--k^",
+    label="102 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.096
+    ]["Flow Coeff"],
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.096
+    ]["Head Coeff"],
+    "-.ks",
+    label="96 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.083
+    ]["Flow Coeff"],
+    df_geometrically_dissimilar[
+        df_geometrically_dissimilar["Impeller Diameter"] == 0.083
+    ]["Head Coeff"],
+    "-kx",
+    label="83 mm",
+    markersize=6,
+    markerfacecolor="k",
+)
+
+plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
+plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
+plt.legend(loc="upper right")
+plt.savefig(
+    r"Lab 1 - Pumps\Sections\Figures\Geometrically Dissimilar Pump Coefficients Plot",
+    dpi=300,
+)
+
+# ----------------------------------------
+# Single Pump Efficiency
+plt.figure(7)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 1800]["Efficiency"],
+    "-ko",
+    label="Exp. 1800 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 2700]["Efficiency"],
+    "-k^",
+    label="Exp. 2700 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+plt.plot(
+    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 3600]["Efficiency"],
+    "-ks",
+    label="Exp. 3600 RPM",
+    markersize=6,
+    markerfacecolor="k",
+)
+
+# Manufacturer Data
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Efficiency"],
+    "--ko",
+    label="Manu. 1800 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Efficiency"],
+    "--k^",
+    label="Manu. 2700 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Flow Coeff"],
+    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Efficiency"],
+    "--ks",
+    label="Manu. 3600 RPM",
+    markersize=6,
+    markerfacecolor="none",
+)
+
+plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
+plt.ylabel(r"$\eta$, Efficiency (%)")
+plt.legend(loc="lower right")
+plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Efficiency Plot", dpi=300)

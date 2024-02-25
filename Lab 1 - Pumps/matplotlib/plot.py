@@ -435,6 +435,41 @@ plt.plot(
     markerfacecolor="k",
 )
 
+# Error bars
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 1800]["Efficiency"],
+    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 1800]["Efficiency Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 2700]["Efficiency"],
+    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 2700]["Efficiency Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+plt.errorbar(
+    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
+    df_single[df_single["Pump Speed"] == 3600]["Efficiency"],
+    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Coeff Uncertainty"],
+    # yerr = df_single[df_single["Pump Speed"] == 3600]["Efficiency Uncertainty"],
+    fmt="none",
+    ecolor="k",
+    capsize=5,
+    elinewidth=1,
+    capthick=1,
+)
+
 # Manufacturer Data
 plt.plot(
     df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Flow Coeff"],

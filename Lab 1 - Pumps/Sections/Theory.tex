@@ -2,11 +2,11 @@
 \subsection{Euler's Turbomachinery Equations}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/theory impeller diagram.png}
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/theory impeller diagram.png}
     \caption{Impeller Diagram}
     \label{fig:impeller}
 \end{figure}
-Using the following assumptions:
+\noindent Using the following assumptions:
 \begin{enumerate}
     \item Viscous effects are negligible
     \item Velocity profile is uniform at the exit
@@ -34,7 +34,7 @@ where $\Omega$ is the impeller angular velocity, $g$ is the acceleration due to 
 \end{align}
 Defining the head coefficient $\Psi$ and the flow coefficient $\Phi$ as
 \begin{align}
-    \Psi = \frac{Hg}{U^2} \quad \Phi = \frac{v_{2r}}{U} \label{eq:coefficients}
+    \Psi = \frac{Hg}{U^2}, \quad \Phi = \frac{v_{2r}}{U} \label{eq:coefficients}
 \end{align}
 then (\ref{eq:head}) becomes
 \begin{align}
@@ -74,18 +74,10 @@ so,
 where $D$ is the diameter of the impeller. Also,
 \begin{align}
     \Phi_i &= \Phi_{ii}  \nonumber \\
-    \frac{v_{2ri}}{U_i} &= \frac{v_{2rii}}{U_{ii}} \label{eq:affinity2}
+    \frac{v_{2ri}}{U_i} &= \frac{v_{2rii}}{U_{ii}} \label{eq:affinity2} \\
+    \frac{b_i}{D_i} &= \frac{b_{ii}}{D_{ii}} \label{eq:affinity_geometrical_similarity}
 \end{align}
-Assuming the blade width is negligible, from (\ref{eq:v2r}), we get
-\begin{align}
-    v_{2r} &= \frac{Q}{\pi D b}
-\end{align}
-so (\ref{eq:affinity2}) becomes
-\begin{align}
-    \frac{Q_i D_{ii} b_{ii}}{Q_{ii} D_i b_i} &= \frac{U_i}{U_{ii}} \nonumber \\
-    \frac{Q_i}{Q_{ii}} &= \frac{\Omega_i b_i}{\Omega_{ii} b_{ii}} \left(\frac{D_{i}}{D_{ii}}\right)^2 \label{eq:affinity3}
-\end{align}
-For geometrically similar machines, the ratios of $b/D$ are the same, so (\ref{eq:affinity3}) becomes
+For geometrically similar machines, the ratios of $b/D$ are the same. It can be shown that
 \begin{align}
     \frac{Q_i}{Q_{ii}} &= \frac{\Omega_i}{\Omega_{ii}} \left(\frac{D_{i}}{D_{ii}}\right)^3 \label{eq:affinity_law_for_flow}
 \end{align}
@@ -110,25 +102,32 @@ With (\ref{eq:flowrate}) and (\ref{eq:mass_conservation}), (\ref{eq:transducer_h
 \end{align}
 
 \subsection{Pumps in Series and Parallel}
-When pumps are connected in series, the total head is the sum of the individual heads, and the flow rate is the same as the individual flow rates. \textbf{CITE A FIGURE}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in series.png}
-    \caption{Pumps in Series}
-    \label{fig:series}
-\end{figure}
+When pumps are connected in series, the total head is the sum of the individual heads, and the flow rate is the same as the individual flow rates. 
+% \textbf{CITE A FIGURE}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in series.png}
+%     \caption{Pumps in Series}
+%     \label{fig:series}
+% \end{figure}
 \begin{align}
     H_{\text{series}, t} &= H_{1,t} + H_{2,t} \label{eq:series_head}  \\
     Q_{\text{series}} &= Q_1 = Q_2 \label{eq:series_flow}
 \end{align} 
 When pumps are connected in parallel, the total head is the average of the individual heads, and the total flow rate is the sum of the individual flow rates.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in parallel.png}
-    \caption{Pumps in Parallel}
-    \label{fig:parallel}
-\end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in parallel.png}
+%     \caption{Pumps in Parallel}
+%     \label{fig:parallel}
+% \end{figure}
 \begin{align}
     H_{\text{parallel}, t} &= \frac{H_{1,t} + H_{2,t}}{2} \label{eq:parallel_head} \\
     Q_{\text{parallel}} &= Q_1 + Q_2 \label{eq:parallel_flow}
+\end{align}
+\subsection{Pump Efficiency}
+The pump efficiency is defined as
+\begin{align}
+    \eta &= \frac{\text{useful work done}}{\text{total work done}} \nonumber \\
+    &= \frac{\rho g Q H}{T \Omega} \label{eq:pump_efficiency}
 \end{align}

@@ -1,6 +1,6 @@
 % Document Class and Basic Packages
 %-------------------------------------------------------------------------------
-\documentclass[letterpaper,11pt]{article} % Define the document class and options
+\documentclass[letterpaper,12pt]{article} % Define the document class and options
 \usepackage{graphicx} % For including graphics
 \usepackage[margin=1in]{geometry}
 \usepackage{cite} % Handle citations
@@ -28,6 +28,7 @@
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{longtable} % Multipage tables
+\usepackage{float}
 
 % Long table caption settings
 \setlength{\LTcapwidth}{\textwidth} % Width of long table caption
@@ -221,11 +222,13 @@
 
 
 \newpage
+\input{Sections/Nomenclature.tex}
+\newpage
 
 % seperate page count for main matter
 \pagenumbering{arabic}
 
-\input{Sections/Nomenclature.tex}
+
 \input{Sections/Introduction.tex}
 \input{Sections/Procedure.tex}
 \input{Sections/Theory.tex}
@@ -250,6 +253,8 @@
 \input{Appendix/Shut Off Head.tex}
 \newpage
 \input{Appendix/Geometrically Similar.tex}
+\newpage
+\input{Appendix/Pump Efficiency.tex}
 
 % \input{Appendix/Figures.tex}
 % \newpage

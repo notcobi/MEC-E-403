@@ -312,23 +312,31 @@ so the uncertainty was
 \end{align*}
 
 \subsection{Parallel and Series Experimental vs. Theoretical Pump Discharge and Head}
-\begin{table}[]
+\begin{table}[h]
+    \centering
+    \caption{Parallel and series experimental vs. theoretical pump discharge and heads for 2700 RPM}
+    \label{tab:parallel_series_experimental_vs_theoretical}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llcccccc}
-     &  & \multicolumn{3}{c}{Actual} & \multicolumn{3}{c}{Theoretrical} \\
-     &  & Volumetric Flow & Transducer Head & Corrected Head & Volumetric Flow & Transducer Head & Corrected Head \\
-    Parallel & Fully open & 0.007266 & 9.84 & 11.3 & 0.00971503 & 5.28 & 7.81 \\
+    \begin{tabular}{llC{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}}
+    \toprule
+    &  & \multicolumn{3}{c}{Actual} & \multicolumn{3}{c}{Theoretrical} \\
+    \cmidrule(lr){3-5} \cmidrule(lr){6-8}
+    &  & Volumetric Flow, $Q_{\text{act}}$ & Transducer Head, $H_{t_{\text{act}}}$ & Corrected Head, $H_{\text{act}}$ & Volumetric Flow, $Q_{\text{th}}$ & Transducer Head, $H_{t_{\text{th}}}$ & Corrected Head, $H_{\text{th}}$ \\
+    &  & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
+    \midrule
+    Parallel & Fully open & 0.007266 & 9.84 & 11.3 & 0.009715 & 5.28 & 7.81 \\
     Parallel & Partial 1 & 0.006283 & 10.6 & 11.7 & 0.009498 & 5.70 & 8.12 \\
     Parallel & Partial 2 & 0.002217 & 12.4 & 12.5 & 0.005823 & 10.4 & 11.3 \\
     Parallel & Closed & - & 12.5 & 12.5 & - & 12.4 & 12.4 \\
     Series & Fully open & 0.005584 & 8.31 & 9.1 & 0.004858 & 10.6 & 11.2 \\
     Series & Partial 1 & 0.005449 & 9.65 & 10.4 & 0.004749 & 11.4 & 12.0 \\
     Series & Partial 2 & 0.002983 & 21.7 & 21.9 & 0.002911 & 20.7 & 20.9 \\
-    Series & Closed & - & 24.9 & 24.9 & - & 24.8 & 24.8
+    Series & Closed & - & 24.9 & 24.9 & - & 24.8 & 24.8 \\
+    \bottomrule
     \end{tabular}%
     }
 \end{table}
-The actual results were pulled directly from Table \ref{tab:parallel_pump_discharge_head} and Table \ref{tab:series_pump_discharge_head}. The theoretical results were calculated using the results from the single pump analysis Table \ref{tab:single_pump_discharge_and_heads}. 
+\noindent The actual results were pulled directly from Table \ref{tab:parallel_pump_discharge_head} and Table \ref{tab:series_pump_discharge_head}. The theoretical results were calculated using the results from the single pump analysis Table \ref{tab:single_pump_discharge_and_heads}. 
 
 \subsubsection{Parallel Experimental vs. Theoretical Pump Discharge and Head}
 Sample calculations are evaluated for the fully open configuration. The theoretical volumetric flow was found by

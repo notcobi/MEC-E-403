@@ -12,28 +12,35 @@
 \contentsline {subsection}{\numberline {4.4}Transducer Head Adjustment}{5}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Pumps in Series and Parallel}{5}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Results and Discussion}{6}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Single Pump Performance}{6}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Parallel Pump Performance}{7}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Series Pump Performance}{7}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Comparison of Pump Configurations}{7}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Manufacturer's Specifications}{7}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Conclusion}{7}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Technical Recommendations}{7}{subsection.6.1}%
-\contentsline {section}{\numberline {7}References}{8}{section.7}%
-\contentsline {section}{\numberline {A}Appendix: Single Pump Analysis}{9}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Single Pump Discharge and Heads}{9}{subsection.A.1}%
-\contentsline {subsubsection}{\numberline {A.1.1}Single Pump Discharge and Head Uncertainty}{10}{subsubsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.2}Single Pump Head and Flow Coefficients}{12}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Single Pump Head and Flow Coefficient Uncertainty}{13}{subsubsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.3}Single Pump Manufaturer's Data}{15}{subsection.A.3}%
-\contentsline {section}{\numberline {B}Appendix: Parallel and Series Pump Analysis}{18}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Parallel Experimental Pump Discharge and Head}{18}{subsection.B.1}%
-\contentsline {subsubsection}{\numberline {B.1.1}Parallel Experimental Pump Discharge and Head Uncertainty}{19}{subsubsection.B.1.1}%
-\contentsline {subsection}{\numberline {B.2}Series Experimental Pump Discharge and Head}{22}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Series Experimental Pump Discharge and Head Uncertainty}{23}{subsubsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.3}Parallel and Series Experimental vs. Theoretical Pump Discharge and Head}{26}{subsection.B.3}%
-\contentsline {subsubsection}{\numberline {B.3.1}Parallel Experimental vs. Theoretical Pump Discharge and Head}{26}{subsubsection.B.3.1}%
-\contentsline {subsubsection}{\numberline {B.3.2}Series Experimental vs. Theoretical Pump Discharge and Head}{27}{subsubsection.B.3.2}%
-\contentsline {section}{\numberline {C}Manufacturer Geometrically Similar Pumps}{28}{appendix.C}%
-\contentsline {subsection}{\numberline {C.1}Geometrically Similar Pumps Sample Calculations}{32}{subsection.C.1}%
-\contentsline {subsection}{\numberline {C.2}Geometrically Dissimilar Pumps Sample Calculations}{33}{subsection.C.2}%
+\contentsline {subsection}{\numberline {5.1}Main Results}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Single Pump Performance}{8}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Head vs. Flow Rate}{8}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Head Coefficient vs. Flow Coefficient}{8}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Ideal and Rule of Thumb Shutoff Head}{9}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Parallel Pump Performance}{10}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Series Pump Performance}{10}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Geometric Similarity in Manufacturer's Specifications}{11}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Pump Efficiency}{12}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Elevation Effects}{13}{subsection.5.7}%
+\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Technical Recommendations}{13}{subsection.6.1}%
+\contentsline {section}{\numberline {7}References}{14}{section.7}%
+\contentsline {section}{\numberline {A}Appendix: Single Pump Analysis}{15}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Single Pump Discharge and Heads}{15}{subsection.A.1}%
+\contentsline {subsubsection}{\numberline {A.1.1}Single Pump Discharge and Head Uncertainty}{16}{subsubsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.2}Single Pump Head and Flow Coefficients}{18}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Single Pump Head and Flow Coefficient Uncertainty}{19}{subsubsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.3}Single Pump Manufaturer's Data}{21}{subsection.A.3}%
+\contentsline {section}{\numberline {B}Appendix: Parallel and Series Pump Analysis}{24}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Parallel Experimental Pump Discharge and Head}{24}{subsection.B.1}%
+\contentsline {subsubsection}{\numberline {B.1.1}Parallel Experimental Pump Discharge and Head Uncertainty}{25}{subsubsection.B.1.1}%
+\contentsline {subsection}{\numberline {B.2}Series Experimental Pump Discharge and Head}{28}{subsection.B.2}%
+\contentsline {subsubsection}{\numberline {B.2.1}Series Experimental Pump Discharge and Head Uncertainty}{29}{subsubsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.3}Parallel and Series Experimental vs. Theoretical Pump Discharge and Head}{32}{subsection.B.3}%
+\contentsline {subsubsection}{\numberline {B.3.1}Parallel Experimental vs. Theoretical Pump Discharge and Head}{32}{subsubsection.B.3.1}%
+\contentsline {subsubsection}{\numberline {B.3.2}Series Experimental vs. Theoretical Pump Discharge and Head}{33}{subsubsection.B.3.2}%
+\contentsline {section}{\numberline {C}Appendix: Impeller Angle}{34}{appendix.C}%
+\contentsline {section}{\numberline {D}Appendix: Shut Off Head}{35}{appendix.D}%
+\contentsline {section}{\numberline {E}Manufacturer Geometrically Similar and Dissimilar Pumps}{36}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}Geometrically Similar Pumps Sample Calculations}{39}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Geometrically Dissimilar Pumps Sample Calculations}{41}{subsection.E.2}%

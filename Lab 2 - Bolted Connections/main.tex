@@ -1,0 +1,278 @@
+% Document Class and Basic Packages
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,12pt]{article} % Define the document class and options
+\usepackage{graphicx} % For including graphics
+\usepackage[margin=1in]{geometry}
+\usepackage{cite} % Handle citations
+\usepackage[final]{hyperref} % Add hyperlinks
+\usepackage{pgfplotstable, booktabs} % Enhance table handling
+\usepackage{multirow}
+\usepackage{placeins} % Control float placement
+\usepackage{tabularray} % Advanced tables
+\usepackage{titlesec} % Customize section titles
+\usepackage{fancyhdr} % Create custom page headers and footers
+\usepackage{empheq} % Highlight equations
+\usepackage{amssymb} % Extended math symbols
+\usepackage{tcolorbox} % Colored boxes
+\usepackage{enumitem} % Enhanced list environments
+\usepackage{xcolor} % Define custom colors
+%\usepackage{parskip} % Adjust paragraph spacing
+\usepackage{siunitx} % Handling SI units
+\usepackage{cancel} % Strikethrough text
+\usepackage{listings} % Include code listings
+\usepackage{tocloft}  % Table of contents formatting
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{times}
+%\usepackage{mathastext}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{longtable} % Multipage tables
+\usepackage{float}
+
+% Long table caption settings
+\setlength{\LTcapwidth}{\textwidth} % Width of long table caption
+
+
+% 1.5 spacing equivalent to word
+\usepackage{setspace}
+\linespread{1.25}
+
+%\graphicspath{{Sections/Figures/}}
+
+% Better texttt
+\newcommand{\opus}[1]{%
+  \begingroup
+    \spaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
+    \xspaceskip=\fontdimen7\font\relax
+    \ttfamily
+    %\hyphenchar\font=`\-
+    #1%
+  \endgroup
+}
+
+% Define Custom Colors
+%-------------------------------------------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+% Define Code Listing Style
+%-------------------------------------------------------------------------------
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                                                     
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+% Set Code Listing Style
+\lstset{style=mystyle}
+
+% Define Custom Commands and Settings
+%-------------------------------------------------------------------------------
+\newcommand*\widefbox[1]{\fbox{\hspace{0em}#1\hspace{0em}}} % Create a wide box
+\newcommand{\tr}{\text{tr}} % Define a trace command for math mode
+
+% Page Header and Footer Setup
+%-------------------------------------------------------------------------------
+\pagestyle{fancy} % Use the fancy page style
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{MEC E 403} % Left-aligned header
+\fancyhead[C]{Lab 1: Centrifugal Pumps} % Center header
+\fancyhead[R]{Alex Diep} % Right-aligned header
+\fancyfoot[C]{\thepage} % Centered page number in the footer
+
+% Section and Subsection Formatting
+%-------------------------------------------------------------------------------
+\titleformat*{\section}{\Large\bfseries} % Customize section titles
+\titleformat*{\subsection}{\large\bfseries} % Customize subsection titles
+%\renewcommand{\thesection}{Question \arabic{section}} % Modify section numbering
+%\renewcommand{\thesubsection}{(\alph{subsection})} % Modify subsection numbering
+
+% Hyperlink Setup
+%-------------------------------------------------------------------------------
+\hypersetup{
+	colorlinks=true, % Enable colored links
+	linkcolor=blue, % Set link color
+	citecolor=blue, % Set citation color
+	filecolor=magenta, % Set file link color
+	urlcolor=blue % Set URL link color
+}
+
+% Indentation Setup
+%-------------------------------------------------------------------------------
+%\newcommand{\forceindent}{{\setlength{\parindent}{2em}\indent}}
+
+% Custom SI Unit Definitions
+\DeclareSIUnit\LSB{LSB} % Least significant bit
+\DeclareSIUnit{\lb}{lb} % Pound
+\DeclareSIUnit{\psi}{psi} % Psi
+\DeclareSIUnit{\rpm}{RPM} % Revolutions per minute
+
+% Custom Table of Contents Formatting
+\renewcommand\cftsecdotsep{\cftdot} % Use dots for section 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
+
+% Siunitx Setup
+\sisetup{group-digits=false} % 666.666 -> 666666 for \qty
+\sisetup{detect-all} % Something to do about unit font and document font
+%\sisetup{per-mode=fraction} % Fractions for per unit typesetting
+
+% \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing*{\section}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+
+% Define Custom Table Column Types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% End of Preamble
+%-------------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm} % Adjust vertical spacing
+    
+    % Title
+    \Huge {MEC E 403 \\Lab 1: Centrifugal Pumps} \\
+    \vspace{1cm} % Adjust vertical spacing
+    
+    % Author
+    \Large by: Alex Diep \\
+    \vspace{1cm} % Adjust vertical spacing
+
+    % Date
+    \Large Date: March 1, 2023 \\ % or manually specify a date
+    \vspace{2cm} % Adjust vertical spacing
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ll}
+            Instructor & Lisa Kinsale \\
+            TAs & Enrique Millones \\
+            & Simin Shabani \vspace{0.5cm} \\
+            Group Members & Ahmad, Safiya \\
+            & Allegretto, Luca \\
+            & Colabella, James \\
+            & Dadhania, Karan \\
+            & Sammam, S M Faiaz \vspace{0.5cm} \\
+            CCID & abdiep \\
+            Student ID & 1664334 \\
+            Section & H41 \\
+            Group & 13 \\
+        \end{tabular}
+    \end{table}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.2\textwidth]{uofa_engineering_logo.png}
+    \end{figure}
+    \vfill % Fill vertical space
+
+    
+\end{titlepage}
+\renewcommand\arraystretch{1.5}
+
+% no page number or abstract
+\pagenumbering{gobble}
+
+\input{Sections/Abstract.tex}
+\newpage
+% use roman numerals for page numbers in table of contents
+\pagenumbering{roman}
+% Table of Contents (Hyperlinks set to locally black)
+{
+    \hypersetup{hidelinks}
+    \tableofcontents
+}
+\newpage
+{
+    \hypersetup{linkcolor=black}
+    \listoffigures
+    \listoftables
+}
+
+
+\newpage
+\input{Sections/Nomenclature.tex}
+\newpage
+
+% seperate page count for main matter
+\pagenumbering{arabic}
+
+
+\input{Sections/Introduction.tex}
+\input{Sections/Procedure.tex}
+\input{Sections/Theory.tex}
+\input{Sections/Results and Discussion.tex}
+\input{Sections/Conclusion.tex}
+
+% \newpage
+% \bibliographystyle{IEEEtran}
+% \bibliography{citations.bib}
+% \bibliography{}
+
+\newpage
+\appendix
+\renewcommand\thefigure{\thesection.\arabic{figure}}    
+\renewcommand\thetable{\thesection.\arabic{table}}
+\input{Appendix/Single Pump Analysis.tex}
+\newpage
+\input{Appendix/Parallel and Series Pump Analysis.tex}
+\newpage
+\input{Appendix/Impeller Angle.tex}
+\newpage
+\input{Appendix/Shut Off Head.tex}
+\newpage
+\input{Appendix/Geometrically Similar.tex}
+\newpage
+\input{Appendix/Pump Efficiency.tex}
+
+% \input{Appendix/Figures.tex}
+% \newpage
+% \input{Appendix/Tables.tex}
+% \newpage
+% \input{Appendix/Calibration.tex}
+% \newpage
+% \input{Appendix/Transient.tex}
+% \newpage
+% %\input{Appendix/Calibration_data.tex}
+% %\newpage
+% \input{Appendix/A}
+% \newpage
+% \input{Appendix/B}
+% \newpage
+% \input{Appendix/C}
+% \newpage
+% \input{Appendix/D}
+% \newpage
+% \input{Appendix/E}
+\end{document}

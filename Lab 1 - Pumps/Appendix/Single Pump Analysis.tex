@@ -1,34 +1,56 @@
 \section{Appendix: Single Pump Analysis}
 \label{sec:single_pump_analysis}
 \subsection{Single Pump Discharge and Heads}
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{Summary of single pump experimental discharge and heads for 1800 RPM, 2700 RPM, and 3600 RPM}
-    \label{tab:single_pump_discharge_and_heads}
-    \resizebox{\textwidth}{!}{%
+    \caption{Single pump experimental transducer output and time to collect water for 1800 RPM, 2700 RPM, and 3600 RPM}
+    \label{tab:single_pump_transducer_output_and_time}
     \begin{tabular}{lcC{0.15\textwidth}cccC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
     \toprule
-    Configuration & Pump Speed & Transducer Output, $V_{t}$ & \multicolumn{3}{c}{Time to collect water (s)} & Nominal Time, $t$ & Volumetric Flow, $Q$ & Transducer Head, $H_t$ & Corrected Head, $H$ \\
+    Configuration & Pump Speed & Transducer Output, $V_{t}$ & \multicolumn{3}{c}{Time to collect water (s)} & Nominal time \\
     \cmidrule(lr){4-6}
-    \multicolumn{1}{c}{} & (RPM) & (V) & Trial 1 & Trial 2 & Trial 3 & (s) & ($\unit{\meter\cubed\per\second}$) & (m) & (m) \\
+    \multicolumn{1}{c}{} & (RPM) & (V) & Trial 1 & Trial 2 & Trial 3 & (s) \\
     \midrule
-    Fully open & 1800 & 0.75 & 28.55 & 28.99 & 28.79 & 28.78 & 0.003159 & 2.64 & 2.91 \\
-    Partial 1 & 1800 & 0.83 & 30.14 & 30.51 & 30.16 & 30.27 & 0.003003 & 2.92 & 3.16 \\
-    Partial 2 & 1800 & 1.43 & 61.12 & 60.80 & 60.86 & 60.93 & 0.001492 & 5.04 & 5.09 \\
-    Closed & 1800 & 1.56 & - & - & - & - & -  & 5.49 & 5.49 \\
-    Fully open & 2700 & 1.50 & 18.66 & 18.93 & 18.55 & 18.71 & 0.004858 & 5.28 & 5.91 \\
-    Partial 1 & 2700 & 1.62 & 19.23 & 19.23 & 18.96 & 19.14 & 0.004749 & 5.70 & 6.31 \\
-    Partial 2 & 2700 & 2.94 & 31.15 & 31.30 & 31.22 & 31.22 & 0.002911 & 10.4 & 10.6 \\
-    Closed & 2700 & 3.52 & - & - & - & - & - & 12.4 & 12.4 \\
-    Fully open & 3600 & 2.44 & 14.13 & 13.93 & 14.06 & 14.04 & 0.006474 & 8.59 & 9.72 \\
-    Partial 1 & 3600 & 2.89 & 15.04 & 14.35 & 14.31 & 14.57 & 0.006240 & 10.2 & 11.2 \\
-    Partial 2 & 3600 & 5.85 & 37.01 & 37.04 & 37.07 & 37.04 & 0.002454 & 20.6 & 20.8 \\
-    Closed & 3600 & 6.18 & - & - & - & - & - & 21.8 & 21.8 \\
+    Fully open & 1800 & 0.75 & 28.55 & 28.99 & 28.79 & 28.78 \\
+    Partial 1 & 1800 & 0.83 & 30.14 & 30.51 & 30.16 & 30.27 \\
+    Partial 2 & 1800 & 1.43 & 61.12 & 60.80 & 60.86 & 60.93 \\
+    Closed & 1800 & 1.56 & - & - & - & - \\
+    Fully open & 2700 & 1.50 & 18.66 & 18.93 & 18.55 & 18.71 \\
+    Partial 1 & 2700 & 1.62 & 19.23 & 19.23 & 18.96 & 19.14 \\
+    Partial 2 & 2700 & 2.94 & 31.15 & 31.30 & 31.22 & 31.22 \\
+    Closed & 2700 & 3.52 & - & - & - & - \\
+    Fully open & 3600 & 2.44 & 14.13 & 13.93 & 14.06 & 14.04 \\
+    Partial 1 & 3600 & 2.89 & 15.04 & 14.35 & 14.31 & 14.57 \\
+    Partial 2 & 3600 & 5.85 & 37.01 & 37.04 & 37.07 & 37.04 \\
+    Closed & 3600 & 6.18 & - & - & - & - \\
     \bottomrule
     \end{tabular}%
-    }
 \end{table}
-Sample calculations are evaluated for the fully open configuration at 1800 RPM. Starting with time,
+\begin{table}[H]
+    \centering
+    \caption{Single pump experimental discharge and heads for 1800 RPM, 2700 RPM, and 3600 RPM}
+    \label{tab:single_pump_discharge_and_heads}
+    \begin{tabular}{lcC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \toprule
+    Configuration & Pump Speed & Volume Flow, $Q$ & Transducer Head, $H_t$ & Corrected Head, $H$ \\
+    & (RPM) & ($\unit{\meter\cubed\per\second}$) & (m) & (m) \\
+    \midrule
+    Fully open & 1800 & 0.003159 & 2.64 & 2.91 \\
+    Partial 1 & 1800 & 0.003003 & 2.92 & 3.16 \\
+    Partial 2 & 1800 & 0.001492 & 5.04 & 5.09 \\
+    Closed & 1800 & - & 5.49 & 5.49 \\
+    Fully open & 2700 & 0.004858 & 5.28 & 5.91 \\
+    Partial 1 & 2700 & 0.004749 & 5.70 & 6.31 \\
+    Partial 2 & 2700 & 0.002911 & 10.4 & 10.6 \\
+    Closed & 2700 & - & 12.4 & 12.4 \\
+    Fully open & 3600 & 0.006474 & 8.59 & 9.72 \\
+    Partial 1 & 3600 & 0.006240 & 10.2 & 11.2 \\
+    Partial 2 & 3600 & 0.002454 & 20.6 & 20.8 \\
+    Closed & 3600 & - & 21.8 & 21.8 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\noindent Sample calculations are evaluated for the fully open configuration at 1800 RPM. Starting with time,
 \begin{align*}
         t &= \frac{\sum t_i}{n} = \frac{\qty{28.55}{\second} + \qty{28.99}{\second} + \qty{28.79}{\second}}{3} = \qty{28.78}{\second}
 \end{align*}
@@ -48,31 +70,80 @@ The corrected head was found using inlet diameter, $D_1 = \qty{0.0508}{\meter}$,
 \end{align*}
 
 \subsubsection{Single Pump Discharge and Head Uncertainty}
-\begin{table}[h]
+% split table into two tables
+% \begin{table}[h]
+%     \centering
+%     \caption{Single pump experimental discharge and head uncertainties for 1800 RPM, 2700 RPM, and 3600 RPM}
+%     \label{tab:single_pump_discharge_and_head_uncertainty}
+%     \resizebox{\textwidth}{!}{
+%     \begin{tabular}{lC{0.15\textwidth}C{0.10\textwidth}C{0.12\textwidth}C{0.08\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.10\textwidth}}
+%         \toprule
+%         Valve Configuration & Pump Speed & Time STDEV, $S_{t}$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ & Flow Uncertainty, $\delta_Q$ & Transducer Uncertainty, $\delta_{V_{\text{tr}}}$ & Head Uncertainty, $\delta_{H_t}$ & Corrected Head Uncertainty, $\delta_{H}$ \\
+%         & (RPM) & (s) & ($\pm$s) & ($\pm$s) & ($\pm$s) & ($\pm\unit{\meter\cubed\per\second}$) & ($\pm$V) & ($\pm$m) & ($\pm$m) \\
+%         \midrule
+%         Fully open & 1800 & 0.2203 & 0.5473 & 0.20 & 0.58 & 6.40E-05 & 0.01 & 0.04 & 0.04 \\
+%         Partial 1 & 1800 & 0.2081 & 0.5169 & 0.20 & 0.55 & 5.50E-05 & 0.01 & 0.04 & 0.04 \\
+%         Partial 2 & 1800 & 0.1701 & 0.4225 & 0.20 & 0.47 & 1.14E-05 & 0.01 & 0.04 & 0.04 \\
+%         Closed & 1800 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
+%         Fully open & 2700 & 0.1955 & 0.4857 & 0.20 & 0.53 & 1.36E-04 & 0.01 & 0.04 & 0.05 \\
+%         Partial 1 & 2700 & 0.1559 & 0.3872 & 0.20 & 0.44 & 1.08E-04 & 0.01 & 0.04 & 0.04 \\
+%         Partial 2 & 2700 & 0.0751 & 0.1864 & 0.20 & 0.27 & 2.55E-05 & 0.01 & 0.04 & 0.04 \\
+%         Closed & 2700 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
+%         Fully open & 3600 & 0.1015 & 0.2521 & 0.20 & 0.32 & 1.48E-04 & 0.01 & 0.04 & 0.06 \\
+%         Partial 1 & 3600 & 0.4104 & 1.0195 & 0.20 & 1.04 & 4.45E-04 & 0.01 & 0.04 & 0.2 \\
+%         Partial 2 & 3600 & 0.0300 & 0.0745 & 0.20 & 0.21 & 1.41E-05 & 0.01 & 0.04 & 0.04 \\
+%         Closed & 3600 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
+%         \bottomrule
+%     \end{tabular}
+%     }
+% \end{table}
+\begin{table}[H]
+    \centering
+    \caption{Single pump experimental time uncertainties for 1800 RPM, 2700 RPM, and 3600 RPM}
+    \label{tab:single_pump_time_uncertainty}
+    \begin{tabular}{lC{0.15\textwidth}C{0.10\textwidth}C{0.12\textwidth}C{0.08\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.10\textwidth}}
+        \toprule
+        Valve Configuration & Pump Speed & Time STDEV, $S_{t}$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ \\
+        & (RPM) & (s) & ($\pm$s) & ($\pm$s) & ($\pm$s) \\
+        \midrule
+        Fully open & 1800 & 0.2203 & 0.5473 & 0.20 & 0.58 \\
+        Partial 1 & 1800 & 0.2081 & 0.5169 & 0.20 & 0.55 \\
+        Partial 2 & 1800 & 0.1701 & 0.4225 & 0.20 & 0.47 \\
+        Closed & 1800 & - & - & - & - \\
+        Fully open & 2700 & 0.1955 & 0.4857 & 0.20 & 0.53 \\
+        Partial 1 & 2700 & 0.1559 & 0.3872 & 0.20 & 0.44 \\
+        Partial 2 & 2700 & 0.0751 & 0.1864 & 0.20 & 0.27 \\
+        Closed & 2700 & - & - & - & - \\
+        Fully open & 3600 & 0.1015 & 0.2521 & 0.20 & 0.32 \\
+        Partial 1 & 3600 & 0.4104 & 1.0195 & 0.20 & 1.04 \\
+        Partial 2 & 3600 & 0.0300 & 0.0745 & 0.20 & 0.21 \\
+        Closed & 3600 & - & - & - & - \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\begin{table}[H]
     \centering
     \caption{Single pump experimental discharge and head uncertainties for 1800 RPM, 2700 RPM, and 3600 RPM}
     \label{tab:single_pump_discharge_and_head_uncertainty}
-    \resizebox{\textwidth}{!}{
-    \begin{tabular}{lC{0.15\textwidth}C{0.10\textwidth}C{0.12\textwidth}C{0.08\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.10\textwidth}}
+    \begin{tabular}{lC{0.15\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.10\textwidth}}
         \toprule
-        Valve Configuration & Pump Speed & Time STDEV, $S_{t}$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ & Flow Uncertainty, $\delta_Q$ & Transducer Uncertainty, $\delta_{V_{\text{tr}}}$ & Head Uncertainty, $\delta_{H_t}$ & Corrected Head Uncertainty, $\delta_{H}$ \\
-        & (RPM) & (s) & ($\pm$s) & ($\pm$s) & ($\pm$s) & ($\pm\unit{\meter\cubed\per\second}$) & ($\pm$V) & ($\pm$m) & ($\pm$m) \\
+        Valve Configuration & Pump Speed & Flow Uncertainty, $\delta_Q$ & Transducer Uncertainty, $\delta_{V_{\text{tr}}}$ & Head Uncertainty, $\delta_{H_t}$ & Corrected Head Uncertainty, $\delta_{H}$ \\
+        & (RPM) & ($\pm\unit{\meter\cubed\per\second}$) & ($\pm$V) & ($\pm$m) & ($\pm$m) \\
         \midrule
-        Fully open & 1800 & 0.2203 & 0.5473 & 0.20 & 0.58 & 6.40E-05 & 0.01 & 0.04 & 0.04 \\
-        Partial 1 & 1800 & 0.2081 & 0.5169 & 0.20 & 0.55 & 5.50E-05 & 0.01 & 0.04 & 0.04 \\
-        Partial 2 & 1800 & 0.1701 & 0.4225 & 0.20 & 0.47 & 1.14E-05 & 0.01 & 0.04 & 0.04 \\
-        Closed & 1800 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
-        Fully open & 2700 & 0.1955 & 0.4857 & 0.20 & 0.53 & 1.36E-04 & 0.01 & 0.04 & 0.05 \\
-        Partial 1 & 2700 & 0.1559 & 0.3872 & 0.20 & 0.44 & 1.08E-04 & 0.01 & 0.04 & 0.04 \\
-        Partial 2 & 2700 & 0.0751 & 0.1864 & 0.20 & 0.27 & 2.55E-05 & 0.01 & 0.04 & 0.04 \\
-        Closed & 2700 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
-        Fully open & 3600 & 0.1015 & 0.2521 & 0.20 & 0.32 & 1.48E-04 & 0.01 & 0.04 & 0.06 \\
-        Partial 1 & 3600 & 0.4104 & 1.0195 & 0.20 & 1.04 & 4.45E-04 & 0.01 & 0.04 & 0.2 \\
-        Partial 2 & 3600 & 0.0300 & 0.0745 & 0.20 & 0.21 & 1.41E-05 & 0.01 & 0.04 & 0.04 \\
-        Closed & 3600 & - & - & - & - & - & 0.01 & 0.04 & 0.04 \\
+        Fully open & 1800 & 6.40E-05 & 0.01 & 0.04 & 0.04 \\
+        Partial 1 & 1800 & 5.50E-05 & 0.01 & 0.04 & 0.04 \\
+        Partial 2 & 1800 & 1.14E-05 & 0.01 & 0.04 & 0.04 \\
+        Closed & 1800 & - & 0.01 & 0.04 & 0.04 \\
+        Fully open & 2700 & 1.36E-04 & 0.01 & 0.04 & 0.05 \\
+        Partial 1 & 2700 & 1.08E-04 & 0.01 & 0.04 & 0.04 \\
+        Partial 2 & 2700 & 2.55E-05 & 0.01 & 0.04 & 0.04 \\
+        Closed & 2700 & - & 0.01 & 0.04 & 0.04 \\
+        Fully open & 3600 & 1.48E-04 & 0.01 & 0.04 & 0.06 \\
+        Partial 1 & 3600 & 4.45E-04 & 0.01 & 0.04 & 0.2 \\
+        Partial 2 & 3600 & 1.41E-05 & 0.01 & 0.04 & 0.04 \\
+        Closed & 3600 & - & 0.01 & 0.04 & 0.04 \\
         \bottomrule
     \end{tabular}
-    }
 \end{table}
 Sample calculations are evaluated for the fully open configuration at 1800 RPM.
 
@@ -129,33 +200,81 @@ Then, the corrected head uncertainty was determined by
 \end{align*}
 
 \subsection{Single Pump Head and Flow Coefficients}
-\begin{table}[h]
+% \begin{table}[h]
+%     \centering
+%     \caption{Single pump experimental head and flow coefficients for 1800 RPM, 2700 RPM, and 3600 RPM}
+%     \label{tab:single_pump_head_and_flow_coefficients}
+%     \resizebox{\textwidth}{!}{
+%     \begin{tabular}{lC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.2\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+%     \toprule
+%     Configuration & Pump Speed & Volumetric Flow, $Q$ & Corrected Head, $H$ & Tip Speed, $U$ & Radial Exit Velocity, $v_{2r}$ & Head Coefficient, $\Psi$ & Flow Coefficient, $\Phi$ \\
+%     \multicolumn{1}{c}{} & (RPM) & ($\unit{\meter\cubed\per\second}$) & (m) & ($\unit{\meter\per\second}$) & ($\unit{\meter\per\second}$) &  &  \\
+%     \midrule
+%     Fully open & 1800 & 0.003159 & 2.91 & 10.2 & 1.2 & 0.275 & 0.12 \\
+%     Partial 1 & 1800 & 0.003003 & 3.16 & 10.2 & 1.1 & 0.300 & 0.11 \\
+%     Partial 2 & 1800 & 0.001492 & 5.09 & 10.2 & 0.6 & 0.482 & 0.05 \\
+%     Closed & 1800 & - & 5.49 & 10.2 & 0.0 & 0.520 & 0.00 \\
+%     Fully open & 2700 & 0.004858 & 5.91 & 15.3 & 1.8 & 0.249 & 0.12 \\
+%     Partial 1 & 2700 & 0.004749 & 6.31 & 15.3 & 1.8 & 0.265 & 0.12 \\
+%     Partial 2 & 2700 & 0.002911 & 10.6 & 15.3 & 1.1 & 0.445 & 0.07 \\
+%     Closed & 2700 & - & 12.4 & 15.3 & 0.0 & 0.522 & 0.00 \\
+%     Fully open & 3600 & 0.006474 & 9.72 & 20.4 & 2.4 & 0.230 & 0.12 \\
+%     Partial 1 & 3600 & 0.006240 & 11.2 & 20.4 & 2.3 & 0.266 & 0.11 \\
+%     Partial 2 & 3600 & 0.002454 & 20.8 & 20.4 & 0.9 & 0.491 & 0.05 \\
+%     Closed & 3600 & - & 21.8 & 20.4 & 0.0 & 0.515 & 0.00 \\
+%     \bottomrule
+%     \end{tabular}
+%     }
+% \end{table}
+\begin{table}[H]
+    \centering
+    \caption{Single pump experimental tip and radial exit velocities for 1800 RPM, 2700 RPM, and 3600 RPM}
+    \label{tab:single_pump_head_and_flow_coefficients}
+    \begin{tabular}{lC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \toprule
+    Configuration & Pump Speed & Volumetric Flow, $Q$ & Tip Speed, $U$ & Radial Exit Velocity, $v_{2r}$ \\
+    & (RPM) & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter\per\second}$) & ($\unit{\meter\per\second}$) \\
+    \midrule
+    Fully open & 1800 & 0.003159 & 10.2 & 1.2 \\
+    Partial 1 & 1800 & 0.003003 & 10.2 & 1.1 \\
+    Partial 2 & 1800 & 0.001492 & 10.2 & 0.6 \\
+    Closed & 1800 & - & 10.2 & 0.0 \\
+    Fully open & 2700 & 0.004858 & 15.3 & 1.8 \\
+    Partial 1 & 2700 & 0.004749 & 15.3 & 1.8 \\
+    Partial 2 & 2700 & 0.002911 & 15.3 & 1.1 \\
+    Closed & 2700 & - & 15.3 & 0.0 \\
+    Fully open & 3600 & 0.006474 & 20.4 & 2.4 \\
+    Partial 1 & 3600 & 0.006240 & 20.4 & 2.3 \\
+    Partial 2 & 3600 & 0.002454 & 20.4 & 0.9 \\
+    Closed & 3600 & - & 20.4 & 0.0 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\begin{table}[H]
     \centering
     \caption{Single pump experimental head and flow coefficients for 1800 RPM, 2700 RPM, and 3600 RPM}
     \label{tab:single_pump_head_and_flow_coefficients}
-    \resizebox{\textwidth}{!}{
-    \begin{tabular}{lC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.2\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \begin{tabular}{lC{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
     \toprule
-    Configuration & Pump Speed & Volumetric Flow, $Q$ & Corrected Head, $H$ & Tip Speed, $U$ & Radial Exit Velocity, $v_{2r}$ & Head Coefficient, $\Psi$ & Flow Coefficient, $\Phi$ \\
-    \multicolumn{1}{c}{} & (RPM) & ($\unit{\meter\cubed\per\second}$) & (m) & ($\unit{\meter\per\second}$) & ($\unit{\meter\per\second}$) &  &  \\
+    Configuration & Pump Speed & Head Coefficient, $\Psi$ & Flow Coefficient, $\Phi$ \\
+    & (RPM) &  &  \\
     \midrule
-    Fully open & 1800 & 0.003159 & 2.91 & 10.2 & 1.2 & 0.275 & 0.12 \\
-    Partial 1 & 1800 & 0.003003 & 3.16 & 10.2 & 1.1 & 0.300 & 0.11 \\
-    Partial 2 & 1800 & 0.001492 & 5.09 & 10.2 & 0.6 & 0.482 & 0.05 \\
-    Closed & 1800 & - & 5.49 & 10.2 & 0.0 & 0.520 & 0.00 \\
-    Fully open & 2700 & 0.004858 & 5.91 & 15.3 & 1.8 & 0.249 & 0.12 \\
-    Partial 1 & 2700 & 0.004749 & 6.31 & 15.3 & 1.8 & 0.265 & 0.12 \\
-    Partial 2 & 2700 & 0.002911 & 10.6 & 15.3 & 1.1 & 0.445 & 0.07 \\
-    Closed & 2700 & - & 12.4 & 15.3 & 0.0 & 0.522 & 0.00 \\
-    Fully open & 3600 & 0.006474 & 9.72 & 20.4 & 2.4 & 0.230 & 0.12 \\
-    Partial 1 & 3600 & 0.006240 & 11.2 & 20.4 & 2.3 & 0.266 & 0.11 \\
-    Partial 2 & 3600 & 0.002454 & 20.8 & 20.4 & 0.9 & 0.491 & 0.05 \\
-    Closed & 3600 & - & 21.8 & 20.4 & 0.0 & 0.515 & 0.00 \\
+    Fully open & 1800 & 0.275 & 0.12 \\
+    Partial 1 & 1800 & 0.300 & 0.11 \\
+    Partial 2 & 1800 & 0.482 & 0.05 \\
+    Closed & 1800 & 0.520 & 0.00 \\
+    Fully open & 2700 & 0.249 & 0.12 \\
+    Partial 1 & 2700 & 0.265 & 0.12 \\
+    Partial 2 & 2700 & 0.445 & 0.07 \\
+    Closed & 2700 & 0.522 & 0.00 \\
+    Fully open & 3600 & 0.230 & 0.12 \\
+    Partial 1 & 3600 & 0.266 & 0.11 \\
+    Partial 2 & 3600 & 0.491 & 0.05 \\
+    Closed & 3600 & 0.515 & 0.00 \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
-Sample calculations are evaluated for the fully open configuration at 1800 RPM. The tip speed was calculated using the impeller radius, $r_2 = 0.108/2 = \qty{0.054}{\meter}$, by
+\noindent Sample calculations are evaluated for the fully open configuration at 1800 RPM. The tip speed was calculated using the impeller radius, $r_2 = 0.108/2 = \qty{0.054}{\meter}$, by
 \begin{align*}
     U &= r_2 \Omega \\
     &= \qty{0.054}{\meter} \times \qty{1800}{\rpm} \times \left(\frac{2\pi}{60}\,\unit{\per\rpm}\right) \\
@@ -180,33 +299,6 @@ The flow coefficient was found by
     &= 0.12
 \end{align*}
 \subsubsection{Single Pump Head and Flow Coefficient Uncertainty}
-% \begin{table}[h]
-%     \centering
-%     \caption{Single pump experimental head and flow coefficient uncertainties for 1800 RPM, 2700 RPM, and 3600 RPM}
-%     \resizebox{\textwidth}{!}{
-%     \begin{tabular}{lC{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}}
-%     \toprule
-%     Valve Configuration & Pump Speed & Flow Uncertainty, $\delta_Q$ & Head Uncertainty, $\delta_{H}$ & Tip Speed Uncertainty, $\delta_U$ & Radial Exit Velocity Uncertainty, $\delta_{v_{2r}}$ & Head Coefficient Uncertainty, $\delta_{\Psi}$ & Flow Coefficient Uncertainty, $\delta_{\Phi}$ \\
-%     %& (RPM) & $\unit{\meter\cubed\per\second}$ & (m) & (m/s) & (m/s) &  &  \\
-%     & (RPM) & ($\pm\unit{\meter\cubed\per\second}$) & ($\pm$m) & ($\pm\unit{\meter\per\second}$) & ($\pm\unit{\meter\per\second}$) & ($\pm$) & ($\pm$) \\
-%     \midrule
-%     Fully open & 1800 & 6.40E-05 & 0.04 & 0 & 0.024 & 0.003 & 0.0024 \\
-%     Partial 1 & 1800 & 5.50E-05 & 0.04 & 0 & 0.021 & 0.003 & 0.0020 \\
-%     Partial 2 & 1800 & 1.14E-05 & 0.04 & 0 & 0.0043 & 0.003 & 0.0004 \\
-%     Closed & 1800 & - & 0.04 & 0 & - & 0.003 & - \\
-%     Fully open & 2700 & 1.36E-04 & 0.05 & 0 & 0.051 & 0.002 & 0.0033 \\
-%     Partial 1 & 2700 & 1.08E-04 & 0.04 & 0 & 0.040 & 0.002 & 0.0027 \\
-%     Partial 2 & 2700 & 2.55E-05 & 0.04 & 0 & 0.010 & 0.001 & 0.00063 \\
-%     Closed & 2700 & - & 0.04 & 0 & - & 0.001 & - \\
-%     Fully open & 3600 & 1.48E-04 & 0.06 & 0 & 0.056 & 0.001 & 0.0027 \\
-%     Partial 1 & 3600 & 4.45E-04 & 0.2 & 0 & 0.17 & 0.004 & 0.0082 \\
-%     Partial 2 & 3600 & 1.41E-05 & 0.04 & 0 & 0.0053 & 0.001 & 0.00026 \\
-%     Closed & 3600 & - & 0.04 & 0 & - & 0.001 & - \\
-%     \bottomrule
-%     \end{tabular}
-%     }
-% \end{table}
-
 \begin{table}[h]
     \centering
     \caption{Single pump experimental head and flow coefficient uncertainties for 1800 RPM, 2700 RPM, and 3600 RPM}

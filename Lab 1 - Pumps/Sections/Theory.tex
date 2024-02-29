@@ -62,24 +62,28 @@ where $KE$ is the kinetic energy. Therefore, the rule of thumb for the shutoff h
 \end{align}
 
 \subsection{Affinity Laws}
-For large Reynolds numbers, the flow is dynamically similar in geometrically similar machines when the flow and head coefficients are the same. For geometrically similar machines operating at different conditions (i) and (ii) such that the head and flow coefficients are the same, the following relationships hold:
+For large Reynolds numbers, the flow is dynamically similar in geometrically similar machines when the flow and head coefficients are the same. For geometrically similar machines operating at different conditions (i) and (ii) such that the head and flow coefficients are the same. First, equating the head coefficients, we get
 \begin{align*}
-    \Psi_i &= \Psi_{ii}  \\
-    \frac{H_i}{U_i^2} &= \frac{H_{ii}}{U_{ii}^2} 
+    \Psi_i &= \Psi_{ii}  
 \end{align*}
-so,
+so expanding, we get
 \begin{align}
+    \frac{H_i}{U_i^2} &= \frac{H_{ii}}{U_{ii}^2} \nonumber \\
     \frac{H_i}{H_{ii}} &= \left(\frac{U_i}{U_{ii}}\right)^2 \approx \left(\frac{D_i \Omega_i}{D_{ii} \Omega_{ii}}\right)^2 \label{eq:affinity1}
 \end{align}
-where $D$ is the diameter of the impeller. Also,
+where $D$ is the diameter of the impeller. Next, equating the flow coefficients, we get
 \begin{align}
     \Phi_i &= \Phi_{ii}  \nonumber \\
     \frac{v_{2ri}}{U_i} &= \frac{v_{2rii}}{U_{ii}} \label{eq:affinity2} \\
     \frac{b_i}{D_i} &= \frac{b_{ii}}{D_{ii}} \label{eq:affinity_geometrical_similarity}
 \end{align}
-For geometrically similar machines, the ratios of $b/D$ are the same. It can be shown that
+It can be shown that
 \begin{align}
     \frac{Q_i}{Q_{ii}} &= \frac{\Omega_i}{\Omega_{ii}} \left(\frac{D_{i}}{D_{ii}}\right)^3 \label{eq:affinity_law_for_flow}
+\end{align}
+For geometrically similar machines, the impelle width, $w$, is also scaled by impeller diameter, so 
+\begin{align}
+    \frac{w_i}{D_i} &= \frac{w_{ii}}{D_{ii}} \label{eq:affinity_width}
 \end{align}
 
 \subsection{Transducer Head Adjustment}
@@ -88,7 +92,7 @@ In this experiment, since the inlet and outlet pipe diameters are different, the
     H &= H_t + \frac{v_2^2}{2g} - \frac{v_1^2}{2g} \nonumber \\
     H &= H_t + \frac{v_2^2}{2g} \left(1 - \left(\frac{v_1}{v_2}\right)^2\right) \label{eq:transducer_head}
 \end{align}
-where $H_t$ is the transducer head, $v_1$ is the velocity at the inlet, and $v_2$ is the velocity at the outlet. The volume flowrate through the system can be written as
+where $H_t$ is the transducer head, $v_1$ is the velocity at the inlet, and $v_2$ is the velocity at the outlet. The volume flow rate through the system can be written as
 \begin{align}
     Q = \frac{v_2 \pi D_2^2}{4} \label{eq:flowrate}
 \end{align}
@@ -103,24 +107,11 @@ With (\ref{eq:flowrate}) and (\ref{eq:mass_conservation}), (\ref{eq:transducer_h
 
 \subsection{Pumps in Series and Parallel}
 When pumps are connected in series, the total head is the sum of the individual heads, and the flow rate is the same as the individual flow rates. 
-% \textbf{CITE A FIGURE}
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in series.png}
-%     \caption{Pumps in Series}
-%     \label{fig:series}
-% \end{figure}
 \begin{align}
     H_{\text{series}, t} &= H_{1,t} + H_{2,t} \label{eq:series_head}  \\
     Q_{\text{series}} &= Q_1 = Q_2 \label{eq:series_flow}
 \end{align} 
 When pumps are connected in parallel, the total head is the average of the individual heads, and the total flow rate is the sum of the individual flow rates.
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in parallel.png}
-%     \caption{Pumps in Parallel}
-%     \label{fig:parallel}
-% \end{figure}
 \begin{align}
     H_{\text{parallel}, t} &= \frac{H_{1,t} + H_{2,t}}{2} \label{eq:parallel_head} \\
     Q_{\text{parallel}} &= Q_1 + Q_2 \label{eq:parallel_flow}

@@ -60,7 +60,7 @@ The head coefficient and flow coefficient for the experimental, manufacturer, an
 
 For the single experimental pump, the head and flow coefficients appear to fall onto the same curve. A non-linear relationship is observed, where the head coefficient decreases as the flow coefficient increases. Most points of different speeds are within error bars of each other. This suggests that the head and flow coefficients are independent of pump speed. The largest source of error was the precision error caused by the reaction time of the stopwatch operator.
 
-The manufacturer head and flow coefficients also appear to fall onto the same, but different than the experimental, curve. The manufacturer head coefficient is higher than the experimental head coefficient for the same flow coefficient. This suggests that the manufacturer pump is more efficient than the experimental pump. 
+The manufacturer head and flow coefficients also appear to fall onto the same, but different than the experimental, curve. At 3600 RPM, $Phi = 0.12$, the error between the experimental and manufacturer was 39.7\%. In general manufacturer head coefficient is higher than the experimental head coefficient for the same flow coefficient. This suggests that the manufacturer has over rated their pump.
 
 The ideal head and flow coefficients are shown as a straight line. The ideal head coefficient is much higher than the experimental and manufacturer head coefficient for the same flow coefficient. The ideal pump neglects all losses and is overly optimistic. The linear trend does not follow the experimental and manufacturer data.
 \begin{figure}[H]
@@ -88,12 +88,11 @@ The ideal shutoff head assumes all kinetic energy is lost too friction and is ov
 
 The rule of thumb shutoff head is a more realistic estimate and is within 3.3\% of the experimental shutoff head. This suggests good agreement between the experimental and rule of thumb shutoff head.
 
-\subsection{Parallel Pump Performance}
-The head vs. flow rate for the experimental parallel pump data was plotted in Figure \ref{fig:parallel_pump_plot}. Error bars were shown for the volumetric flow, where time was the biggest contributor to error. This is likely due to the reaction time of the stopwatch operator causing a high precision error. The error bars for the head were much smaller and omitted for visual clarity. Calculations for the error bars are shown in Appendix \ref{sec:parallel_and_series_pump_analysis}.
+\subsection{Parallel and Series Pump Performance}
+The head vs. flow rate for the experimental parallel and series pump data was plotted in Figure \ref{fig:parallel_pump_plot} and \ref{fig:series_pump_plot}.
+Error bars were shown for the volumetric flow, where time was the biggest contributor to error. This is likely due to the reaction time of the stopwatch operator causing a high precision error. The error bars for the head were much smaller and omitted for visual clarity. Sample calculations are shown in Appendix \ref{sec:parallel_and_series_pump_analysis}.
 
-The theoretical curve was calculated using the single pump data. The theoretical head and flow was calculated using Eq. \ref{eq:parallel_head} and \ref{eq:parallel_flow}. The theoretical head and flow was then plotted against the experimental head and flow.
-
-The curves have poor agreement. The theoretical head was higher than the experimental head for the same flow. In addition, a higher flow was observed at the full open valve configuration. This suggests the theoretical model does not accurately predict the parallel pump performance.
+The parallel curves have poor agreement. The theoretical head was higher than the experimental head for the same flow. In addition, a higher flow was observed at the full open valve configuration. This suggests the theoretical model does not accurately predict the parallel pump performance.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Sections/Figures/Parallel Pump Plot.png}
@@ -101,12 +100,7 @@ The curves have poor agreement. The theoretical head was higher than the experim
     \label{fig:parallel_pump_plot}
 \end{figure}
 
-\subsection{Series Pump Performance}
-The head vs. flow rate for the experimental series pump data was plotted in Figure \ref{fig:series_pump_plot}. Error bars were shown for the volumetric flow, where time was the biggest contributor to error. This is likely due to the reaction time of the stopwatch operator causing a high precision error. The error bars for the head were much smaller and omitted for visual clarity. Calculations for the error bars are shown in Appendix \ref{sec:parallel_and_series_pump_analysis}.
-
-The theoretical curve was calculated using the single pump data. The theoretical head and flow was calculated using Eq. \ref{eq:series_head} and \ref{eq:series_flow}. The theoretical head and flow was then plotted against the experimental head and flow.
-
-The curves have some agreement. The theoretical head was lower than the experimental head for the same flow. In addition, a higher flow was observed at the full open valve configuration. These deviations were smaller than the parallel pump. This suggests the theoretical model does somewhat accurately predicts the series pump performance.
+The series curves have some agreement. The theoretical head was lower than the experimental head for the same flow. In addition, a higher flow was observed at the full open valve configuration. These deviations were smaller than the parallel pump. This suggests the theoretical model does somewhat accurately predicts the series pump performance.
 
 \begin{figure}[H]
     \centering
@@ -122,7 +116,8 @@ The first plot, Figure \ref{fig:geometric_similarity_head_coefficient}, shows th
 
 The second plot, Figure \ref{fig:geometric_dissimilarity_head_coefficient}, shows the head coefficient vs. flow coefficient for geometrically dissimilar pumps where impeller blade height, $b$, and impeller width, $w$, were not scaled by the impeller diameter, $D$. An observation is that the head coefficient decreases for a given flow coefficient as the impeller diameter decreases. 
 
-The head and flow coefficients for the geometrically similar pumps fall only somewhat collapse onto the same curve. The head and flow coefficients for the geometrically dissimilar pumps fall more so onto the same curve. This suggests that the pumps are geometrically dissimilar, which is consistent with the manufacturer's specifications.
+The head and flow coefficients for the geometrically similar pumps fall only somewhat collapse onto the same curve. At low flow coefficients, the head coefficient decreases as the impeller diameter decreases. For higher flow coefficients, the head coefficient increases as the impeller diameter decreases. This is not expected as the curves should collapse onto the same curve. 
+The head and flow coefficients for the geometrically dissimilar pumps fall more so onto the same curve. The same trend where at low flow coefficients, the head coefficient decreases for a given flow coefficient as the impeller diameter decreases and for higher flow coefficients, the head coefficient increases for a given flow coefficient as the impeller diameter decreases. This trend is much less pronounced. This suggests that the pumps are geometrically dissimilar, which is consistent with the manufacturer's specifications.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Sections/Figures/Geometrically Similar Pump Coefficients Plot.png}
@@ -139,15 +134,17 @@ The head and flow coefficients for the geometrically similar pumps fall only som
 \subsection{Pump Efficiency}
 The pump efficiencies for the experimental data was calculated in Appendix \ref{sec:pump_efficiency}. The pump effiecncies for the manufacturer data was given in the manufacturer's specifications. The plot of the experimental and manufacturer pump efficiencies is shown in Figure \ref{fig:single_pump_efficiency_plot}.
 
-The pump was most efficient when operating at 2700 $\unit{\rpm}$ in a partially closed valve configuration. The pump was least efficient when operating at 1800 $\unit{\rpm}$ in a partially closed valve configuration. 
+The pump had the highest efficiency of 49.9\% when operating at 2700 $\unit{\rpm}$ in a partially closed valve configuration. The pump had the lowest efficiency of 37.0\% when operating at 1800 $\unit{\rpm}$ in a partially closed valve configuration. 
 
-The actual pump efficiency was lower than the manufacturer pump efficiency for all pump speeds. This could be due to degradation of the pump over time as the setup has been used for many years. 
+The actual pump efficiency was lower than the manufacturer pump efficiency for all pump speeds. It was difficult to compare directly since the flow coefficients of the experimenal and manufacturer seldom matched. The largest deviation was approximately 29\% at 1800 $\unit{\rpm}$ and a flow coefficient of 0.12. Again, this suggests the manufacturer has over rated their pump.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Sections/Figures/Single Pump Efficiency Plot.png}
-    \caption{Single pump experimental and manufacturer efficiency plot.}
+    \caption{Single pump experimental and manufacturer flow coefficient vs. efficiency plot.}
     \label{fig:single_pump_efficiency_plot}
 \end{figure}
 
 \subsection{Elevation Effects}
-The vertical elevation of the pump lines have an effect on the head of the pump. This variation was not accounted for in the modelling. This was because the vertical displacements between where the pressure was measured was small ($< \qty{0.5}{\meter})$. It was assumed that this variation was negligible.
+The vertical elevation of the pump lines have an effect on the head of the pump. This variation was not accounted for in the modelling. The transducers did not measure pressure immediately at the outlet due to the flow needing to develop fully. Some distance from the inlet was required due to the pressure gradient in the pump.
+
+The error caused by the vertical displacements between the inlet and outlet was less than 0.2m (see Fig.\ref{fig:experimental_setup}). This would have added a small error of 0.2m to the head which is 2.6\% of the average head measured in the single pump configuration, 9.25m. This is a small error and was neglected.

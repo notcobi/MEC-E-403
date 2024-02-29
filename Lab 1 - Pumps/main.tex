@@ -29,6 +29,7 @@
 \usepackage{amsmath}
 \usepackage{longtable} % Multipage tables
 \usepackage{float}
+\usepackage[nottoc,numbib]{tocbibind}
 
 % Long table caption settings
 \setlength{\LTcapwidth}{\textwidth} % Width of long table caption
@@ -235,10 +236,9 @@
 \input{Sections/Results and Discussion.tex}
 \input{Sections/Conclusion.tex}
 
-% \newpage
-% \bibliographystyle{IEEEtran}
-% \bibliography{citations.bib}
-% \bibliography{}
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{citations.bib}
 
 \newpage
 \appendix

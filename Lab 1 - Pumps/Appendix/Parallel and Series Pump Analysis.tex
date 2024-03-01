@@ -6,27 +6,39 @@ This section will discuss the parallel and series pump analysis. The pump discha
 \subsection{Parallel Experimental Pump Discharge and Head}
 \begin{table}[h]
     \centering
-    \caption{Summary of experimental parallel pump discharge and heads for 2700 RPM}
-    \label{tab:parallel_pump_discharge_head}
-    \resizebox{\textwidth}{!}{
-    \begin{tabular}{p{0.12\textwidth}cccccC{0.15\textwidth}C{0.15\textwidth}cccC{0.15\textwidth}}
+    \caption{Summary of recorded experimental parallel pump time for 2700 RPM}
+    \label{tab:parallel_pump_time}
+    \begin{tabular}{p{0.12\textwidth}cccccC{0.15\textwidth}}
     \toprule
-    Valve Configuration & \multicolumn{2}{c}{Transducer Output} & \multicolumn{3}{c}{Time to collect water} & Nominal Time, $t$ & Volumetric Flow, $Q$ & \multicolumn{3}{c}{Transducer Head, $H_t$} & Corrected Head, $H$ \\
-    %\cmidrule{2-3} \cmidrule{4-6} \cmidrule{9-11}
-    \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){9-11}
-    & Pump 1 & Pump 2 & Trial 1 & Trial 2 & Trial 3 & & & Pump 1 & Pump 2 & Nominal & \\
-    %& (V) & (V) & (s) & (s) & (s) & (s) & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
-    & ($\unit{V}$) & ($\unit{V}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
+    Valve Configuration & \multicolumn{2}{c}{Transducer Output} & \multicolumn{3}{c}{Time to collect water} & Nominal Time, $t$ \\
+    & Pump 1 & Pump 2 & Trial 1 & Trial 2 & Trial 3 & \\
+    & ($\unit{V}$) & ($\unit{V}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) \\
     \midrule
-    Fully open & 2.87 & 2.72 & 12.46 & 12.28 & 12.79 & 12.51 & 0.007266 & 10.1 & 9.58 & 9.84 & 11.3 \\
-    Partial 1 & 3.08 & 2.96 & 14.49 & 14.49 & 14.42 & 14.47 & 0.006283 & 10.8 & 10.4 & 10.6 & 11.7 \\
-    Partial 2 & 3.52 & 3.53 & 41.05 & 40.99 & 40.99 & 41.01 & 0.002217 & 12.4 & 12.4 & 12.4 & 12.5 \\
-    Closed & 3.55 & 3.55 & - & - & - & - & - & 12.5 & 12.5 & 12.5 & 12.5 \\
+    Fully open & 2.87 & 2.72 & 12.46 & 12.28 & 12.79 & 12.51 \\
+    Partial 1 & 3.08 & 2.96 & 14.49 & 14.49 & 14.42 & 14.47 \\
+    Partial 2 & 3.52 & 3.53 & 41.05 & 40.99 & 40.99 & 41.01 \\
+    Closed & 3.55 & 3.55 & - & - & - & - \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
-Sample calculations will be shown for the fully open valve configuration. The same calculations were done for the other valve configurations. The nominal time was calculated as the average of the three trials by 
+\begin{table}[h]
+    \centering 
+    \caption{Summary of recorded experimental parallel pump discharge and heads for 2700 RPM}
+    \label{tab:parallel_pump_discharge_head}
+    \begin{tabular}{p{0.12\textwidth}ccccc}
+    \toprule
+    Valve Configuration & Volumetric Flow, $Q$ & \multicolumn{3}{c}{Transducer Head, $H_t$} & Corrected Head, $H$ \\
+    & & Pump 1 & Pump 2 & Nominal & \\
+    & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
+    \midrule
+    Fully open & 0.007266 & 10.1 & 9.58 & 9.84 & 11.3 \\
+    Partial 1 & 0.006283 & 10.8 & 10.4 & 10.6 & 11.7 \\
+    Partial 2 & 0.002217 & 12.4 & 12.4 & 12.4 & 12.5 \\
+    Closed & - & 12.5 & 12.5 & 12.5 & 12.5 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations will be shown for the fully open valve configuration for Tables \ref{tab:parallel_pump_time} and \ref{tab:parallel_pump_discharge_head}. The same calculations were done for the other valve configurations. The nominal time was calculated as the average of the three trials by 
 \begin{align*}
     t &= \frac{\sum t_i}{n} \\
     &= \frac{12.46 + 12.28 + 12.79}{3} \\
@@ -39,7 +51,6 @@ The volumetric flow rate was calculated using $m = \qty{200}{\lb} = \qty{90.7}{\
     &= \qty{0.007266}{\meter\cubed\per\second}
 \end{align*}
 Next, the transducer head for pumps 1 and pump 2 were calculated by
-% copilot, use the single pump comments as an example
 \begin{align*}
     H_{t} &= \frac{V_{\text{tr}} \times \text{Conversion}}{\rho g} \\
     \implies H_{t1} &= \frac{\qty{2.87}{\volt} \times \qty{5}{\psi\per\volt} \times \qty{6894.76}{\pascal\per\psi}}{\qty{998}{\kilo\gram\per\meter\cubed} \times \qty{9.81}{\meter\per\second\squared}} \\
@@ -56,7 +67,7 @@ The nominal head was calculated by averaging the transducer heads by
 The corrected head was calculated by
 \begin{align*}
     H &= H_t + \frac{8Q^2}{\pi^2 D_2^4 g} \left[1 - \left(\frac{D_2}{D_1}\right)^4\ \right] \\
-    &= \qty{9.84}{\meter} + \frac{8 \times (\qty{0.007266}{\meter\cubed\per\second})^2}{\pi^2 \times (\qty{0.108}{\meter})^4 \times \qty{9.81}{\meter\per\second\squared}} \left[1 - \left(\frac{\qty{0.108}{\meter}}{\qty{0.108}{\meter}}\right)^4\ \right] \\
+    &= \qty{9.84}{\meter} + \frac{8 \times (\qty{0.007266}{\meter\cubed\per\second})^2}{\pi^2 \times (\qty{0.0381}{\meter})^4 \times \qty{9.81}{\meter\per\second\squared}} \left[1 - \left(\frac{\qty{0.0381}{\meter}}{\qty{0.0508}{\meter}}\right)^4\ \right] \\
     &= \qty{11.3}{\meter}
 \end{align*}
 
@@ -65,63 +76,57 @@ The corrected head was calculated by
     \centering
     \caption{Parallel experimental pump time and discharge uncertainties for 2700 RPM}
     \label{tab:parallel_pump_time_discharge_uncertainty}
-    \small
-    \resizebox{\textwidth}{!}{
-    \begin{tabular}{p{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \begin{tabular}{p{0.12\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
     \toprule
-    Valve Configuration & Time STDEV, $S_t$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ & Flow Uncertainty, $\delta_Q$ \\
+    Config. & Time STDEV, $S_t$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ & Flow Uncertainty, $\delta_Q$ \\
     & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{\meter\cubed\per\second}$) \\
     \midrule
-    Fully open & 0.2587 & 0.6425 & 0.2 & 0.67 & 3.91E-04 \\
-    Partial 1 & 0.0404 & 0.1004 & 0.2 & 0.22 & 9.72E-05 \\
-    Partial 2 & 0.0346 & 0.0861 & 0.2 & 0.22 & 1.18E-05 \\
+    Fully open & 0.2587 & 0.6425 & 0.01 & 0.64 & 3.73E-04 \\
+    Partial 1 & 0.0404 & 0.1004 & 0.01 & 0.10 & 4.38E-05 \\
+    Partial 2 & 0.0346 & 0.0861 & 0.01 & 0.09 & 4.68E-06 \\
     Closed & - & - & - & - & - \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
 \begin{table}[h]
     \centering
     \caption{Parallel experimental pump head uncertainties for 2700 RPM}
     \label{tab:parallel_pump_head_uncertainty}
-    \small
-    \resizebox{\textwidth}{!}{
     \begin{tabular}{p{0.15\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}}
     \toprule
-    Valve Configuration & \multicolumn{2}{c}{Transducer Uncertainty} & \multicolumn{3}{c}{Transducer Head Uncertainty} & Corrected Head Uncertainty, $\delta_H$ \\
+    Config. & \multicolumn{2}{c}{Transducer Uncertainty} & \multicolumn{3}{c}{Transducer Head Uncertainty} & Corrected Head Uncertainty, $\delta_H$ \\
     \cmidrule(lr){2-3} \cmidrule(lr){4-6} 
     & Pump 1, $\delta_{V_{\text{tr1}}}$ & Pump 2, $\delta_{V_{\text{tr2}}}$ & Pump 1, $\delta_{H_{t1}}$ & Pump 2, $\delta_{H_{t2}}$ & Nominal, $\delta_{H_t}$ & \\
     & ($\unit{V}$) & ($\unit{V}$) & ($\unit{m}$) & ($\unit{m}$) & ($\unit{m}$) & ($\unit{m}$) \\
     \midrule
-    Fully open & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.2 \\
-    Partial 1 & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.04 \\
+    Fully open & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.1 \\
+    Partial 1 & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.03 \\
     Partial 2 & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.02 \\
     Closed & 0.01 & 0.01 & 0.04 & 0.04 & 0.02 & 0.02 \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
-Sample calculations are evaluated for the fully open configuration at 2700 RPM. A 95\% confidence interval was used. The standard deviation was calculated by Excel using \texttt{STDEV.S}. The t-distribution value was found using $\alpha/2 = 0.025$ and $\nu = 3 - 1 = 2$. Then,
+\noindent Sample calculations are evaluated for the fully open configuration at 2700 RPM. A 95\% confidence interval was used. The standard deviation was calculated by Excel using \texttt{STDEV.S}. The t-distribution value was found using $\alpha/2 = 0.025$ and $\nu = 3 - 1 = 2$. Then,
 \begin{align*}
     P_t &= t_{\alpha/2, \nu} \times \frac{S_t}{\sqrt{n}} \\
     &= 4.303 \times \frac{\qty{0.2587}{\second}}{\sqrt{3}} \\
     &= \qty{0.6425}{\second}
 \end{align*}
-The time bias was approximated to be the reaction time of the operator by
+The time bias was approximated to be the resolution of the stopwatch,
 \begin{align*}
-    B_t &= \qty{0.2}{\second}
+    B_t &= \qty{0.01}{\second}
 \end{align*}
 The time uncertainty was calculated by
 \begin{align*}
     \delta_t &= \sqrt{P_t^2 + B_t^2} \\
-    &= \sqrt{(\qty{0.6425}{\second})^2 + (\qty{0.2}{\second})^2} \\
-    &= \qty{0.67}{\second}
+    &= \sqrt{(\qty{0.6425}{\second})^2 + (\qty{0.01}{\second})^2} \\
+    &= \qty{0.64}{\second}
 \end{align*}
 The flow uncertainty was calculated by
 \begin{align*}
     \delta_Q &= Q \bigg|\frac{\delta_t}{t}\bigg| \\
-    &= \qty{0.007266}{\meter\cubed\per\second} \frac{\qty{0.67}{\second}}{\qty{12.51}{\second}} \\
-    &= 3.91E-04
+    &= \qty{0.007266}{\meter\cubed\per\second} \frac{\qty{0.64}{\second}}{\qty{12.51}{\second}} \\
+    &= 3.73E-04
 \end{align*}
 The transducer uncertainty was assumed to be the resolution of the device, $\delta_{V_{\text{tr}}} = \qty{0.01}{\volt}$. Transducer precision error was not considered since calibration was not performed. The transducer heads were found by
 \begin{align*}
@@ -155,7 +160,7 @@ The corrected head is found by
 so the uncertainty was
 \begin{align*}
     \delta_H &= \sqrt{\left(\delta_{H_t}\right)^2 + \left(\frac{2(H - H_t)}{Q}\delta_Q\right)^2} \\
-    &= \sqrt{\left(\qty{0.02}{\meter}\right)^2 + \left(\frac{2(\qty{11.3}{\meter} - \qty{9.84}{\meter})}{\qty{0.007266}{\meter\cubed\per\second}} \times \qty{3.91E-04}{\meter\cubed\per\second}\right)^2} \\
+    &= \sqrt{\left(\qty{0.02}{\meter}\right)^2 + \left(\frac{2(\qty{11.3}{\meter} - \qty{9.84}{\meter})}{\qty{0.007266}{\meter\cubed\per\second}} \times \qty{3.73E-04}{\meter\cubed\per\second}\right)^2} \\
     &= \qty{0.2}{\meter}
 \end{align*}
 
@@ -163,25 +168,39 @@ so the uncertainty was
 \subsection{Series Experimental Pump Discharge and Head}
 \begin{table}[h]
     \centering
-    \caption{Summary of experimental series pump discharge and heads for 2700 RPM}
-    \label{tab:series_pump_discharge_head}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{{p{0.12\textwidth}cccccC{0.15\textwidth}C{0.15\textwidth}cccC{0.15\textwidth}}}
+    \caption{Summary of recorded experimental series pump time for 2700 RPM}
+    \label{tab:series_pump_time}
+    \begin{tabular}{p{0.12\textwidth}cccccC{0.15\textwidth}}
     \toprule
-    Valve Configuration & \multicolumn{2}{c}{Transducer Output} & \multicolumn{3}{c}{Time to collect water} & Nominal Time, $t$ & Volumetric Flow, $Q$ & \multicolumn{3}{c}{Transducer Head, $H_t$} & Corrected Head, $H$ \\
-    \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){9-11}
-    & Pump 1 & Pump 2 & Trial 1 & Trial 2 & Trial 3 & & & Pump 1 & Pump 2 & Nominal & \\
-    & ($\unit{V}$) & ($\unit{V}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
+    Valve Configuration & \multicolumn{2}{c}{Transducer Output} & \multicolumn{3}{c}{Time to collect water} & Nominal Time, $t$ \\
+    & Pump 1 & Pump 2 & Trial 1 & Trial 2 & Trial 3 & \\
+    & ($\unit{V}$) & ($\unit{V}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) \\
     \midrule
-    Fully open & 0.68 & 1.68 & 16.64 & 16.17 & 16.03 & 16.28 & 0.005584 & 2.39 & 5.92 & 8.31 & 9.1 \\
-    Partial 1 & 0.9 & 1.84 & 16.71 & 16.58 & 16.76 & 16.68 & 0.005449 & 3.17 & 6.48 & 9.65 & 10.4 \\
-    Partial 2 & 2.89 & 3.26 & 30.52 & 30.23 & 30.67 & 30.47 & 0.002983 & 10.2 & 11.5 & 21.7 & 21.9 \\
-    Closed & 3.52 & 3.55 & - & - & - & - & - & 12.4 & 12.5 & 24.9 & 24.9 \\
+    Fully open & 0.68 & 1.68 & 16.64 & 16.17 & 16.03 & 16.28 \\
+    Partial 1 & 0.9 & 1.84 & 16.71 & 16.58 & 16.76 & 16.68 \\
+    Partial 2 & 2.89 & 3.26 & 30.52 & 30.23 & 30.67 & 30.47 \\
+    Closed & 3.52 & 3.55 & - & - & - & - \\
     \bottomrule
-    \end{tabular}%
-    }
+    \end{tabular}
 \end{table}
-Sample calculations will be shown for the fully open valve configuration. The same calculations were done for the other valve configurations. The nominal time was calculated as the average of the three trials by
+\begin{table}[h]
+    \centering
+    \caption{Summary of recorded experimental series pump discharge and heads for 2700 RPM}
+    \label{tab:series_pump_discharge_head}
+    \begin{tabular}{p{0.12\textwidth}ccccc}
+    \toprule
+    Valve Configuration & Volumetric Flow, $Q$ & \multicolumn{3}{c}{Transducer Head, $H_t$} & Corrected Head, $H$ \\
+    & & Pump 1 & Pump 2 & Nominal & \\
+    & ($\unit{\meter\cubed\per\second}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) & ($\unit{\meter}$) \\
+    \midrule
+    Fully open & 0.005584 & 2.39 & 5.92 & 8.31 & 9.1 \\
+    Partial 1 & 0.005449 & 3.17 & 6.48 & 9.65 & 10.4 \\
+    Partial 2 & 0.002983 & 10.2 & 11.5 & 21.7 & 21.9 \\
+    Closed & - & 12.4 & 12.5 & 24.9 & 24.9 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\noindent Sample calculations will be shown for the fully open valve configuration. The same calculations were done for the other valve configurations. The nominal time was calculated as the average of the three trials by
 \begin{align*}
     t &= \frac{\sum t_i}{n} \\
     &= \frac{16.64 + 16.17 + 16.03}{3} \\
@@ -220,26 +239,22 @@ The corrected head was calculated by
     \caption{Series experimental pump time and discharge uncertainties for 2700 RPM}
     \label{tab:series_time_discharge_uncertainty}
     %\small
-    \resizebox{\textwidth}{!}{
     \begin{tabular}{p{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
     \toprule
     Valve Configuration & Time STDEV, $S_t$ & Time Precision, $P_t$ & Time Bias, $B_t$ & Time Uncertainty, $\delta_t$ & Flow Uncertainty, $\delta_Q$ \\
     & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{s}$) & ($\unit{\meter\cubed\per\second}$) \\
     \midrule
-    Fully open & 0.3195 & 0.7938 & 0.2 & 0.82 & 2.81E-04 \\
-    Partial 1 & 0.0929 & 0.2308 & 0.2 & 0.31 & 9.97E-05 \\
-    Partial 2 & 0.2237 & 0.5557 & 0.2 & 0.59 & 5.78E-05 \\
+    Fully open & 0.3195 & 0.7938 & 0.01 & 0.79 & 2.72E-04 \\
+    Partial 1 & 0.0929 & 0.2308 & 0.01 & 0.23 & 7.55E-05 \\
+    Partial 2 & 0.2237 & 0.5557 & 0.01 & 0.56 & 5.44E-05 \\
     Closed & - & - & - & - & - \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
 \begin{table}[h]
     \centering
     \caption{Series experimental pump head uncertainties for 2700 RPM}
     \label{tab:series-head-uncertainty}
-    \small
-    \resizebox{\textwidth}{!}{
     \begin{tabular}{p{0.15\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}}
     \toprule
     Valve Configuration & \multicolumn{2}{c}{Transducer Uncertainty} & \multicolumn{3}{c}{Transducer Head Uncertainty} & Corrected Head Uncertainty, $\delta_H$ \\
@@ -248,12 +263,11 @@ The corrected head was calculated by
     & ($\unit{V}$) & ($\unit{V}$) & ($\unit{m}$) & ($\unit{m}$) & ($\unit{m}$) & ($\unit{m}$) \\
     \midrule
     Fully open & 0.01 & 0.01 & 0.04 & 0.04 & 0.05 & 0.1 \\
-    Partial 1 & 0.01 & 0.01 & 0.04 & 0.04 & 0.05 & 0.06 \\
+    Partial 1 & 0.01 & 0.01 & 0.04 & 0.04 & 0.05 & 0.05 \\
     Partial 2 & 0.01 & 0.01 & 0.04 & 0.04 & 0.05 & 0.05 \\
     Closed & 0.01 & 0.01 & 0.04 & 0.04 & 0.05 & 0.05 \\
     \bottomrule
     \end{tabular}
-    }
 \end{table}
 
 Sample calculations are evaluated for the fully open configuration at 2700 RPM. A 95\% confidence interval was used. The standard deviation was calculated by Excel using \texttt{STDEV.S}. The t-distribution value was found using $\alpha/2 = 0.025$ and $\nu = 3 - 1 = 2$. Then,
@@ -262,21 +276,21 @@ Sample calculations are evaluated for the fully open configuration at 2700 RPM. 
     &= 4.303 \times \frac{\qty{0.3195}{\second}}{\sqrt{3}} \\
     &= \qty{0.7938}{\second}
 \end{align*}
-The time bias was approximated to be the reaction time of the operator by
+The time bias was approximated to be the resolution of the stopwatch,
 \begin{align*}
-    B_t &= \qty{0.2}{\second}
+    B_t &= \qty{0.01}{\second}
 \end{align*}
 The time uncertainty was calculated by
 \begin{align*}
     \delta_t &= \sqrt{P_t^2 + B_t^2} \\
-    &= \sqrt{(\qty{0.7938}{\second})^2 + (\qty{0.2}{\second})^2} \\
-    &= \qty{0.82}{\second}
+    &= \sqrt{(\qty{0.7938}{\second})^2 + (\qty{0.01}{\second})^2} \\
+    &= \qty{0.79}{\second}
 \end{align*}
 The flow uncertainty was calculated by
 \begin{align*}
     \delta_Q &= Q \bigg|\frac{\delta_t}{t}\bigg| \\
-    &= \qty{0.005584}{\meter\cubed\per\second} \frac{\qty{0.82}{\second}}{\qty{16.28}{\second}} \\
-    &= 2.81E-04
+    &= \qty{0.005584}{\meter\cubed\per\second} \frac{\qty{0.79}{\second}}{\qty{16.28}{\second}} \\
+    &= 2.72E-04
 \end{align*}
 The transducer uncertainty was assumed to be the resolution of the device, $\delta_{V_{\text{tr}}} = \qty{0.01}{\volt}$. Transducer precision error was not considered since calibration was not performed. The transducer heads were found by
 \begin{align*}
@@ -310,7 +324,7 @@ The corrected head is found by
 so the uncertainty was
 \begin{align*}
     \delta_H &= \sqrt{\left(\delta_{H_t}\right)^2 + \left(\frac{2(H - H_t)}{Q}\delta_Q\right)^2} \\
-    &= \sqrt{\left(\qty{0.05}{\meter}\right)^2 + \left(\frac{2(\qty{9.1}{\meter} - \qty{8.31}{\meter})}{\qty{0.005584}{\meter\cubed\per\second}} \times \qty{2.81E-04}{\meter\cubed\per\second}\right)^2} \\
+    &= \sqrt{\left(\qty{0.05}{\meter}\right)^2 + \left(\frac{2(\qty{9.1}{\meter} - \qty{8.31}{\meter})}{\qty{0.005584}{\meter\cubed\per\second}} \times \qty{2.72E-04}{\meter\cubed\per\second}\right)^2} \\
     &= \qty{0.1}{\meter}
 \end{align*}
 

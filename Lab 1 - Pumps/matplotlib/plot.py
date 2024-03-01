@@ -196,7 +196,7 @@ plt.plot(Phi, Psi, "-k", label="Ideal Line")
 
 plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
 plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
-plt.legend(loc="upper left")
+plt.legend(loc="upper right")
 plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Coefficients Plot", dpi=300)
 
 # ----------------------------------------

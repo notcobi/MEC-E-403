@@ -1,0 +1,48 @@
+\section{Appendix: Joint Separation}
+\label{sec:joint_seperation}
+
+\subsection{Experimental Seperation}
+The two regressions of the data from Table \ref{tab:member_stiffness_data}, 
+\begin{align*}
+    F_{b, \text{pre}} &= 0.1157 P + 4.5022 \\
+    F_{b, \text{post}} &= 0.8687 P + 0.7507
+\end{align*}
+The separation point is when $F_{i, \text{pre}} = F_{i, \text{post}}$, 
+\begin{align*}
+    0.1157 P_{\text{exp}} + 4.5022 &= 0.8687 P_{\text{exp}} + 0.7507 \\
+    P_{\text{exp}} &= \frac{3.7515}{0.753} \\
+    &= \boxed{\qty{4.98}{\kilo\newton}} 
+\end{align*}
+Then,
+\begin{align*}
+    F_{b, \text{sep}} &= 0.1157 \times \qty{4.98}{\kilo\newton} + 4.5022 \\
+    &= \boxed{\qty{5.08}{\kilo\newton}}
+\end{align*}
+
+\subsection{Theoretical Separation}
+The torque load was 60 in-lb for the data in Table \ref{tab:member_stiffness_data}. From Eq. (\ref{eq:torque_constant}), 
+\begin{align*}
+    F_i &= \frac{T}{Kd} \\
+    &= \frac{\qty{60}{\inlb} \times \qty{0.112984}{\newton\meter\per\inlb}}{0.167 \times \qty{0.375}{\inch} \times \qty{25.4}{\milli\meter\per\inch}} \\
+    &= \boxed{\qty{4.26}{\kilo\newton}}
+\end{align*}
+Then calculating $C_{\text{th}}$ by Eq. (\ref{eq:constant_C}),
+\begin{align*}
+    C_{\text{th}} &= \frac{k_b}{k_b + k_{m, \text{th}}} \\
+    &= \frac{\qty{209.308}{\mega\newton\per\meter}}{\qty{209.308}{\mega\newton\per\meter} + \qty{2222.774}{\mega\newton\per\meter}} \\
+    &= 0.116
+\end{align*}
+Then by Eq. (\ref{eq:joint_separation}),
+\begin{align*}
+    P &= \frac{F_i}{1-C_{\text{th}}} \\
+    &= \frac{\qty{4.26}{\kilo\newton}}{1-0.116} \\
+    &= \boxed{\qty{4.82}{\kilo\newton}}
+\end{align*}
+
+\subsection{Theoretical vs. Experimental Separation}
+The error is then,
+\begin{align*}
+    \text{Error} &= \frac{P_{\text{th}} - P_{\text{exp}}}{P_{\text{th}}} \times 100\% \\
+    &= \frac{\qty{4.82}{\kilo\newton} - \qty{4.98}{\kilo\newton}}{\qty{4.82}{\kilo\newton}} \times 100\% \\
+    &= \boxed{3.32\%}
+\end{align*}

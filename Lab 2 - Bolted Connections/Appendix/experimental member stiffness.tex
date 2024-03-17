@@ -1,0 +1,55 @@
+\section{Appendix: Experimental Member Stiffness Calculations}
+\label{sec:experimental_member_stiffness}
+\subsection{Experimental Data}
+\begin{table}[h]
+    \centering
+    \caption{Various External Loads and Bolt Force at 60 in-lb Torque}
+    \label{tab:member_stiffness_data}
+    \begin{tabular}{ccccccc}
+    \toprule
+    & External Load, $P$ & Bolt Out, $V_{b}$ & Washer Out, $V_{w}$ & Bolt Strain, $\varepsilon_b$ & Bolt Force, $F_i$ \\
+    & (kN) & (V) & (V) & & (kN) \\
+    \midrule
+    Preseperation & 0 & 0.382 & -0.72 & 0.000382 & 4.509 \\
+    Preseperation & 1 & 0.391 & -0.751 & 0.000391 & 4.616 \\
+    Preseperation & 2 & 0.4 & -0.783 & 0.0004 & 4.722 \\
+    Preseperation & 3 & 0.411 & -0.818 & 0.000411 & 4.852 \\
+    Preseperation & 4 & 0.421 & -0.855 & 0.000421 & 4.970 \\
+    Postseperation & 5 & 0.436 & -0.901 & 0.000436 & 5.147 \\
+    Postseperation & 6 & 0.498 & -1.068 & 0.000498 & 5.879 \\
+    Postseperation & 7 & 0.578 & -1.226 & 0.000578 & 6.823 \\
+    Postseperation & 7.5 & 0.619 & -1.3 & 0.000619 & 7.307 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations will be shown for the first row of Table \ref{tab:member_stiffness_data}. The bolt strain, $\varepsilon_b$, was calculated by
+\begin{align*}
+    \varepsilon_b &= \frac{4 V_b}{K_g E_{\text{in}} G} \\
+    &= \frac{4 \times \qty{0.382}{V}}{2 \times \qty{5}{V} \times 400} \\
+    &= \qty{0.000382}{}
+\end{align*}
+The force, $F_i$, was then calculated by
+\begin{align*}
+    F_i &= E_b \varepsilon_b A_1 \\
+    &= \qty{205.046}{\giga\pascal} \times \qty{0.000382} \times \qty{57.570}{\milli\meter\squared} \\
+    &= \boxed{\qty{4.509}{\kilo\newton}}
+\end{align*}
+
+\subsection{Experimental Member Stiffness}
+Applying linear regression to the preseperation data in Table \ref{tab:member_stiffness_data} yields the following equation from \texttt{=LINEST()} in Excel,
+\begin{align*}
+    F_i &= \underbrace{0.1157}_{C} P + 4.5022
+\end{align*}
+Comparing the form of the linear regression to Eq. (\ref{eq:total_load_bolt}), $C = 0.1157$. Then, by Eq. (\ref{eq:constant_C}), 
+\begin{align*}
+    C &= \frac{k_b}{k_b + k_m} \\
+    \implies k_{m, \text{exp}} &= \frac{k_b}{\frac{1}{C} - 1} \\
+    &= \frac{\qty{209.308}{\kilo\newton\per\meter}}{\frac{1}{0.1157} - 1} \\
+    &= \boxed{\qty{1599.998}{\kilo\newton\per\meter}}
+\end{align*}
+Compared to the theoretical value of $\qty{2222.774}{\kilo\newton\per\meter}$, the error is
+\begin{align*}
+    \text{Error} &= \frac{k_{m, \text{th}} - k_{m, \text{exp}}}{k_{m, \text{th}}} \times 100\% \\
+    &= \frac{\qty{2222.774}{\kilo\newton\per\meter} - \qty{1599.998}{\kilo\newton\per\meter}}{\qty{2222.774}{\kilo\newton\per\meter}} \times 100\% \\
+    &= \boxed{28.0\%}
+\end{align*}

@@ -1,0 +1,101 @@
+\section{Appendix: Preload-Torque Test Data Analysis}
+\label{app:preload_vs_torque_analysis}
+The following is the analysis of the preload-torque test data. The data was collected from the experiment and is shown in Table \ref{tab:preload_vs_torque}. The data was then analyzed to determine the preload, preload uncertainty, and torque coefficient. The following sections will detail the analysis of the data and the results of the analysis.
+
+\subsection{Preload vs Torque Analysis}
+The results from the experiment are shown in Table \ref{tab:preload_vs_torque}. Sample calculations will be shown for the second row of the table.
+\begin{table}[h]
+    \centering
+    \caption{Torque-Preload Test at Zero External Load}
+    \label{tab:preload_vs_torque}
+    \begin{tabular}{ccC{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}}
+    \toprule
+    Torque, $T$ & Torque, $T$ & Bolt Transducer, $V_b$ & Washer Transducer, $V_w$ & Bolt Strain, $\varepsilon_b$ & Preload, $F_i$ & Preload Uncertainty, $\delta F_i$ \\
+    (in-lb) & (Nm) & (V) & (V) & & (kN) & ($\pm$ kN) \\
+    \midrule
+    0 & 0 & -0.002 & -0.001 & -2.00E-06 & -0.0236 & 0.366 \\
+    25 & 2.825 & 0.140 & -0.311 & 1.40E-04 & 1.65 & 0.368 \\
+    50 & 5.649 & 0.294 & -0.615 & 2.94E-04 & 3.47 & 0.375 \\
+    75 & 8.474 & 0.447 & -0.907 & 4.47E-04 & 5.28 & 0.386 \\
+    100 & 11.298 & 0.602 & -1.203 & 6.02E-04 & 7.11 & 0.401 \\
+    125 & 14.123 & 0.778 & -1.519 & 7.78E-04 & 9.18 & 0.422 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+First, the torque was converted to metric units.
+\begin{align*}
+    T &= \qty{25}{\inlb} \times \qty{0.113}{\newton\per\meter\per\inlb} \\
+    &= \qty{2.825}{\newton\meter}
+\end{align*}
+The bolt strain, $\varepsilon_b$, was then calculated by
+\begin{align*}
+    \varepsilon_b &= \frac{4 V_b}{K_g E_{\text{in}} G} \\
+    &= \frac{4 \times \qty{0.140}{V}}{2 \times \qty{5}{V} \times 400} \\
+    &= \qty{1.40E-04}{}
+\end{align*}
+The preload, $F_i$, was then calculated by
+\begin{align*}
+    F_i &= E_b \varepsilon_b A_1 \\
+    &= \qty{205.046}{\giga\pascal} \times \qty{1.40E-04} \times \qty{57.570}{\milli\meter\squared} \\
+    &= \boxed{\qty{1.65}{\kilo\newton}}
+\end{align*}
+
+\subsection{Uncertainty Analysis of Preload}
+A repeatability test was performed at 50 lb-in of torque with no external load. The results of this test are shown in 
+\begin{table}[h]
+    \centering
+    \caption{Repeatability Test at 50 lb-in of Torque and Zero External Load}
+    \label{tab:repeatability_test}
+    \begin{tabular}{ccc}
+    \toprule
+    Trial \# & Bolt Transducer, $V_b$ & Washer Transducer \\
+    & (V) & (V) \\
+    \midrule
+    1 & 0.372 & -0.701 \\
+    2 & 0.321 & -0.684 \\
+    3 & 0.354 & -0.718 \\
+    4 & 0.312 & -0.654 \\
+    5 & 0.327 & -0.679 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+The standard deviation was determined with Excel to be $S_{V_b} = \qty{0.0250}{\volt}$. Using a confidence level of 95\%, the t-distribution value was determined by
+\begin{align*}
+    \alpha/2 &= \frac{1 - 0.95}{2} = 0.025 \\
+    n - 1 &= 5 - 1 = 4 \\
+    t_{\alpha/2, n-1} &= 2.776
+\end{align*}
+The precision uncertainty is then
+\begin{align*}
+    P_{V_b} &= t_{\alpha/2, n-1} \cdot \frac{S_{V_b}}{\sqrt{n}} \\
+    &= 2.776 \cdot \frac{\qty{0.025}{\volt}}{\sqrt{5}} \\
+    &= \qty{0.031}{\volt}
+\end{align*}
+Defining bias uncertainty as resolution, $B_{V_b} = 0.001$, the total uncertainty is then
+\begin{align*}
+    \delta V_b &= \sqrt{P_{V_b}^2 + B_{V_b}^2} \\
+    &= \sqrt{(\qty{0.031}{\volt})^2 + (\qty{0.001}{\volt})^2} \\
+    &= \qty{0.031}{\volt}
+\end{align*}
+The uncertainty of the preload for the second row of Table \ref{tab:preload_vs_torque} is then
+\begin{align*}
+    \delta F_i &= F_i \sqrt{\left(\frac{\delta V_b}{V_b}\right)^2 + \left(\frac{\delta E_b}{E_b}\right)^2} \\
+    &= \qty{1.65}{\kilo\newton} \sqrt{\left(\frac{\qty{0.031}{\volt}}{\qty{0.140}{\volt}}\right)^2 + \left(\frac{\qty{4.70}{\giga\pascal}}{\qty{205.046}{\giga\pascal}}\right)^2} \\
+    &= \qty{0.368}{\kilo\newton}
+\end{align*}
+
+\subsection{Torque Coefficient Analysis}
+Applyig linear regression, forced through the origin, to the data in Table \ref{tab:preload_vs_torque} using \texttt{=LINEST()} from Excel, the equation is,
+\begin{align*}
+%    0.635762559
+    F_i &= 0.636 T \\
+    \implies \frac{T}{F_i} &= \frac{1}{0.636} \unit{\per\milli\meter}
+\end{align*}
+where $F_i$ is in kN and $T$ is in Nm. From Eq. (\ref{eq:torque_constant}), the torque coefficient is then
+\begin{align*}
+    K &= \frac{T}{F_i d} \\
+    &= \frac{1}{\qty{0.636}{\per\milli\meter} \times \qty{0.375}{\inch} \times \qty{25.4}{\milli\meter\per\inch}} \\
+    &= \boxed{\qty{0.167}{}}
+\end{align*}
+
+

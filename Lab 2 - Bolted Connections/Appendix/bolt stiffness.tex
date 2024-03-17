@@ -1,0 +1,69 @@
+% Length of section, $L$				
+% bolt stiffness	(in)	(mm)	Cross Sectional Area, $A_s$ (mm^2)	Stiffness, $k$ (MN/m)	1/k (m/MN)
+% k_1	0.91	23.114	57.57007695	510.7082841	0.001958065
+% k_2	1.471	37.3634	69.74372413	382.7453702	0.002612703
+% k_3	0.119	3.0226	71.25573925	4833.818879	0.000206876
+
+\section{Appendix: Bolt Stiffness Calculations}
+
+\subsection{Bolt Geometric Properties}
+The lengths of sections 1 and 2 were given as 0.91 in and 1.471 in, respectively. Section 3 is to be determined. The total length of the member was 63.5 mm. Then,
+\begin{align*}
+    L_3 &= \qty{63.5}{\milli\meter} - \qty{0.91}{\inch}\times \qty{25.4}{\milli\meter\per\inch} - \qty{1.471}{\inch}\times \qty{25.4}{\milli\meter\per\inch} \\
+    &= \qty{3.0226}{\milli\meter}
+\end{align*}
+The cross-sectional area of each section was determined by,
+\begin{align*}
+    A_1 &= \frac{\pi}{4} (d_o^2 - d_i^2) \\
+    &= \frac{\pi}{4} ((\qty{0.371}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2 - (\qty{0.155}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2) \\
+    &= \qty{57.570}{\milli\meter\squared}
+\end{align*}
+then,
+\begin{align*}
+    A_2 &= \frac{\pi}{4} d_2^2 \\
+    &= \frac{\pi}{4} (\qty{3.71}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2 \\
+    &= \qty{69.744}{\milli\meter\squared}
+\end{align*}
+lastly,
+\begin{align*}
+    A_3 &= \frac{\pi}{4} d_3^2 \\
+    &= \frac{\pi}{4} (\qty{3.75}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2 \\
+    &= \qty{71.256}{\milli\meter\squared}
+\end{align*}
+The geometric properties of the bolt are summarized in Table \ref{tab:bolt_stiffness}.
+
+\subsection{Bolt Stiffness}
+\begin{table}[h]
+    \centering
+    \caption{Bolt Stiffness Calculations}
+    \label{tab:bolt_stiffness}
+    \begin{tabular}{cccccc}
+    \toprule
+    Length of section, $L$	& bolt stiffness	& Cross Sectional Area, $A_s$	& Stiffness, $k$	& 1/k \\
+    (in)	& (mm)	& (mm$^2$)	& (MN/m)	& (m/MN) \\
+    \midrule
+    0.91	& 23.114	& 57.57 & 510.708 & 0.001958 \\
+    1.471	& 37.3634	& 69.744 & 382.745 & 0.002613 \\
+    0.119	& 3.0226	& 71.256 & 4833.819 & 0.000207 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations for Table \ref{tab:bolt_stiffness} will be shown for the stiffness of section 1. The stiffness of section 2 and 3 will be calculated in the same manner. The stiffness of section 1 was calculated by,
+\begin{align*}
+    k_1 &= \frac{E_b A_1}{L_1} \\
+    &= \frac{\qty{205.046}{\giga\pascal} \times \qty{57.570}{\milli\meter\squared}}{\qty{23.114}{\milli\meter}} \\
+    &= \qty{510.708}{\mega\newton\per\meter}
+\end{align*}
+Where $E_b$ was determined to be $\qty{205}{\giga\pascal}$ in Appendix \ref{sec:zero_preload_analysis}. Then,
+\begin{align*}
+    \frac{1}{k_1} &= \qty{0.001958}{\meter\per\mega\newton}
+\end{align*}
+
+\subsection{Total Bolt Stiffness}
+The total bolt stiffness was calculated by Eq. \ref{eq:member_stiffness_series}. The total bolt stiffness was then,
+\begin{align*}
+    k_b &= \left(\frac{1}{k_1} + \frac{1}{k_2} + \frac{1}{k_3}\right)^{-1} \\
+    &= \left(\frac{1}{\qty{0.001958}{\meter\per\mega\newton}} + \frac{1}{\qty{0.002613}{\meter\per\mega\newton}} + \frac{1}{\qty{0.000207}{\meter\per\mega\newton}}\right)^{-1} \\
+    &= \boxed{\qty{209.308}{\mega\newton\per\meter}}
+\end{align*}
+

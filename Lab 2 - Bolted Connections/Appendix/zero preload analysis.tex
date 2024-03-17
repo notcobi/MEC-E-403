@@ -1,0 +1,107 @@
+\section{Appendix: Zero Preload Data Analysis}
+\label{app:zero_preload_analysis}
+This Appendix provides the analysis of the experimental data "bolt stiffness and washer calibration (finger tight)" to determine the modulus of elasticity of the bolt. In addition, error analysis was performed with a confidenc e of 95\% to determine the corresponding uncertainty. In addition, the washer calibration was also performed to determine the relationship between the external load, washer transducer reading, and washer strain.
+
+\subsection{Modulus of Elasticity Analysis}
+\begin{table}[h]
+    \centering
+    \caption{Bolt Stiffness and Washer Calibration data}
+    \label{tab:modulus_of_elasticity_data}
+    \begin{tabular}{cccc}
+    \toprule
+    External Load, $P$ & Bolt Out, $V_{b}$ & Washer Out, $V_{w}$ & Bolt Strain, $\varepsilon_b$ \\
+    (kN) & (V) & (V) & \\
+    \midrule
+    0 & 0.006 & -0.003 & 6.00E-06 \\
+    1 & 0.085 & -0.212 & 8.50E-05 \\
+    2 & 0.168 & -0.441 & 1.68E-04 \\
+    3 & 0.253 & -0.667 & 2.53E-04 \\
+    4 & 0.335 & -0.888 & 3.35E-04 \\
+    5 & 0.417 & -1.08 & 4.17E-04 \\
+    6 & 0.498 & -1.27 & 4.98E-04 \\
+    7 & 0.581 & -1.46 & 5.81E-04 \\
+    7.5 & 0.662 & -1.547 & 6.62E-04 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+The experimental data was collected and shown in Table \ref{tab:modulus_of_elasticity_data}. Sample calculations will be shown for external load of 0 kN. The bolt strain was calculated from Eq. (\ref{eq:strain_bridge}),
+\begin{align*}
+    \varepsilon &= \frac{4 V_{b}}{K_g E_{\text{in}} G} \\
+    \varepsilon &= \frac{4 \qty{0.006}{V}}{2 \cdot \qty{5}{V} \cdot 400} \\
+    &= 6.00 \times 10^{-6}
+\end{align*}
+where $E_o$ is transducer reading, $K_g$ is the gauge factor, $E_{\text{in}}$ is the voltage input, and $G$ is the gain set. From the experimental setup, $K_g = 2$, $E_{\text{in}} = 5$, and $G = 400$. 
+
+Next, a linear regression of the external load ($P$) and bolt strain ($\varepsilon_b$), forced through the origin, was performed on the data in Table \ref{tab:modulus_of_elasticity_data} to determine the modulus of elasticity. The linear regression equation was determined using \texttt{=LINEST()} from Excel. The results are shown in Table \ref{tab:modulus_of_elasticity_regression}. The equation is then
+\begin{align*}
+    \varepsilon_b &= 8.47134 \times 10^{-5} P
+\end{align*}
+or in another form,
+\begin{align*}
+    \frac{P}{\varepsilon_b} &= \frac{1}{8.47134 \times 10^{-5}} 
+\end{align*}
+\begin{table}[h]
+    \centering
+    \caption{Linear Regression Results}
+    \label{tab:modulus_of_elasticity_regression}
+    \begin{tabular}{cc}
+    \toprule
+    Parameter & Value \\
+    \midrule
+    Slope (mm/kN) & 8.47134E-05 \\
+    Slope Standard Error, $S_a$ & 8.20567E-07 \\
+    $R^2$ & 0.999249954 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+The area where the force was applied is the outer diameter, $d_o$, minus the inner diameter, $d_i$, of the bolt. From the experimental setup, $d_o = \qty{0.371}{\inch}$ and $d_i = \qty{0.155}{\inch}$. The area is then
+\begin{align*}
+    A_1 &= \frac{\pi}{4} (d_o^2 - d_i^2) \\
+    &= \frac{\pi}{4} ((\qty{0.371}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2 - (\qty{0.155}{\inch}\times \qty{25.4}{\milli\meter\per\inch})^2) \\
+    &= \qty{57.570}{\milli\meter\squared}
+\end{align*}
+The modulus of elasticity is then
+\begin{align*}
+    E &= \frac{P}{\varepsilon_b A_1} \\
+    &= \frac{\qty{1}{\kilo\newton}}{8.47134 \times 10^{-5} \times \qty{57.570}{\milli\meter\squared}} \\
+    &= \boxed{\qty{205}{\giga\pascal}}
+\end{align*}   
+
+\subsection{Modulus of Elasticity Error Analysis}
+The uncertainty of slope was determined using the standard error of the slope, $S_a$, from the linear regression in Table \ref{tab:modulus_of_elasticity_regression} at a confidence level of 95\%. The t-distribution value was determined by 
+\begin{align*}
+    \alpha/2 &= \frac{1 - 0.95}{2} = 0.025 \\
+    n - 2 &= 9 - 2 = 7 \\
+    t_{\alpha/2, n-2} &= 2.3646
+\end{align*}
+The uncertainty of the slope is then \cite{wheeler_ganji}
+\begin{align*}
+    \delta \text{slope} &= t_{\alpha/2, n-2} \cdot S_a \\
+    &= 2.3646 \cdot 8.20567 \times 10^{-7} \\
+    &= \qty{1.94E-06}{\per\kilo\newton}
+\end{align*}
+The function for modulus of elasticity is 
+\begin{align*}
+    E &= P^{1} \varepsilon_b^{-1} A_1^{-1} \\
+    &= (\text{slope})^{-1} A_1^{-1}
+\end{align*}
+Assuming the error for $A_1$ is negligible, the uncertainty of the modulus of elasticity is then
+\begin{align*}
+    \delta E &= E \bigg|\frac{\delta \text{slope}}{\text{slope}}\bigg|\\
+    &= \qty{205}{\giga\pascal} \frac{\qty{1.94E-06}{\per\kilo\newton}}{\qty{8.47134E-05}{\per\kilo\newton}} \\
+    &= \boxed{\pm \qty{4.70}{\giga\pascal}}
+\end{align*}
+
+\subsection{Washer Calibration Analysis}
+The external load and washer transducer readings from Table \ref{tab:modulus_of_elasticity_data} were fitted with a linear regression through the origin. The linear regression equation was determined using \texttt{=LINEST()} from Excel. The equation was 
+\begin{align*}
+    E_{o, w} &= -0.211 P 
+\end{align*}
+Converting to strain using Eq. (\ref{eq:strain_bridge}), where $K_g = 2$, $E_{\text{in}} = 5$, and $G = 400$:
+\begin{align*}
+    \varepsilon_w &= \frac{4 V_{w}}{K_g E_{\text{in}} G} \\
+    &= \frac{4 \qty{-0.211}{V}P}{2 \cdot \qty{5}{V} \cdot 400} \\
+    &= \qty{-2.11E-04}{} P
+\end{align*}
+
+

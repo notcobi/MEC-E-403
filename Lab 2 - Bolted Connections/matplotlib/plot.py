@@ -3,500 +3,114 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read data from csv file
-df = pd.read_csv(r"Lab 1 - Pumps\matplotlib\single, parallel, series.csv")
+df = pd.read_excel(
+    r"Lab 2 - Bolted Connections\data_and_analysis.xlsx", sheet_name="plotting"
+)
 
-# Sort Pump Data
-df_single = df[
-    (df["Pump Configuration"] == "Single") & (df["Data Type"] == "Experimental")
-]
-df_parallel = df[
-    (df["Pump Configuration"] == "Parallel") & (df["Data Type"] == "Experimental")
-]
-df_series = df[
-    (df["Pump Configuration"] == "Series") & (df["Data Type"] == "Experimental")
-]
-df_parallel_theoretical = df[
-    (df["Pump Configuration"] == "Parallel") & (df["Data Type"] == "Theoretical")
-]
-df_series_theoretical = df[
-    (df["Pump Configuration"] == "Series") & (df["Data Type"] == "Theoretical")
-]
-df_manufacturer = df[
-    (df["Data Type"] == "Manufacturer") & (df["Pump Configuration"] == "Single")
-]
-df_geometrically_similar = df[(df["Data Type"] == "Geometrically Similar")]
-df_geometrically_dissimilar = df[(df["Data Type"] == "Geometrically Dissimilar")]
-# ----------------------------------------
-# Plot the Single Pump Head and Flow Rate
+# Plot 'external load vs bolt strain (kN vs unitless)'
 plt.figure(1)
 plt.plot(
-    df_single[df_single["Pump Speed"] == 1800]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 1800]["Corrected Head"],
+    df[df["dataset"] == "external load vs bolt strain (kN vs unitless)"]["x"],
+    df[df["dataset"] == "external load vs bolt strain (kN vs unitless)"]["y"],
     "-ko",
-    label="1800 RPM",
     markersize=6,
-    markerfacecolor="k",
+    markerfacecolor="none",
 )
-plt.plot(
-    df_single[df_single["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 2700]["Corrected Head"],
-    "-k^",
-    label="2700 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 3600]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 3600]["Corrected Head"],
-    "-ks",
-    label="3600 RPM",
-    markersize=6,
-    markerfacecolor="k",
+plt.xlabel("$P$, External Load (kN)")
+plt.ylabel("$\epsilon_b$, Bolt Strain (unitless)")
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\external_load_vs_bolt_strain",
+    dpi=300,
+    bbox_inches="tight",
 )
 
-# Error bars
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 1800]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 1800]["Corrected Head"],
-    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 1800]["Head Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 2700]["Corrected Head"],
-    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 2700]["Head Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 3600]["Volumetric Flow"],
-    df_single[df_single["Pump Speed"] == 3600]["Corrected Head"],
-    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 3600]["Head Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
-plt.ylabel(r"$H$, Corrected Head (m)")
-plt.legend(loc="upper right")
-plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Plot", dpi=300)
-
-# ----------------------------------------
-# Plot the Single Pump Head coefficient and flow coefficient
+# Plot 'external load vs washer transducer (kN vs V)'
 plt.figure(2)
 plt.plot(
-    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 1800]["Head Coeff"],
+    df[df["dataset"] == "external load vs washer transducer (kN vs V)"]["x"],
+    df[df["dataset"] == "external load vs washer transducer (kN vs V)"]["y"],
     "-ko",
-    label="Exp. 1800 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 2700]["Head Coeff"],
-    "-k^",
-    label="Exp. 2700 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 3600]["Head Coeff"],
-    "-ks",
-    label="Exp. 3600 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-
-# Error bars
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 1800]["Head Coeff"],
-    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 1800]["Head Coeff Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 2700]["Head Coeff"],
-    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 2700]["Head Coeff Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 3600]["Head Coeff"],
-    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 3600]["Head Coeff Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-# Plot the manufacturer data
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Head Coeff"],
-    "--ko",
-    label="Manu. 1800 RPM",
     markersize=6,
     markerfacecolor="none",
 )
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Head Coeff"],
-    "--k^",
-    label="Manu. 2700 RPM",
-    markersize=6,
-    markerfacecolor="none",
-)
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Head Coeff"],
-    "--ks",
-    label="Manu. 3600 RPM",
-    markersize=6,
-    markerfacecolor="none",
+plt.xlabel("$P$, External Load (kN)")
+plt.ylabel("$V_w$, Washer Transducer (V)")
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\external_load_vs_washer_transducer",
+    dpi=300,
+    bbox_inches="tight",
 )
 
-# Plot Ideal Line
-# Psi = 1 - 1.53986496 * Phi
-PhiMax = 0.147119554
-PhiMin = 0
-Phi = np.linspace(PhiMin, PhiMax, 25)
-Psi = 1 - 1.53986496 * Phi
-
-plt.plot(Phi, Psi, "-k", label="Ideal Line")
-
-plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
-plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
-plt.legend(loc="upper left")
-plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Coefficients Plot", dpi=300)
-
-# ----------------------------------------
-# Plot the Parallel Pump Head and Flow Rate
+# Plot 'torque vs preload (Nm vs kN)'
 plt.figure(3)
 plt.plot(
-    df_parallel[df_parallel["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_parallel[df_parallel["Pump Speed"] == 2700]["Corrected Head"],
+    df[df["dataset"] == "torque vs preload (Nm vs kN)"]["x"],
+    df[df["dataset"] == "torque vs preload (Nm vs kN)"]["y"],
     "-ko",
-    label="Experimental",
     markersize=6,
-    markerfacecolor="k",
+    markerfacecolor="none",
 )
+plt.xlabel("$T$, Torque (Nm)")
+plt.ylabel("$F_i$, Preload (kN)")
 
 # Error bars
 plt.errorbar(
-    df_parallel[df_parallel["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_parallel[df_parallel["Pump Speed"] == 2700]["Corrected Head"],
-    xerr=df_parallel[df_parallel["Pump Speed"] == 2700]["Flow Uncertainty"],
-    # yerr = df_parallel[df_parallel["Pump Speed"] == 2700]["Head Uncertainty"],
+    df[df["dataset"] == "torque vs preload (Nm vs kN)"]["x"],
+    df[df["dataset"] == "torque vs preload (Nm vs kN)"]["y"],
+    yerr=df[df["dataset"] == "torque vs preload (Nm vs kN)"]["yerr"],
     fmt="none",
     ecolor="k",
     capsize=5,
     elinewidth=1,
     capthick=1,
 )
-
-# Theoretical Data
-plt.plot(
-    df_parallel_theoretical[df_parallel_theoretical["Pump Speed"] == 2700][
-        "Volumetric Flow"
-    ],
-    df_parallel_theoretical[df_parallel_theoretical["Pump Speed"] == 2700][
-        "Corrected Head"
-    ],
-    "--k^",
-    label="Theoretical",
-    markersize=6,
-    markerfacecolor="none",
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\torque_vs_preload",
+    dpi=300,
+    bbox_inches="tight",
 )
 
-plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
-plt.ylabel(r"$H$, Corrected Head (m)")
-plt.legend(loc="upper right")
-plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Parallel Pump Plot", dpi=300)
-
-# ----------------------------------------
-# Plot the Series Pump Head and Flow Rate
+# Plot 'without gasket preseperation (kN vs kN)' and 'without gasket postseperation (kN vs kN)'
 plt.figure(4)
 plt.plot(
-    df_series[df_series["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_series[df_series["Pump Speed"] == 2700]["Corrected Head"],
+    df[df["dataset"] == "without gasket preseperation (kN vs kN)"]["x"],
+    df[df["dataset"] == "without gasket preseperation (kN vs kN)"]["y"],
     "-ko",
-    label="Experimental",
+    label="Preseperation",
     markersize=6,
-    markerfacecolor="k",
+    markerfacecolor="none",
 )
-
-# Error bars
-plt.errorbar(
-    df_series[df_series["Pump Speed"] == 2700]["Volumetric Flow"],
-    df_series[df_series["Pump Speed"] == 2700]["Corrected Head"],
-    xerr=df_series[df_series["Pump Speed"] == 2700]["Flow Uncertainty"],
-    # yerr = df_series[df_series["Pump Speed"] == 2700]["Head Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-# Theoretical Data
 plt.plot(
-    df_series_theoretical[df_series_theoretical["Pump Speed"] == 2700][
-        "Volumetric Flow"
-    ],
-    df_series_theoretical[df_series_theoretical["Pump Speed"] == 2700][
-        "Corrected Head"
-    ],
-    "--k^",
-    label="Theoretical",
+    df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["x"],
+    df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["y"],
+    "--ks",
+    label="Postseperation",
     markersize=6,
     markerfacecolor="none",
 )
 
-plt.xlabel(r"$Q$, Volumetric Flow Rate ($m^3 s^{-1}$)")
-plt.ylabel(r"$H$, Corrected Head (m)")
-plt.legend(loc="upper right")
-plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Series Pump Plot", dpi=300)
+plt.xlabel("$P$, External Load (kN)")
+plt.ylabel("$F_i$, Preload (kN)")
+plt.legend(loc="upper left")
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\without_gasket_preseperation_vs_postseperation",
+    dpi=300,
+    bbox_inches="tight",
+)
 
-# ----------------------------------------
-# Plot the Geometrically Similar Pump Head Coefficient and Flow Coefficient
+# Plot 'with gasket preseperation (kN vs kN)'
 plt.figure(5)
 plt.plot(
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.108][
-        "Flow Coeff"
-    ],
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.108][
-        "Head Coeff"
-    ],
+    df[df["dataset"] == "with gasket preseperation (kN vs kN)"]["x"],
+    df[df["dataset"] == "with gasket preseperation (kN vs kN)"]["y"],
     "-ko",
-    label="108 mm",
     markersize=6,
-    markerfacecolor="k",
+    markerfacecolor="none",
 )
-plt.plot(
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.102][
-        "Flow Coeff"
-    ],
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.102][
-        "Head Coeff"
-    ],
-    "--k^",
-    label="102 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.096][
-        "Flow Coeff"
-    ],
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.096][
-        "Head Coeff"
-    ],
-    "-.ks",
-    label="96 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.083][
-        "Flow Coeff"
-    ],
-    df_geometrically_similar[df_geometrically_similar["Impeller Diameter"] == 0.083][
-        "Head Coeff"
-    ],
-    "-kx",
-    label="83 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-
-plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
-plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
-plt.legend(loc="upper right")
+plt.xlabel("$P$, External Load (kN)")
+plt.ylabel("$F_i$, Preload (kN)")
 plt.savefig(
-    r"Lab 1 - Pumps\Sections\Figures\Geometrically Similar Pump Coefficients Plot",
+    r"Lab 2 - Bolted Connections\Sections\Figures\with_gasket_preseperation",
     dpi=300,
+    bbox_inches="tight",
 )
-
-# ----------------------------------------
-# Plot the Geometrically Dissimilar Pump Head Coefficient and Flow Coefficient
-plt.figure(6)
-plt.plot(
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.108
-    ]["Flow Coeff"],
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.108
-    ]["Head Coeff"],
-    "-ko",
-    label="108 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.102
-    ]["Flow Coeff"],
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.102
-    ]["Head Coeff"],
-    "--k^",
-    label="102 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.096
-    ]["Flow Coeff"],
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.096
-    ]["Head Coeff"],
-    "-.ks",
-    label="96 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.083
-    ]["Flow Coeff"],
-    df_geometrically_dissimilar[
-        df_geometrically_dissimilar["Impeller Diameter"] == 0.083
-    ]["Head Coeff"],
-    "-kx",
-    label="83 mm",
-    markersize=6,
-    markerfacecolor="k",
-)
-
-plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
-plt.ylabel(r"$\Psi$, Head Coefficient (unitless)")
-plt.legend(loc="upper right")
-plt.savefig(
-    r"Lab 1 - Pumps\Sections\Figures\Geometrically Dissimilar Pump Coefficients Plot",
-    dpi=300,
-)
-
-# ----------------------------------------
-# Single Pump Efficiency
-plt.figure(7)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 1800]["Efficiency"],
-    "-ko",
-    label="Exp. 1800 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 2700]["Efficiency"],
-    "-k^",
-    label="Exp. 2700 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-plt.plot(
-    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 3600]["Efficiency"],
-    "-ks",
-    label="Exp. 3600 RPM",
-    markersize=6,
-    markerfacecolor="k",
-)
-
-# Error bars
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 1800]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 1800]["Efficiency"],
-    xerr=df_single[df_single["Pump Speed"] == 1800]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 1800]["Efficiency Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 2700]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 2700]["Efficiency"],
-    xerr=df_single[df_single["Pump Speed"] == 2700]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 2700]["Efficiency Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-plt.errorbar(
-    df_single[df_single["Pump Speed"] == 3600]["Flow Coeff"],
-    df_single[df_single["Pump Speed"] == 3600]["Efficiency"],
-    xerr=df_single[df_single["Pump Speed"] == 3600]["Flow Coeff Uncertainty"],
-    # yerr = df_single[df_single["Pump Speed"] == 3600]["Efficiency Uncertainty"],
-    fmt="none",
-    ecolor="k",
-    capsize=5,
-    elinewidth=1,
-    capthick=1,
-)
-
-# Manufacturer Data
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 1800]["Efficiency"],
-    "--ko",
-    label="Manu. 1800 RPM",
-    markersize=6,
-    markerfacecolor="none",
-)
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 2700]["Efficiency"],
-    "--k^",
-    label="Manu. 2700 RPM",
-    markersize=6,
-    markerfacecolor="none",
-)
-plt.plot(
-    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Flow Coeff"],
-    df_manufacturer[df_manufacturer["Pump Speed"] == 3600]["Efficiency"],
-    "--ks",
-    label="Manu. 3600 RPM",
-    markersize=6,
-    markerfacecolor="none",
-)
-
-plt.xlabel(r"$\Phi$, Flow Coefficient (unitless)")
-plt.ylabel(r"$\eta$, Efficiency (%)")
-plt.legend(loc="lower right")
-plt.savefig(r"Lab 1 - Pumps\Sections\Figures\Single Pump Efficiency Plot", dpi=300)

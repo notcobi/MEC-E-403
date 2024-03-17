@@ -29,6 +29,8 @@
 \usepackage{amsmath}
 \usepackage{longtable} % Multipage tables
 \usepackage{float}
+\usepackage{subcaption}
+\usepackage[nottoc,numbib]{tocbibind}
 
 % Long table caption settings
 \setlength{\LTcapwidth}{\textwidth} % Width of long table caption
@@ -102,7 +104,7 @@
 \pagestyle{fancy} % Use the fancy page style
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{MEC E 403} % Left-aligned header
-\fancyhead[C]{Lab 1: Centrifugal Pumps} % Center header
+\fancyhead[C]{Lab 2: Bolted Connections} % Center header
 \fancyhead[R]{Alex Diep} % Right-aligned header
 \fancyfoot[C]{\thepage} % Centered page number in the footer
 
@@ -128,8 +130,10 @@
 %\newcommand{\forceindent}{{\setlength{\parindent}{2em}\indent}}
 
 % Custom SI Unit Definitions
+\DeclareSIUnit\inch{in} % Inch
 \DeclareSIUnit\LSB{LSB} % Least significant bit
 \DeclareSIUnit{\lb}{lb} % Pound
+\DeclareSIUnit{\inlb}{in-lb} % Inch-pound
 \DeclareSIUnit{\psi}{psi} % Psi
 \DeclareSIUnit{\rpm}{RPM} % Revolutions per minute
 
@@ -163,7 +167,7 @@
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 403 \\Lab 1: Centrifugal Pumps} \\
+    \Huge {MEC E 403 \\Lab 2: Bolted Connections} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -171,7 +175,7 @@
     \vspace{1cm} % Adjust vertical spacing
 
     % Date
-    \Large Date: March 1, 2023 \\ % or manually specify a date
+    \Large Date: March 20, 2023 \\ % or manually specify a date
     \vspace{2cm} % Adjust vertical spacing
 
     \begin{table}[h]
@@ -235,44 +239,27 @@
 \input{Sections/Results and Discussion.tex}
 \input{Sections/Conclusion.tex}
 
-% \newpage
-% \bibliographystyle{IEEEtran}
-% \bibliography{citations.bib}
-% \bibliography{}
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{citations.bib}
 
 \newpage
 \appendix
 \renewcommand\thefigure{\thesection.\arabic{figure}}    
 \renewcommand\thetable{\thesection.\arabic{table}}
-\input{Appendix/Single Pump Analysis.tex}
+\FloatBarrier
+\input{Appendix/zero preload analysis.tex}
 \newpage
-\input{Appendix/Parallel and Series Pump Analysis.tex}
+\input{Appendix/preload vs torque.tex}
 \newpage
-\input{Appendix/Impeller Angle.tex}
+\input{Appendix/bolt stiffness.tex}
 \newpage
-\input{Appendix/Shut Off Head.tex}
+\input{Appendix/theoretical member stiffness.tex}
 \newpage
-\input{Appendix/Geometrically Similar.tex}
+\input{Appendix/experimental member stiffness.tex}
 \newpage
-\input{Appendix/Pump Efficiency.tex}
+\input{Appendix/joint seperation.tex}
+\newpage
+\input{Appendix/dynamic loading.tex}
 
-% \input{Appendix/Figures.tex}
-% \newpage
-% \input{Appendix/Tables.tex}
-% \newpage
-% \input{Appendix/Calibration.tex}
-% \newpage
-% \input{Appendix/Transient.tex}
-% \newpage
-% %\input{Appendix/Calibration_data.tex}
-% %\newpage
-% \input{Appendix/A}
-% \newpage
-% \input{Appendix/B}
-% \newpage
-% \input{Appendix/C}
-% \newpage
-% \input{Appendix/D}
-% \newpage
-% \input{Appendix/E}
 \end{document}

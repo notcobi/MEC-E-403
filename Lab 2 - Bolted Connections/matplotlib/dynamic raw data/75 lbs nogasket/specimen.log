@@ -1,0 +1,9 @@
+(02/08/2024 14:44:00) Information [MPT Runtime] "Procedure Beginning: 403 Cycle.000"
+(02/08/2024 14:44:00) Information [Stmgr] "Running test"
+(02/08/2024 14:44:00) Information [MPT Runtime] "Running"
+(02/08/2024 14:45:13) Information [MPT Runtime] "Procedure Done"
+(02/08/2024 14:45:13) Information [Stmgr] "Stopped test"
+(02/08/2024 14:45:14) Information [MPT Runtime] "Stopped
+ Running Time:  00:01:13 
+ Channel Counters:
+    Ch 1 -         21  Cycles"

@@ -1,0 +1,257 @@
+(02/08/2024 14:47:37) Information [MPT Runtime] "Procedure Beginning: 403 Cycle.000"
+(02/08/2024 14:47:37) Information [Stmgr] "Running test"
+(02/08/2024 14:47:37) Information [MPT Runtime] "Running"
+(02/08/2024 14:48:49) Information [MPT Runtime] "Procedure Done"
+(02/08/2024 14:48:49) Information [Stmgr] "Stopped test"
+(02/08/2024 14:48:50) Information [MPT Runtime] "Stopped
+ Running Time:  00:01:13 
+ Channel Counters:
+    Ch 1 -         21  Cycles"
+(02/08/2024 14:49:11) Information [Stmgr] "Controlling Application -- Basic TestWare"
+(02/08/2024 14:49:12) Information [Stmgr] "Controlling Application -- MPT"
+(02/08/2024 14:49:13) Information [Stmgr] "Controlling Application -- Basic TestWare"
+(02/08/2024 14:49:17) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 17.0 cycles
+Total Count: 17.0 cycles"
+(02/08/2024 14:49:17) Information [Stmgr] "Running test"
+(02/08/2024 14:49:18) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 17.5 cycles
+Total Count: 17.5 cycles"
+(02/08/2024 14:49:18) Information [Stmgr] "Stopped test"
+(02/08/2024 14:49:45) Information [Stmgr] "Handset exclusive control enabled."
+(02/08/2024 14:50:44) Information [Stmgr] "Handset exclusive control disabled."
+(02/08/2024 14:50:44) Information [Stmgr] "Handset exclusive control enabled."
+(02/08/2024 14:51:01) Information [Stmgr] "Handset exclusive control disabled."
+(02/08/2024 14:51:11) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 17.5 cycles
+Total Count: 17.5 cycles"
+(02/08/2024 14:51:11) Information [Stmgr] "Running test"
+(02/08/2024 14:51:12) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 18.0 cycles
+Total Count: 18.0 cycles"
+(02/08/2024 14:51:12) Information [Stmgr] "Stopped test"
+(02/08/2024 14:51:17) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 18.0 cycles
+Total Count: 18.0 cycles"
+(02/08/2024 14:51:17) Information [Stmgr] "Running test"
+(02/08/2024 14:51:18) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 18.5 cycles
+Total Count: 18.5 cycles"
+(02/08/2024 14:51:18) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:09) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 18.5 cycles
+Total Count: 18.5 cycles"
+(02/08/2024 14:52:09) Information [Stmgr] "Running test"
+(02/08/2024 14:52:10) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 19.0 cycles
+Total Count: 19.0 cycles"
+(02/08/2024 14:52:10) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:14) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 19.0 cycles
+Total Count: 19.0 cycles"
+(02/08/2024 14:52:14) Information [Stmgr] "Running test"
+(02/08/2024 14:52:15) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 19.5 cycles
+Total Count: 19.5 cycles"
+(02/08/2024 14:52:15) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:19) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 19.5 cycles
+Total Count: 19.5 cycles"
+(02/08/2024 14:52:19) Information [Stmgr] "Running test"
+(02/08/2024 14:52:20) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 20.0 cycles
+Total Count: 20.0 cycles"
+(02/08/2024 14:52:20) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:49) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 20.0 cycles
+Total Count: 20.0 cycles"
+(02/08/2024 14:52:49) Information [Stmgr] "Running test"
+(02/08/2024 14:52:50) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 20.5 cycles
+Total Count: 20.5 cycles"
+(02/08/2024 14:52:50) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:53) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 20.5 cycles
+Total Count: 20.5 cycles"
+(02/08/2024 14:52:53) Information [Stmgr] "Running test"
+(02/08/2024 14:52:54) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 21.0 cycles
+Total Count: 21.0 cycles"
+(02/08/2024 14:52:54) Information [Stmgr] "Stopped test"
+(02/08/2024 14:52:57) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 21.0 cycles
+Total Count: 21.0 cycles"
+(02/08/2024 14:52:57) Information [Stmgr] "Running test"
+(02/08/2024 14:52:58) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 21.5 cycles
+Total Count: 21.5 cycles"
+(02/08/2024 14:52:58) Information [Stmgr] "Stopped test"
+(02/08/2024 14:53:18) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 21.5 cycles
+Total Count: 21.5 cycles"
+(02/08/2024 14:53:18) Information [Stmgr] "Running test"
+(02/08/2024 14:53:19) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 22.0 cycles
+Total Count: 22.0 cycles"
+(02/08/2024 14:53:19) Information [Stmgr] "Stopped test"
+(02/08/2024 14:53:22) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 22.0 cycles
+Total Count: 22.0 cycles"
+(02/08/2024 14:53:22) Information [Stmgr] "Running test"
+(02/08/2024 14:53:23) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 22.5 cycles
+Total Count: 22.5 cycles"
+(02/08/2024 14:53:23) Information [Stmgr] "Stopped test"
+(02/08/2024 14:53:26) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 22.5 cycles
+Total Count: 22.5 cycles"
+(02/08/2024 14:53:26) Information [Stmgr] "Running test"
+(02/08/2024 14:53:27) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 23.0 cycles
+Total Count: 23.0 cycles"
+(02/08/2024 14:53:27) Information [Stmgr] "Stopped test"
+(02/08/2024 14:53:53) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 23.0 cycles
+Total Count: 23.0 cycles"
+(02/08/2024 14:53:53) Information [Stmgr] "Running test"
+(02/08/2024 14:53:54) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 23.5 cycles
+Total Count: 23.5 cycles"
+(02/08/2024 14:53:54) Information [Stmgr] "Stopped test"
+(02/08/2024 14:54:12) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 23.5 cycles
+Total Count: 23.5 cycles"
+(02/08/2024 14:54:12) Information [Stmgr] "Running test"
+(02/08/2024 14:54:13) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 24.0 cycles
+Total Count: 24.0 cycles"
+(02/08/2024 14:54:13) Information [Stmgr] "Stopped test"
+(02/08/2024 14:54:33) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 24.0 cycles
+Total Count: 24.0 cycles"
+(02/08/2024 14:54:33) Information [Stmgr] "Running test"
+(02/08/2024 14:54:34) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 24.5 cycles
+Total Count: 24.5 cycles"
+(02/08/2024 14:54:34) Information [Stmgr] "Stopped test"
+(02/08/2024 14:54:53) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 24.5 cycles
+Total Count: 24.5 cycles"
+(02/08/2024 14:54:53) Information [Stmgr] "Running test"
+(02/08/2024 14:54:54) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 25.0 cycles
+Total Count: 25.0 cycles"
+(02/08/2024 14:54:54) Information [Stmgr] "Stopped test"
+(02/08/2024 14:55:22) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 25.0 cycles
+Total Count: 25.0 cycles"
+(02/08/2024 14:55:22) Information [Stmgr] "Running test"
+(02/08/2024 14:55:23) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 25.5 cycles
+Total Count: 25.5 cycles"
+(02/08/2024 14:55:23) Information [Stmgr] "Stopped test"
+(02/08/2024 14:55:40) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 25.5 cycles
+Total Count: 25.5 cycles"
+(02/08/2024 14:55:40) Information [Stmgr] "Running test"
+(02/08/2024 14:55:41) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 26.0 cycles
+Total Count: 26.0 cycles"
+(02/08/2024 14:55:41) Information [Stmgr] "Stopped test"
+(02/08/2024 14:55:58) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 26.0 cycles
+Total Count: 26.0 cycles"
+(02/08/2024 14:55:58) Information [Stmgr] "Running test"
+(02/08/2024 14:55:59) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 26.5 cycles
+Total Count: 26.5 cycles"
+(02/08/2024 14:55:59) Information [Stmgr] "Stopped test"
+(02/08/2024 14:56:18) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 26.5 cycles
+Total Count: 26.5 cycles"
+(02/08/2024 14:56:18) Information [Stmgr] "Running test"
+(02/08/2024 14:56:19) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 27.0 cycles
+Total Count: 27.0 cycles"
+(02/08/2024 14:56:19) Information [Stmgr] "Stopped test"
+(02/08/2024 14:56:37) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 27.0 cycles
+Total Count: 27.0 cycles"
+(02/08/2024 14:56:38) Information [Stmgr] "Running test"
+(02/08/2024 14:56:39) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 27.5 cycles
+Total Count: 27.5 cycles"
+(02/08/2024 14:56:39) Information [Stmgr] "Stopped test"
+(02/08/2024 14:57:01) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 27.5 cycles
+Total Count: 27.5 cycles"
+(02/08/2024 14:57:01) Information [Stmgr] "Running test"
+(02/08/2024 14:57:02) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 28.0 cycles
+Total Count: 28.0 cycles"
+(02/08/2024 14:57:02) Information [Stmgr] "Stopped test"
+(02/08/2024 14:57:10) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 28.0 cycles
+Total Count: 28.0 cycles"
+(02/08/2024 14:57:10) Information [Stmgr] "Running test"
+(02/08/2024 14:57:11) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 28.5 cycles
+Total Count: 28.5 cycles"
+(02/08/2024 14:57:11) Information [Stmgr] "Stopped test"
+(02/08/2024 14:58:52) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 28.5 cycles
+Total Count: 28.5 cycles"
+(02/08/2024 14:58:52) Information [Stmgr] "Running test"
+(02/08/2024 14:58:53) Information [Basic TestWare] "Test Counter Values: 403Bolt.tst
+Preset Count is currently disabled
+Current Count: 29.0 cycles
+Total Count: 29.0 cycles"
+(02/08/2024 14:58:53) Information [Stmgr] "Stopped test"
+(02/08/2024 14:58:54) Information [Stmgr] "Controlling Application -- MPT"

@@ -1,0 +1,36 @@
+\section{Appendix: Dynamic Loading}
+\label{sec:dynamic_loading}
+
+\begin{table}[h]
+    \centering
+    \caption{Dynamic Loading Summary for Various Torques and Gasket Conditions}
+    \label{tab:dynamic_loading}
+    \begin{tabular}{p{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \toprule
+    & Torque, $T$ & Max Stress, $\sigma_{\text{max}}$ & Min Stress, $\sigma_{\text{min}}$ & Mean Stress, $\sigma_{\text{mean}}$ & Alternating Stress, $\sigma_{\text{a}}$ \\
+    & (in-lb) & (MPa) & (MPa) & (MPa) & (MPa) \\
+    \midrule
+    \multirow{4}{*}{With Gasket} & 0 & 105.035 & 61.804 & 83.420 & 21.615 \\
+    & 60 & 110.300 & 88.864 & 99.582 & 10.718 \\
+    & 75 & 124.101 & 110.488 & 117.295 & 6.806 \\
+    & 125 & 174.584 & 167.250 & 170.917 & 3.667 \\
+    \midrule
+    \multirow{4}{*}{No Gasket} & 0 & 105.330 & 62.098 & 83.714 & 21.616 \\
+    & 60 & 106.347 & 84.153 & 95.250 & 11.097 \\
+    & 75 & 108.671 & 101.337 & 105.004 & 3.667 \\
+    & 125 & 166.652 & 163.258 & 164.955 & 1.697 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+The raw transducer data was converted using Eq. (\ref{eq:strain_bridge}) in a similar fashion to Appendix \ref{app:zero_preload_analysis}. Sample calculations will be shown for the first row of Table \ref{tab:dynamic_loading}. The min and max stress were calculated by \texttt{.max()} and \texttt{.min()} from Pandas \cite{pandas}. The mean stress was calculated by
+\begin{align*}
+    \sigma_{\text{mean}} &= \frac{\sigma_{\text{max}} + \sigma_{\text{min}}}{2} \\
+    &= \frac{\qty{105.035}{\mega\pascal} + \qty{61.804}{\mega\pascal}}{2} \\
+    &= \qty{83.420}{\mega\pascal}
+\end{align*}
+The alternating stress was then calculated by
+\begin{align*}
+    \sigma_{\text{a}} &= \frac{\sigma_{\text{max}} - \sigma_{\text{min}}}{2} \\
+    &= \frac{\qty{105.035}{\mega\pascal} - \qty{61.804}{\mega\pascal}}{2} \\
+    &= \qty{21.615}{\mega\pascal}
+\end{align*}

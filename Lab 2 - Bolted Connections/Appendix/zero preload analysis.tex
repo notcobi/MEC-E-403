@@ -1,6 +1,6 @@
 \section{Appendix: Zero Preload Data Analysis}
 \label{app:zero_preload_analysis}
-This Appendix provides the analysis of the experimental data "bolt stiffness and washer calibration (finger tight)" to determine the modulus of elasticity of the bolt. In addition, error analysis was performed with a confidenc e of 95\% to determine the corresponding uncertainty. In addition, the washer calibration was also performed to determine the relationship between the external load, washer transducer reading, and washer strain.
+This Appendix provides the analysis of the experimental data "bolt stiffness and washer calibration (finger tight)" to determine the modulus of elasticity of the bolt. In addition, error analysis was performed with a confidence of 95\% to determine the corresponding uncertainty. In addition, the washer calibration was also performed to determine the relationship between the external load, washer transducer reading, and washer strain.
 
 \subsection{Modulus of Elasticity Analysis}
 \begin{table}[h]
@@ -85,7 +85,7 @@ The function for modulus of elasticity is
     E &= P^{1} \varepsilon_b^{-1} A_1^{-1} \\
     &= (\text{slope})^{-1} A_1^{-1}
 \end{align*}
-Assuming the error for $A_1$ is negligible, the uncertainty of the modulus of elasticity is then
+This is the purely multiplicative case for error propagation \cite{wheeler_ganji}. Assuming the error for $A_1$ is negligible, the uncertainty of the modulus of elasticity is then
 \begin{align*}
     \delta E &= E \bigg|\frac{\delta \text{slope}}{\text{slope}}\bigg|\\
     &= \qty{205}{\giga\pascal} \frac{\qty{1.94E-06}{\per\kilo\newton}}{\qty{8.47134E-05}{\per\kilo\newton}} \\

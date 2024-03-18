@@ -1,0 +1,33 @@
+feedback from report 1 
+- improve abstract, worth 15% for some reason (-5%)
+    - discuss all "items to consider" in the abstract 
+- make sure list of figures and list of tables are on seperate pages
+- improve introduction (-3%)
+    - talk about background
+    - talk about what exactly is being measured
+    - talk about what will be calculated
+    - talk about industry applications. cite a textbook or something
+    - basically make it an abstract without the numbers or the "answer items to consider"
+- results and discussion (-7%)
+    - use line of best fit for curves (to be clarified. did they want second order fit?)
+    - include values?
+    - reference theory section in discussion
+    - make up reasons for why pump was not meeting expected values
+- conclusion (-1%)
+    - idfk what they want
+- appendix
+    - discuss the major sources of error i guess ?????
+
+
+questions for TA for report 2
+- Plots
+    - do the plots look about right?
+    - is there an expected plot for the dynamic data?
+- Error propagation
+    - is this considered full enough for error propagation?
+    - what quantities do we need to calculate the error for other than for the preload vs torque 
+- "Using data from the zero preload trial, determine the washer calibration by plotting bridge output against external load." What is washer calibration?
+- i used a quadratic fit for gasket, are you supposed to use linear fit so you can calculate the k_m
+- do we need to mention the equivalent strain from the shunt resistor?
+- general common issues
+- prelab marks

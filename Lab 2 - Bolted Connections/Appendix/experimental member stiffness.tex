@@ -64,18 +64,18 @@ Compared to the theoretical value of $\qty{2222.774}{\kilo\newton\per\meter}$, t
     &= \boxed{28.0\%}
 \end{align*}
 
-\subsection{Experimental Member Stiffness With Gasket}
-Applying linear regression to the preseperation data in Table \ref{tab:member_stiffness_data} yields the following equation from \texttt{=LINEST()} in Excel,
-\begin{align*}
-    F_i &= \underbrace{0.4842}_{C} P + 3.3904
-\end{align*}
-Comparing the form of the linear regression to Eq. (\ref{eq:total_load_bolt}), $C = 0.4842$. Then, by Eq. (\ref{eq:constant_C}),
-\begin{align*}
-    C &= \frac{k_b}{k_b + k_m} \\
-    \implies k_{m, \text{exp}} &= \frac{k_b}{\frac{1}{C} - 1} \\
-    &= \frac{\qty{209.308}{\mega\newton\per\meter}}{\frac{1}{0.4842} - 1} \\
-    &= \boxed{\qty{223}{\mega\newton\per\meter}}
-\end{align*}
+% \subsection{Experimental Member Stiffness With Gasket}
+% Applying linear regression to the preseperation data in Table \ref{tab:member_stiffness_data} yields the following equation from \texttt{=LINEST()} in Excel,
+% \begin{align*}
+%     F_i &= \underbrace{0.4842}_{C} P + 3.3904
+% \end{align*}
+% Comparing the form of the linear regression to Eq. (\ref{eq:total_load_bolt}), $C = 0.4842$. Then, by Eq. (\ref{eq:constant_C}),
+% \begin{align*}
+%     C &= \frac{k_b}{k_b + k_m} \\
+%     \implies k_{m, \text{exp}} &= \frac{k_b}{\frac{1}{C} - 1} \\
+%     &= \frac{\qty{209.308}{\mega\newton\per\meter}}{\frac{1}{0.4842} - 1} \\
+%     &= \boxed{\qty{223}{\mega\newton\per\meter}}
+% \end{align*}
 
 
 

@@ -68,6 +68,46 @@ The modulus of elasticity is then
 \end{align*}   
 
 \subsection{Modulus of Elasticity Error Analysis}
+\subsubsection{Error Propagation Derivation}
+\label{sec:error_propagation_derivation}
+Because I got dinged for not showing "full" error propagation, I will rewrite the derivation here because I am upset. 
+
+If we know how a quantity of interest depends on other, directly measurable quantizes, it is posable to estimate the uncertainty of this "output" quantity based on the uncertainties in the measured quantizes. For example, we can calculate the uncertainty associated to a volume based on the uncertainty of the measurement of the individual dimensions.
+
+Consider as results, $R$, which is a function of $n$ variables, $x_1, \ldots, x_n$:
+\begin{align*}
+    R &= f(x_1, \ldots, x_n)
+\end{align*}
+If the individual measurands, $x_i$, have an associated uncertainty $w_{x_i}$, what is teh uncertainty of $w_R$ of the result R?
+
+Defining $x:= (x_1, \ldots, x_n)$, and $x_m := (x_{m, 1}, \ldots, x_{m, n})$, perform the Taylor series expansion of $R= f(x)$ about the point $x = x_m$, taking $x_i - x_{m, i} = w_{x_i}$:
+\begin{gather*}
+    R = f(x_m) + \frac{\partial f}{\partial x_1} \bigg|_{x = x_m} \underbrace{(x_1 - x_{m, 1})}_{w_{x_1}} + \ldots + \frac{\partial f}{\partial x_n} \bigg|_{x = x_m} \underbrace{(x_n - x_{m, n})}_{w_{x_n}} + \text{H.O.T.} \\
+    \underbrace{R - f(x_m)}_{w_R} = \frac{\partial f}{\partial x_1} \bigg|_{x = x_m} w_{x_1} + \ldots + \frac{\partial f}{\partial x_n} \bigg|_{x = x_m} w_{x_n} + \text{H.O.T.}
+\end{gather*}
+The higher-order terms contain quadratic terms $w_{x_i}w_{x_j}$, cubic terms $w_{x_i}w_{x_j}w_{x_k}$, and so on. Assuming the individual uncertainties $w_{x_i}$ are small,  we can take these higher-order terms as zero, giving 
+\begin{align*}
+    w_R &= \sum_{i=1}^n \bigg|\frac{\partial f}{\partial x_i} \bigg|_{x = x_m} w_{x_i} \bigg|
+\end{align*}
+However, this is the worst-case uncertainty, and is an overly conservative estimate. A better estimate is to use the root of sum of squares
+\begin{align}
+    w_R &= \sqrt{\sum_{i=1}^n \left[\frac{\partial f}{\partial x_i} \bigg|_{x = x_m} w_{x_i}\right]^2} \label{eq:error_propagation}
+\end{align}
+If the confidence levels associated to the individual uncertainties $w_{x_i}$ are all identical (for instance 95\%), the confidence level of the result $w_R$ will be the same. 
+
+The key assumption behind RSS is that the set of measured variables $x_1, \ldots, x_n$ are \textbf{statistically indecent}.IIf this is not the case, a different formulation needs to be used. Also note that all uncertainties $w_{x_i}$ need to be small such that the first-order Taylor series approximation holds. 
+
+Consider the case where the result $R$ is dependent only on the product of the measured variables, $x_1, \ldots, x_n$ with associated uncertainties $w_{x_1}, \ldots, w_{x_n}$ as 
+\begin{align*}
+    R = C x_{1}^{c_1} x_{2}^{c_2} \ldots x_{n}^{c_n}
+\end{align*}
+where $C$ and $c_1, \ldots, c_n$ are constants. In this case, the RSS formula gives
+\begin{align}
+    w_{R} = \sqrt{\left(C c_1 x_{1}^{c_1 - 1} w_{x_1}\right)^2 + \ldots + \left(C c_n x_{1}^{c_1} x_{2}^{c_2} \ldots c_n x_{n}^{c_n - 1} w_{x_n}\right)^2} \nonumber \\
+    \implies \frac{w_{R}}{|R|} = \sqrt{\left(\frac{c_1 w_{x_1}}{x_1}\right)^2 + \ldots + \left(\frac{c_n w_{x_n}}{x_n}\right)^2} \label{eq:error_propagation_pure_multiplicative}
+\end{align}
+
+\subsubsection{Modulus of Elasticity Error Analysis}
 The uncertainty of slope was determined using the standard error of the slope, $S_a$, from the linear regression in Table \ref{tab:modulus_of_elasticity_regression} at a confidence level of 95\%. The t-distribution value was determined by 
 \begin{align*}
     \alpha/2 &= \frac{1 - 0.95}{2} = 0.025 \\
@@ -85,12 +125,15 @@ The function for modulus of elasticity is
     E &= P^{1} \varepsilon_b^{-1} A_1^{-1} \\
     &= (\text{slope})^{-1} A_1^{-1}
 \end{align*}
-This is the purely multiplicative case for error propagation \cite{wheeler_ganji}. Assuming the error for $A_1$ is negligible, the uncertainty of the modulus of elasticity is then
+This is the purely multiplicative case for error propagation \cite{wheeler_ganji}. 
+
+Assuming the error for $A_1$ is negligible, then by Eq. (\ref{eq:error_propagation_pure_multiplicative}), the uncertainty of the modulus of elasticity is then
 \begin{align*}
     \delta E &= E \bigg|\frac{\delta \text{slope}}{\text{slope}}\bigg|\\
     &= \qty{205}{\giga\pascal} \frac{\qty{1.94E-06}{\per\kilo\newton}}{\qty{8.47134E-05}{\per\kilo\newton}} \\
     &= \boxed{\pm \qty{4.70}{\giga\pascal}}
 \end{align*}
+This quantity is relatively small compared to the modulus of elasticity, and is expected. Please, let me know if I need to show an even more formal statistical derivation of error propagation to satisfy any pedantic needs.
 
 \subsection{Washer Calibration Analysis}
 The external load and washer transducer readings from Table \ref{tab:modulus_of_elasticity_data} were fitted with a linear regression through the origin. The linear regression equation was determined using \texttt{=LINEST()} from Excel. The equation was 

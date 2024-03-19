@@ -27,6 +27,8 @@ questions for TA for report 2
     - is this considered full enough for error propagation?
     - what quantities do we need to calculate the error for other than for the preload vs torque 
 - "Using data from the zero preload trial, determine the washer calibration by plotting bridge output against external load." What is washer calibration?
+find the linear relationship between the input and external load
+item 9, use the post seperation slope
 - i used a quadratic fit for gasket, are you supposed to use linear fit so you can calculate the k_m
 - do we need to mention the equivalent strain from the shunt resistor?
 - general common issues

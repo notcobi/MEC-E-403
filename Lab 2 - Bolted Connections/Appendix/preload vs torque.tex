@@ -77,12 +77,13 @@ Defining bias uncertainty as resolution, $B_{V_b} = 0.001$, the total uncertaint
     &= \sqrt{(\qty{0.031}{\volt})^2 + (\qty{0.001}{\volt})^2} \\
     &= \qty{0.031}{\volt}
 \end{align*}
-The uncertainty of the preload for the second row of Table \ref{tab:preload_vs_torque} is then
+Since the equation for $F_i$ is purely multiplicative, by Eq. (\ref{eq:error_propagation_pure_multiplicative}), the uncertainty of the preload for the second row of Table \ref{tab:preload_vs_torque} is then
 \begin{align*}
     \delta F_i &= F_i \sqrt{\left(\frac{\delta V_b}{V_b}\right)^2 + \left(\frac{\delta E_b}{E_b}\right)^2} \\
     &= \qty{1.65}{\kilo\newton} \sqrt{\left(\frac{\qty{0.031}{\volt}}{\qty{0.140}{\volt}}\right)^2 + \left(\frac{\qty{4.70}{\giga\pascal}}{\qty{205.046}{\giga\pascal}}\right)^2} \\
     &= \qty{0.368}{\kilo\newton}
 \end{align*}
+If this is not "complete" enough for error propagation, please, please refer to Section \ref{sec:error_propagation_derivation} for the complete derivation of the error propagation formula.
 
 \subsection{Torque Coefficient Analysis}
 Applyig linear regression, forced through the origin, to the data in Table \ref{tab:preload_vs_torque} using \texttt{=LINEST()} from Excel, the equation is,

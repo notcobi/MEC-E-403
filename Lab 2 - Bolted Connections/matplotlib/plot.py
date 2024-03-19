@@ -24,7 +24,12 @@ plt.plot(
     markersize=6,
     markerfacecolor="none",
 )
-plt.text(x.iloc[len(x) // 2] + 0.5, a * x.iloc[len(x) // 2], f"$\epsilon_b = ({a[0]:.2E})P$", fontsize=12)
+plt.text(
+    x.iloc[len(x) // 2] + 0.5,
+    a * x.iloc[len(x) // 2],
+    f"$\epsilon_b = ({a[0]:.2E})P$",
+    fontsize=12,
+)
 plt.xlabel("$P$, External Load (kN)")
 plt.ylabel("$\epsilon_b$, Bolt Strain (unitless)")
 plt.savefig(
@@ -51,7 +56,12 @@ plt.plot(
 )
 plt.xlabel("$P$, External Load (kN)")
 plt.ylabel("$V_w$, Washer Transducer (V)")
-plt.text(x.iloc[len(x) // 2] + 0.5, a * x.iloc[len(x) // 2], f"$V_w = ({a[0]:.2E})P$", fontsize=12)
+plt.text(
+    x.iloc[len(x) // 2] + 0.5,
+    a * x.iloc[len(x) // 2],
+    f"$V_w = ({a[0]:.2E})P$",
+    fontsize=12,
+)
 plt.savefig(
     r"Lab 2 - Bolted Connections\Sections\Figures\external_load_vs_washer_transducer",
     dpi=300,
@@ -76,7 +86,12 @@ plt.plot(
 )
 plt.xlabel("$T$, Torque (Nm)")
 plt.ylabel("$F_i$, Preload (kN)")
-plt.text(x.iloc[len(x) // 2] + 0.5, a * x.iloc[len(x) // 2], f"$F_i = ({a[0]:.2E})T$", fontsize=12)
+plt.text(
+    x.iloc[len(x) // 2] + 0.5,
+    a * x.iloc[len(x) // 2],
+    f"$F_i = ({a[0]:.2E})T$",
+    fontsize=12,
+)
 
 # Error bars
 plt.errorbar(
@@ -107,13 +122,13 @@ x2 = df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["x"]
 y2 = df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["y"]
 a2, b2 = np.polyfit(x2, y2, 1)
 
-plt.plot(x1, a1 * x1 + b1, "--k", label="Preseperation Linear Fit")
-plt.plot(x2, a2 * x2 + b2, "-.k", label="Postseperation Linear Fit")
+plt.plot(x1, a1 * x1 + b1, "--k", label="Preseparation Linear Fit")
+plt.plot(x2, a2 * x2 + b2, "-.k", label="Postseparation Linear Fit")
 plt.plot(
     df[df["dataset"] == "without gasket preseperation (kN vs kN)"]["x"],
     df[df["dataset"] == "without gasket preseperation (kN vs kN)"]["y"],
     "ko",
-    label="Preseperation",
+    label="Preseparation",
     markersize=6,
     markerfacecolor="none",
 )
@@ -121,12 +136,22 @@ plt.plot(
     df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["x"],
     df[df["dataset"] == "without gasket postseperation (kN vs kN)"]["y"],
     "ks",
-    label="Postseperation",
+    label="Postseparation",
     markersize=6,
     markerfacecolor="none",
 )
-plt.text(x1.iloc[len(x1) // 2] + 1.2, a1 * x1.iloc[len(x1) // 2] + b1, f"$F_i = ({a1:.2E})P + {b1:.2f}$", fontsize=12)
-plt.text(x2.iloc[len(x2) // 2] - 5.5, a2 * x2.iloc[len(x2) // 2] + b2 - 1, f"$F_i = ({a2:.2E})P + {b2:.2E}$", fontsize=12)
+plt.text(
+    x1.iloc[len(x1) // 2] + 1.2,
+    a1 * x1.iloc[len(x1) // 2] + b1,
+    f"$F_i = ({a1:.2E})P + {b1:.2f}$",
+    fontsize=12,
+)
+plt.text(
+    x2.iloc[len(x2) // 2] - 5.5,
+    a2 * x2.iloc[len(x2) // 2] + b2 - 1,
+    f"$F_i = ({a2:.2E})P + {b2:.2E}$",
+    fontsize=12,
+)
 
 plt.xlabel("$P$, External Load (kN)")
 plt.ylabel("$F_i$, Preload (kN)")
@@ -148,8 +173,8 @@ a1, b1 = np.polyfit(x, y, 1)
 # Quadratic fit
 a2, b2, c2 = np.polyfit(x, y, 2)
 
-plt.plot(x, a1 * x + b1, "--k", label="Linear Fit")
-plt.plot(x, a2 * x ** 2 + b2 * x + c2, ":k", label="Quadratic Fit")
+#plt.plot(x, a1 * x + b1, "--k", label="Linear Fit")
+plt.plot(x, a2 * x**2 + b2 * x + c2, ":k", label="Quadratic Fit")
 plt.plot(
     df[df["dataset"] == "with gasket preseperation (kN vs kN)"]["x"],
     df[df["dataset"] == "with gasket preseperation (kN vs kN)"]["y"],
@@ -160,10 +185,88 @@ plt.plot(
 plt.xlabel("$P$, External Load (kN)")
 plt.ylabel("$F_i$, Preload (kN)")
 plt.text(0.9, 5.5, f"$F_i = ({a1:.2E})P + {b1:.2f}$", fontsize=12)
-plt.text(2, 4 , f"$F_i = ({a2:.2E})P^2 + ({b2:.2E})P + {c2:.2f}$", fontsize=12)
+plt.text(2, 4, f"$F_i = ({a2:.2E})P^2 + ({b2:.2E})P + {c2:.2f}$", fontsize=12)
 plt.legend(loc="upper left")
 plt.savefig(
     r"Lab 2 - Bolted Connections\Sections\Figures\with_gasket_preseperation",
+    dpi=300,
+    bbox_inches="tight",
+)
+
+# Plot Mean Stress 
+plt.figure(6)
+
+# quadratic fit
+x1 = df[df["dataset"] == "mean stress with gasket (MPa vs in-lb)"]["x"]
+y1 = df[df["dataset"] == "mean stress with gasket (MPa vs in-lb)"]["y"]
+a1, b1, c1 = np.polyfit(x1, y1, 2)
+
+x2 = df[df["dataset"] == "mean stress without gasket (MPa vs in-lb)"]["x"]
+y2 = df[df["dataset"] == "mean stress without gasket (MPa vs in-lb)"]["y"]
+a2, b2, c2 = np.polyfit(x2, y2, 2)
+
+plt.plot(
+    df[df["dataset"] == "mean stress with gasket (MPa vs in-lb)"]["x"], 
+    df[df["dataset"] == "mean stress with gasket (MPa vs in-lb)"]["y"],
+    "ko",
+    label="With Gasket",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df[df["dataset"] == "mean stress without gasket (MPa vs in-lb)"]["x"], 
+    df[df["dataset"] == "mean stress without gasket (MPa vs in-lb)"]["y"],
+    "ks",
+    label="Without Gasket",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(x1, a1 * x1**2 + b1 * x1 + c1, "--k", label="With Gasket Quadratic Fit")
+plt.plot(x2, a2 * x2**2 + b2 * x2 + c2, "-.k", label="Without Gasket Quadratic Fit")
+plt.legend(loc="upper left")
+plt.xlabel("Torque (in-lb)")
+plt.ylabel("Mean Stress (MPa)")
+plt.legend(loc="upper left")
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\mean_stress",
+    dpi=300,
+    bbox_inches="tight",
+)
+
+# Plot Alternating Stress
+plt.figure(7)
+
+# quadratic fit
+x1 = df[df["dataset"] == "alternating stress with gasket (MPa vs in-lb)"]["x"]
+y1 = df[df["dataset"] == "alternating stress with gasket (MPa vs in-lb)"]["y"]
+a1, b1, c1 = np.polyfit(x1, y1, 2)
+
+x2 = df[df["dataset"] == "alternating stress without gasket (MPa vs in-lb)"]["x"]
+y2 = df[df["dataset"] == "alternating stress without gasket (MPa vs in-lb)"]["y"]
+a2, b2, c2 = np.polyfit(x2, y2, 2)
+plt.plot(x1, a1 * x1**2 + b1 * x1 + c1, "--k", label="With Gasket Quadratic Fit")
+plt.plot(x2, a2 * x2**2 + b2 * x2 + c2, "-.k", label="Without Gasket Quadratic Fit")
+plt.plot(
+    df[df["dataset"] == "alternating stress with gasket (MPa vs in-lb)"]["x"], 
+    df[df["dataset"] == "alternating stress with gasket (MPa vs in-lb)"]["y"],
+    "ko",
+    label="With Gasket",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.plot(
+    df[df["dataset"] == "alternating stress without gasket (MPa vs in-lb)"]["x"], 
+    df[df["dataset"] == "alternating stress without gasket (MPa vs in-lb)"]["y"],
+    "ks",
+    label="Without Gasket",
+    markersize=6,
+    markerfacecolor="none",
+)
+plt.legend(loc="lower left")
+plt.xlabel("Torque (in-lb)")
+plt.ylabel("Alternating Stress (MPa)")
+plt.savefig(
+    r"Lab 2 - Bolted Connections\Sections\Figures\alternating_stress",
     dpi=300,
     bbox_inches="tight",
 )

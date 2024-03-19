@@ -31,10 +31,14 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage[nottoc,numbib]{tocbibind}
+\usepackage{enumitem}
 
 % Long table caption settings
 \setlength{\LTcapwidth}{\textwidth} % Width of long table caption
 
+% tighter spacing for itemize and enumerate
+\setlist[enumerate]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
+\setlist[itemize]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
 
 % 1.5 spacing equivalent to word
 \usepackage{setspace}

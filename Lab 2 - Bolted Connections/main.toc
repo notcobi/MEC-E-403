@@ -36,8 +36,8 @@
 \contentsline {section}{\numberline {8}References}{16}{section.8}%
 \contentsline {section}{\numberline {A}Appendix: Zero Preload Data Analysis}{17}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Modulus of Elasticity Analysis}{17}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Modulus of Elasticity Error Analysis}{19}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Error Propagation Derivation}{19}{subsubsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2}Modulus of Elasticity Error Analysis}{18}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Error Propagation Derivation}{18}{subsubsection.A.2.1}%
 \contentsline {subsubsection}{\numberline {A.2.2}Modulus of Elasticity Error Analysis}{20}{subsubsection.A.2.2}%
 \contentsline {subsection}{\numberline {A.3}Washer Calibration Analysis}{21}{subsection.A.3}%
 \contentsline {section}{\numberline {B}Appendix: Preload-Torque Test Data Analysis}{22}{appendix.B}%

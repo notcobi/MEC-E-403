@@ -7,7 +7,7 @@
     \label{tab:member_stiffness_data}
     \begin{tabular}{lC{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}C{0.12\textwidth}}
     \toprule
-    &External Load, $P$ & Bolt Out, $V_{b}$ & Washer Out, $V_{w}$ & Bolt Strain, $\varepsilon_{b}$ & Force, $F_{i}$ \\
+    &External Load, $P$ & Bolt Out, $V_{o, b}$ & Washer Out, $V_{o, w}$ & Bolt Strain, $\varepsilon_{b}$ & Force, $F_{i}$ \\
     & & (kN) & (V) & (V) & (kN) \\
     \midrule
     \multirow{9}{*}{Without Gasket} & 0 & 0.382 & -0.720 & 0.000382 & 4.509 \\
@@ -34,7 +34,7 @@
 \end{table}
 Sample calculations will be shown for the first row of Table \ref{tab:member_stiffness_data}. The bolt strain, $\varepsilon_b$, was calculated by
 \begin{align*}
-    \varepsilon_b &= \frac{4 V_b}{K_g E_{\text{in}} G} \\
+    \varepsilon_b &= \frac{4 V_{o,b}}{K_g E_{\text{in}} G} \\
     &= \frac{4 \times \qty{0.382}{V}}{2 \times \qty{5}{V} \times 400} \\
     &= \qty{0.000382}{}
 \end{align*}

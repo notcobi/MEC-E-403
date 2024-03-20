@@ -9,7 +9,7 @@ This Appendix provides the analysis of the experimental data "bolt stiffness and
     \label{tab:modulus_of_elasticity_data}
     \begin{tabular}{cccc}
     \toprule
-    External Load, $P$ & Bolt Out, $V_{b}$ & Washer Out, $V_{w}$ & Bolt Strain, $\varepsilon_b$ \\
+    External Load, $P$ & Bolt Out, $V_{o, b}$ & Washer Out, $V_{o, w}$ & Bolt Strain, $\varepsilon_b$ \\
     (kN) & (V) & (V) & \\
     \midrule
     0 & 0.006 & -0.003 & 6.00E-06 \\
@@ -26,7 +26,7 @@ This Appendix provides the analysis of the experimental data "bolt stiffness and
 \end{table}
 The experimental data was collected and shown in Table \ref{tab:modulus_of_elasticity_data}. Sample calculations will be shown for external load of 0 kN. The bolt strain was calculated from Eq. (\ref{eq:strain_bridge}),
 \begin{align*}
-    \varepsilon &= \frac{4 V_{b}}{K_g E_{\text{in}} G} \\
+    \varepsilon &= \frac{4 V_{o, b}}{K_g E_{\text{in}} G} \\
     \varepsilon &= \frac{4 \qty{0.006}{V}}{2 \cdot \qty{5}{V} \cdot 400} \\
     &= 6.00 \times 10^{-6}
 \end{align*}
@@ -70,7 +70,7 @@ The modulus of elasticity is then
 \subsection{Modulus of Elasticity Error Analysis}
 \subsubsection{Error Propagation Derivation}
 \label{sec:error_propagation_derivation}
-Because I got dinged for not showing "full" error propagation, I will rewrite the derivation here because I am upset. 
+To be thorough, the error propagation formula will be derived for completeness. 
 
 If we know how a quantity of interest depends on other, directly measurable quantizes, it is posable to estimate the uncertainty of this "output" quantity based on the uncertainties in the measured quantizes. For example, we can calculate the uncertainty associated to a volume based on the uncertainty of the measurement of the individual dimensions.
 
@@ -95,7 +95,7 @@ However, this is the worst-case uncertainty, and is an overly conservative estim
 \end{align}
 If the confidence levels associated to the individual uncertainties $w_{x_i}$ are all identical (for instance 95\%), the confidence level of the result $w_R$ will be the same. 
 
-The key assumption behind RSS is that the set of measured variables $x_1, \ldots, x_n$ are \textbf{statistically indecent}.IIf this is not the case, a different formulation needs to be used. Also note that all uncertainties $w_{x_i}$ need to be small such that the first-order Taylor series approximation holds. 
+The key assumption behind RSS is that the set of measured variables $x_1, \ldots, x_n$ are \textbf{statistically indecent}. If this is not the case, a different formulation needs to be used. Also note that all uncertainties $w_{x_i}$ need to be small such that the first-order Taylor series approximation holds. 
 
 Consider the case where the result $R$ is dependent only on the product of the measured variables, $x_1, \ldots, x_n$ with associated uncertainties $w_{x_1}, \ldots, w_{x_n}$ as 
 \begin{align*}
@@ -125,7 +125,7 @@ The function for modulus of elasticity is
     E &= P^{1} \varepsilon_b^{-1} A_1^{-1} \\
     &= (\text{slope})^{-1} A_1^{-1}
 \end{align*}
-This is the purely multiplicative case for error propagation \cite{wheeler_ganji}.  Which is
+This is the purely multiplicative case for error propagation \cite{wheeler_ganji}.  Which is, from Eq. (\ref{eq:error_propagation_pure_multiplicative}),
 \begin{align*}
     \frac{\delta E}{|E|} &= \sqrt{\left(\frac{1}{\text{slope}} \delta \text{slope}\right)^2 + \left(\frac{1}{A_1} \delta A_1\right)^2}
 \end{align*}
@@ -140,13 +140,5 @@ This quantity is relatively small compared to the modulus of elasticity, and is 
 \subsection{Washer Calibration Analysis}
 The external load and washer transducer readings from Table \ref{tab:modulus_of_elasticity_data} were fitted with a linear regression through the origin. The linear regression equation was determined using \texttt{=LINEST()} from Excel. The equation was 
 \begin{align*}
-    E_{o, w} &= -0.211 P 
+    \Aboxed{E_{o, w} &= -0.211 P}
 \end{align*}
-Converting to strain using Eq. (\ref{eq:strain_bridge}), where $K_g = 2$, $E_{\text{in}} = 5$, and $G = 400$:
-\begin{align*}
-    \varepsilon_w &= \frac{4 V_{w}}{K_g E_{\text{in}} G} \\
-    &= \frac{4 \qty{-0.211}{V}P}{2 \cdot \qty{5}{V} \cdot 400} \\
-    &= \qty{-2.11E-04}{} P
-\end{align*}
-
-

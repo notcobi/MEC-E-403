@@ -184,7 +184,7 @@ plt.plot(
 )
 plt.xlabel("$P$, External Load (kN)")
 plt.ylabel("$F_i$, Preload (kN)")
-plt.text(0.9, 5.5, f"$F_i = ({a1:.2E})P + {b1:.2f}$", fontsize=12)
+#plt.text(0.9, 5.5, f"$F_i = ({a1:.2E})P + {b1:.2f}$", fontsize=12)
 plt.text(2, 4, f"$F_i = ({a2:.2E})P^2 + ({b2:.2E})P + {c2:.2f}$", fontsize=12)
 plt.legend(loc="upper left")
 plt.savefig(

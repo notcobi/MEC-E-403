@@ -125,8 +125,10 @@ The function for modulus of elasticity is
     E &= P^{1} \varepsilon_b^{-1} A_1^{-1} \\
     &= (\text{slope})^{-1} A_1^{-1}
 \end{align*}
-This is the purely multiplicative case for error propagation \cite{wheeler_ganji}. 
-
+This is the purely multiplicative case for error propagation \cite{wheeler_ganji}.  Which is
+\begin{align*}
+    \frac{\delta E}{|E|} &= \sqrt{\left(\frac{1}{\text{slope}} \delta \text{slope}\right)^2 + \left(\frac{1}{A_1} \delta A_1\right)^2}
+\end{align*}
 Assuming the error for $A_1$ is negligible, then by Eq. (\ref{eq:error_propagation_pure_multiplicative}), the uncertainty of the modulus of elasticity is then
 \begin{align*}
     \delta E &= E \bigg|\frac{\delta \text{slope}}{\text{slope}}\bigg|\\

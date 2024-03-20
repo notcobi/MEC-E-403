@@ -8,31 +8,31 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Zero Preload}{2}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Repeatability Test}{2}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Zero Loading (Torque Test)}{2}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Static Loading}{2}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.4}Static Loading}{3}{subsubsection.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}Dynamic Loading}{3}{subsubsection.3.2.5}%
 \contentsline {section}{\numberline {4}Theory}{3}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Mechanics of Bolted Connections Loading}{3}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Quarters Bridge Equations}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Stress-Strain Relationship}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Stress-Strain Relationship}{5}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Member Stiffness}{5}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Torque Requirement for Preloading}{5}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Bolt Preload for Static Loading}{6}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Bolt Preload for Dynamic Loading}{6}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Bolt Preload for Dynamic Loading}{7}{subsection.4.7}%
 \contentsline {section}{\numberline {5}Results and Discussion}{7}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Zero Preload --- Young's Modulus of Bolt}{7}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Zero Preload --- Washer Transducer Calibration}{7}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Zero Loading --- Torque and Preload}{8}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Zero Loading --- Torque Coefficient}{8}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Zero Loading --- Torque Coefficient}{9}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}No Gasket, Static Loading --- Torsional Loading}{9}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Bolt Stiffness}{9}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.6}Bolt Stiffness}{10}{subsection.5.6}%
 \contentsline {subsection}{\numberline {5.7}Theoretical Joined Member Stiffness}{10}{subsection.5.7}%
 \contentsline {subsection}{\numberline {5.8}Static Loading --- With and Without Gasket}{10}{subsection.5.8}%
 \contentsline {subsection}{\numberline {5.9}Experimental Joined Member Stiffness Without Gasket}{11}{subsection.5.9}%
-\contentsline {subsection}{\numberline {5.10}Experimental Joined Member Stiffness With Gasket}{11}{subsection.5.10}%
-\contentsline {subsection}{\numberline {5.11}Static Loading --- Separation Point}{11}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.10}Experimental Joined Member Stiffness With Gasket}{12}{subsection.5.10}%
+\contentsline {subsection}{\numberline {5.11}Static Loading --- Separation Point}{12}{subsection.5.11}%
 \contentsline {subsection}{\numberline {5.12}Dynamic Loading --- Mean and Alternating Stresses}{12}{subsection.5.12}%
 \contentsline {section}{\numberline {6}Conclusion}{13}{section.6}%
-\contentsline {section}{\numberline {7}Technical Recommendations}{14}{section.7}%
+\contentsline {section}{\numberline {7}Technical Recommendations}{15}{section.7}%
 \contentsline {section}{\numberline {8}References}{16}{section.8}%
 \contentsline {section}{\numberline {A}Appendix: Zero Preload Data Analysis}{17}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Modulus of Elasticity Analysis}{17}{subsection.A.1}%

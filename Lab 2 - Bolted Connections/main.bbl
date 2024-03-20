@@ -21,6 +21,15 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{levenson_boeing_2023}
+\BIBentryALTinterwordspacing
+M.~Levenson, ``\BIBforeignlanguage{en-US}{Boeing {Urges} {Airlines} to
+  {Inspect} 737 {Max} {Planes} for {Possible} {Loose} {Bolts}},''
+  \emph{\BIBforeignlanguage{en-US}{The New York Times}}, Dec. 2023. [Online].
+  Available:
+  \url{https://www.nytimes.com/2023/12/28/business/boeing-737-max-faa-inspections.html}
+\BIBentrySTDinterwordspacing
+
 \bibitem{wheeler_ganji}
 A.~J. Wheeler and A.~R. Ganji, \emph{Introduction to engineering
   experimentation}, 3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle

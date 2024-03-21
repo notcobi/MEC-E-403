@@ -27,7 +27,7 @@ This Appendix provides the analysis of the experimental data "bolt stiffness and
 The experimental data was collected and shown in Table \ref{tab:modulus_of_elasticity_data}. Sample calculations will be shown for external load of 0 kN. The bolt strain was calculated from Eq. (\ref{eq:strain_bridge}),
 \begin{align*}
     \varepsilon &= \frac{4 V_{o, b}}{K_g E_{\text{in}} G} \\
-    \varepsilon &= \frac{4 \qty{0.006}{V}}{2 \cdot \qty{5}{V} \cdot 400} \\
+    \varepsilon &= \frac{4 \cdot \qty{0.006}{V}}{2 \cdot \qty{5}{V} \cdot 400} \\
     &= 6.00 \times 10^{-6}
 \end{align*}
 where $E_o$ is transducer reading, $K_g$ is the gauge factor, $E_{\text{in}}$ is the voltage input, and $G$ is the gain set. From the experimental setup, $K_g = 2$, $E_{\text{in}} = 5$, and $G = 400$. 
@@ -113,6 +113,20 @@ The uncertainty of slope was determined using the standard error of the slope, $
     \alpha/2 &= \frac{1 - 0.95}{2} = 0.025 \\
     n - 2 &= 9 - 2 = 7 \\
     t_{\alpha/2, n-2} &= 2.3646
+\end{align*}
+Recall from MEC E 300 that the error for the coefficients for the form $f(x) = ax +b$ can be found by finding standard error of $a$ and $b$ by first finding 
+\begin{align*}
+    S_{y,x} &= \sqrt{\frac{\sum (y_i - a x_i - b)^2}{n-2}} \\
+\end{align*}
+then,
+\begin{align*}
+    S_a &= S_{y,x} \sqrt{\frac{1}{\sum (x_i - \bar{x})^2}} \\
+    S_b &= S_{y,x} \sqrt{\frac{\sum x_i^2}{n \sum (x_i - \bar{x})^2}}
+\end{align*}
+then with a given confidence of $1 - \alpha$, the uncertainties are 
+\begin{align*}
+    a \pm t_{\alpha/2, n-2} S_a \\
+    b \pm t_{\alpha/2, n-2} S_b
 \end{align*}
 The uncertainty of the slope is then \cite{wheeler_ganji}
 \begin{align*}

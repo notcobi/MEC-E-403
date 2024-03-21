@@ -55,7 +55,7 @@ plt.plot(
     markerfacecolor="none",
 )
 plt.xlabel("$P$, External Load (kN)")
-plt.ylabel("$V_w$, Washer Transducer (V)")
+plt.ylabel("$V_{o, w}$, Washer Transducer (V)")
 plt.text(
     x.iloc[len(x) // 2] + 0.5,
     a * x.iloc[len(x) // 2],

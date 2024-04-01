@@ -4,7 +4,6 @@ import scipy.signal
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def load_data(file_path):
     """
     Load data from a file and return a pandas DataFrame.

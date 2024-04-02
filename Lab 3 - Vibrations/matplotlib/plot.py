@@ -2,110 +2,180 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\calibration.csv')
 
-# Sort Thermistor data
-df_thermistor = df[['Thermistor Temperature', 'Thermistor Voltage']]
+# read data from excel
+df = pd.read_excel(
+    r"Lab 3 - Vibrations\data_and_analysis.xlsx", sheet_name="data for plots"
+)
+# df['dataset'].unique()
+# array(['force vs deflection (N vs m)',
+#        'big cart damping ratio trial 1 (zeta vs cycle number)',
+#        'big cart damping ratio trial 2 (zeta vs cycle number)',
+#        'small cart damping ratio trial 1 (zeta vs cycle number)',
+#        'small cart damping ratio trial 2 (zeta vs cycle number)',
+#        'small dmf vs omega over p', 'big dmf vs omega over p'],
+#       dtype=object)
+# plot 1, force vs deflection
+plt.figure()
+plt.plot(
+    df[df["dataset"] == "force vs deflection (N vs m)"]["x"],
+    df[df["dataset"] == "force vs deflection (N vs m)"]["y"],
+    "o",
+    label="Experimental Data",
+    markersize=6,
+    markerfacecolor="None",
+)
 
-# Sort Thermocouple data
-df_thermocouple = df[['Thermocouple Temperature', 'Thermocouple Voltage']]
+# line of best fit through origin
+x = df[df["dataset"] == "force vs deflection (N vs m)"]["x"]
+y = df[df["dataset"] == "force vs deflection (N vs m)"]["y"]
 
-# Linear regression for Thermistor
-thermistor_fit = np.polyfit(df_thermistor['Thermistor Voltage'], df_thermistor['Thermistor Temperature'], 1)
-thermistor_fit_fn = np.poly1d(thermistor_fit)
+x = x[:, np.newaxis]
+a, _, _, _ = np.linalg.lstsq(x, y, rcond=None)
 
-# Linear regression for Thermocouple
-thermocouple_fit = np.polyfit(df_thermocouple['Thermocouple Voltage'], df_thermocouple['Thermocouple Temperature'], 1)
-thermocouple_fit_fn = np.poly1d(thermocouple_fit)
+plt.plot(x, a * x, "k--", label="Line of Best Fit", linewidth=1)
+plt.text(0.1, 0.5, f"y = {a[0]:.2f}x")
+plt.xlabel("$\delta$, Deflection (m)")
+plt.ylabel("$F$, Force (N)")
+plt.legend
+plt.savefig("Lab 3 - Vibrations/matplotlib/force vs deflection.png")
 
-# Plot the Thermistor data and linear regression
-plt.figure(1)
-plt.plot(df_thermistor['Thermistor Voltage'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Data', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Thermistor Voltage'], thermistor_fit_fn(df_thermistor['Thermistor Voltage']), 'k--', label='Thermistor Linear Regression')
-plt.xlabel(r'$V$, Voltage (V)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper left')
-plt.text(1.42, 30, r'$T = ' + str(round(thermistor_fit[0], 2)) + 'V  ' + str(round(thermistor_fit[1], 2)) + '$')
-plt.savefig(r'Lab 6\matplotlib\thermistor.png', dpi=300)
+# plot 2, damping ratio vs cycle number for small cart
+plt.figure()
+plt.plot(
+    df[df["dataset"] == "small cart damping ratio trial 1 (zeta vs cycle number)"]["x"],
+    df[df["dataset"] == "small cart damping ratio trial 1 (zeta vs cycle number)"]["y"],
+    "ko",
+    label="Trial 1",
+    markersize=6,
+    markerfacecolor="None",
+)
+plt.plot(
+    df[df["dataset"] == "small cart damping ratio trial 2 (zeta vs cycle number)"]["x"],
+    df[df["dataset"] == "small cart damping ratio trial 2 (zeta vs cycle number)"]["y"],
+    "ks",
+    label="Trial 2",
+    markersize=6,
+    markerfacecolor="None",
+)
+plt.xlabel("$N$, Cycle Number")
+plt.ylabel("$\zeta$, Damping Ratio")
+plt.legend()
+plt.savefig("Lab 3 - Vibrations/matplotlib/small cart damping ratio.png")
 
-# Plot the Thermocouple data and linear regression
-plt.figure(2)
-plt.plot(df_thermocouple['Thermocouple Voltage'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Data', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Thermocouple Voltage'], thermocouple_fit_fn(df_thermocouple['Thermocouple Voltage']), 'k--', label='Thermocouple Linear Regression')
-plt.xlabel(r'$V$, Voltage (V)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper left')
-plt.text(1.425, 30, r'$T = ' + str(round(thermocouple_fit[0], 2)) + 'V  ' + str(round(thermocouple_fit[1], 2)) + '$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple.png', dpi=300)
+# plot 3, damping ratio vs cycle number for big cart
+plt.figure()
+plt.plot(
+    df[df["dataset"] == "big cart damping ratio trial 1 (zeta vs cycle number)"]["x"],
+    df[df["dataset"] == "big cart damping ratio trial 1 (zeta vs cycle number)"]["y"],
+    "ko",
+    label="Trial 1",
+    markersize=6,
+    markerfacecolor="None",
+)
+plt.plot(
+    df[df["dataset"] == "big cart damping ratio trial 2 (zeta vs cycle number)"]["x"],
+    df[df["dataset"] == "big cart damping ratio trial 2 (zeta vs cycle number)"]["y"],
+    "ks",
+    label="Trial 2",
+    markersize=6,
+    markerfacecolor="None",
+)
+plt.xlabel("$N$, Cycle Number")
+plt.ylabel("$\zeta$, Damping Ratio")
+plt.legend
+plt.savefig("Lab 3 - Vibrations/matplotlib/big cart damping ratio.png")
 
-# ----------------------------------------
-# 	Air		Water	
-# 	Thermistor	Thermocouple	Thermistor	Thermocouple
-# T_0	48.457	48.418	39.914	42.617
-# T_infty	21.759	23.281	20.691	20.059
-# tau	18.69803057	18.02662691	0.373547583	0.225033996
-# SS	122.338	46.26568305	35.74509399	69.88833339
-# The first order response of the system is 
-# \begin{equation*}
-#     T = T_{\infty} + (T_0 - T_{\infty})e^{-t/\tau}
-# \end{equation*}
+# plot 4, dmf vs omega over p for small cart
+plt.figure()
+plt.plot(
+    df[df["dataset"] == "small dmf vs omega over p"]["x"],
+    df[df["dataset"] == "small dmf vs omega over p"]["y"],
+    "ko",
+    label="Experimental",
+    markersize=6,
+    markerfacecolor="None",
+)
 
-# Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\transient_air.csv')
+# plot the theoretical curve
+xmin = df[df["dataset"] == "small dmf vs omega over p"]["x"].min()
+xmax = df[df["dataset"] == "small dmf vs omega over p"]["x"].max()
+x = np.linspace(xmin, xmax, 500)
+y = 1 / np.abs(1 - x ** 2)
+plt.plot(x, y, "k--", label="Theoretical", linewidth=1)
+plt.axvline(x=1, color="r", linestyle="--")
+plt.text(0.5, 0.5, 'In Phase')
+plt.text(1.2, 0.25, 'Out of Phase')
+plt.xlabel("$\omega/p$")
+plt.ylabel("$1 / |1 - \omega^2/p^2|$")
+plt.ylim(0, 3)
+plt.legend
+plt.savefig("Lab 3 - Vibrations/matplotlib/small dmf vs omega over p.png")
 
-# Sort Thermistor data
-df_thermistor = df[['Time', 'Thermistor Temperature', 'Thermistor Response']]
+# plot 5, dmf vs omega over p for big cart
+plt.figure()
+plt.plot(
+    df[df["dataset"] == "big dmf vs omega over p"]["x"],
+    df[df["dataset"] == "big dmf vs omega over p"]["y"],
+    "ko",
+    label="Experimental",
+    markersize=6,
+    markerfacecolor="None",
+)
 
-# Sort Thermocouple data
-df_thermocouple = df[['Time', 'Thermocouple Temperature', 'Thermocouple Response']]
+# plot the theoretical curve
+plt.plot(x, y, "k--", label="Theoretical", linewidth=1)
+plt.axvline(x=1, color="r", linestyle="--")
 
-# Plot the Thermistor data and Response
-plt.figure(3)
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Response'], 'k--', label='Thermistor Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(40, 30, r'$T = 21.759 + 26.698e^{-t/18.698}$')
-plt.savefig(r'Lab 6\matplotlib\thermistor_transient_air.png', dpi=300)
+plt.text(0.5, 0.5, 'In Phase')
+plt.text(1.2, 0.25, 'Out of Phase')
+plt.xlabel("$\omega/p$")
+plt.ylabel("$1 / |1 - \omega^2/p^2|$")
+plt.ylim(0, 3)
+plt.legend
+plt.savefig("Lab 3 - Vibrations/matplotlib/big dmf vs omega over p.png")
 
-# Plot the Thermocouple data and Response
-plt.figure(4)
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Response'], 'k--', label='Thermocouple Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(40, 30, r'$T = 23.281 + 25.137e^{-t/18.027}$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple_transient_air.png', dpi=300)
 
-# Read data from csv file
-df = pd.read_csv(r'Lab 6\matplotlib\transient_water.csv')
 
-# Sort Thermistor data
-df_thermistor = df[['Time', 'Thermistor Temperature', 'Thermistor Response']]
+# # find the unique dataset in 'dataset' column
+# datasets = df["dataset"].unique()
+# x_lables = [
+#     '$\delta$, Deflection (m)',
+#     '$N$, Cycle Number',
+#     '$N$, Cycle Number',
+#     '$N$, Cycle Number',
+#     '$N$, Cycle Number',
+#     '$\omega/p$',
+#     '$\omega/p$'
+# ]
+# y_lables = [
+#     '$F$, Force (N)',
+#     '$\zeta$, Damping Ratio',
+#     '$\zeta$, Damping Ratio',
+#     '$\zeta$, Damping Ratio',
+#     '$\zeta$, Damping Ratio',
+#     '$ 1 / |1 - \omega^2/p^2| $',
+#     '$1 / |1 - \omega^2/p^2|$',
+# ]
 
-# Sort Thermocouple data
-df_thermocouple = df[['Time', 'Thermocouple Temperature', 'Thermocouple Response']]
+# # make the theoretical dmf curve
+# x = np.linspace(0, 2.1, 500)
+# y = 1 / np.abs(1 - x ** 2)
 
-# Plot the Thermistor data and Response
-plt.figure(5)
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Temperature'], 'ko', label='Thermistor Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermistor['Time'], df_thermistor['Thermistor Response'], 'k--', label='Thermistor Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(0.5, 30, r'$T = 20.691 + 19.223e^{-t/0.374}$')
-plt.savefig(r'Lab 6\matplotlib\thermistor_transient_water.png', dpi=300)
+# for i, dataset in enumerate(datasets):
+#     # filter the dataset
+#     df_dataset = df[df["dataset"] == dataset]
 
-# Plot the Thermocouple data and Response
-plt.figure(6)
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Temperature'], 'ko', label='Thermocouple Temperature', markersize=6, markerfacecolor='none')
-plt.plot(df_thermocouple['Time'], df_thermocouple['Thermocouple Response'], 'k--', label='Thermocouple Fit')
-plt.xlabel(r'$t$, Time (s)')
-plt.ylabel(r'$T$, Temperature ($^\circ$C)')
-plt.legend(loc='upper right')
-plt.text(0.5, 30, r'$T = 20.059 + 22.558e^{-t/0.225}$')
-plt.savefig(r'Lab 6\matplotlib\thermocouple_transient_water.png', dpi=300)
-plt.show()
+#     # plot the dataset
+#     plt.figure()
+#     plt.plot(df_dataset["x"], df_dataset["y"], "o", label=dataset, markersize=5, markerfacecolor="None")
+#     plt.xlabel(x_lables[i])
+#     plt.ylabel(y_lables[i])
+#     # if dmfs, plot the theoretical curve
+#     if "dmf" in dataset:
+#         plt.plot(x, y, "k--", label="Theoretical DMF Curve", linewidth=2)
+#         # plot vertical line at x=1
+#         plt.axvline(x=1, color="r", linestyle="--")
+#         plt.legend()
+
+#     plt.savefig(f"Lab 3 - Vibrations/matplotlib/{dataset}.png")

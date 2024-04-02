@@ -1,134 +1,82 @@
 \section{Theory}
-\subsection{Euler's Turbomachinery Equations}
+\subsection{Free Vibrations}
+The experimental setup for free vibrations is modelled in Figure \ref{fig:Spring-Mass-Damper System}. The system consists of a mass $m_e$ attached to a spring with stiffness $k_e$. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/theory spring mass.png}
+    \caption{Spring-Mass System}
+    \label{fig:Spring-Mass-Damper System}
+\end{figure}
+If $x$ is the displacement of the mass from its equilibrium position, the equation of motion is given by
+\begin{equation}
+    m_e\ddot{x} + k_ex = 0 \label{eq:Free Vibration Differential Equation}
+\end{equation}
+The solution to Equation \ref{eq:Free Vibration Differential Equation} is given by
+\begin{equation}
+    x(t) = \frac{v_0}{p}\sin(pt) + x_0\cos(pt) \label{eq:Free Vibration Solution}
+\end{equation}
+where $v_0$ is the initial velocity, $x_0$ is the initial displacement, and $p = \sqrt{\frac{k_e}{m_e}}$ is the natural frequency of the system. The natural frequency is the frequency at which the system will oscillate if it is displaced and released. The period of the system is given by
+\begin{equation}
+    \tau = \frac{2\pi}{p} \label{eq:Free Vibration Period}
+\end{equation}
+\subsection{Forced Vibrations}
+% The experimental setup for forced vibrations is modelled in Figure \ref{fig:Forced Damped Vibrations System Theoretical}. The system consists of a mass $m_e$ attached to a spring with stiffness $k_e$.
+The experimental setup for forced vibrations is modelled in Figure \ref{fig:Forced Vibrations System Theoretical}. The system consists of a mass $m_e$ attached to a spring with stiffness $k_e$. The force is $F(t) = kY_0\sin(\omega t)$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/theory forced spring mass.png}
+    \caption{Forced Damped Vibrations System}
+    \label{fig:Forced Vibrations System Theoretical}
+\end{figure}
+The equation of motion for the system is given by
+\begin{equation}
+    m_e\ddot{x} + k_ex = F_0\cos(\omega t) \label{eq:Forced Vibration Differential Equation}
+\end{equation}
+where $F_0 = kY_0$. The time-dependent solution to Equation \ref{eq:Forced Vibration Differential Equation} is 
+\begin{align}
+    x(t) &= \frac{Y_0}{2} \left[\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right]\sin(\omega t) \label{eq:Forced Vibration Solution} \\
+\end{align}
+where $p = \sqrt{\frac{k_e}{m_e}}$ is the natural frequency of the system. The DMF is given by
+\begin{equation}
+    \text{DMF} = \frac{1}{\left|1 - \left(\frac{\omega}{p}\right)^2\right|} \label{eq:DMF}
+\end{equation}
+Plotting the DMF against $\omega/p$ will give the frequency response of the system, as shown in Figure \ref{fig:DMF}. At $\omega/p< \sqrt{2}$, the DMF $>1$, which means the system amplifies the input force. At $\omega/p > \sqrt{2}$, the DMF $<1$, which means the system attenuates the input force. The system is in resonance at $\omega/p = 1$.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/theory impeller diagram.png}
-    \caption{Impeller Diagram}
-    \label{fig:impeller}
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/DMF.png}
+    \caption{DMF vs. $\omega/p$}
+    \label{fig:DMF}
 \end{figure}
-Using the following assumptions:
-\begin{enumerate}
-    \item Viscous effects are negligible
-    \item Velocity profile is uniform at the exit
-    \item All work done by the pump is transferred to the fluid
-\end{enumerate}
-Then by conservation of angular momentum,
-\begin{align}
-    T = \dot{m} r_2 v_{2\theta} \label{eq:torque}
-\end{align}
-where $T$ is the torque, $\dot{m}$ is the mass flow rate, $r_2$ is the radius of the impeller, and $v_{2\theta}$ is the tangential velocity at the exit. From Figure \ref{fig:impeller}, we can see that 
-\begin{align}
-    v_{2\theta} = U - v_{2r} \cot{\beta_2} \label{eq:vtheta}
-\end{align}
-where $U$ is the tip speed, $v_{2r}$ is the radial velocity at the exit, and $\beta_2$ is the blade angle. Combining (\ref{eq:torque}) and (\ref{eq:vtheta}), we get
-\begin{align}
-    T = \dot{m} r_2 (U - v_{2r} \cot{\beta_2}) \label{eq:torque2}
-\end{align}
-By Assumption 3, we can say that
-\begin{align}
-    T \Omega = \dot{m} g H \label{eq:work}
-\end{align}
-where $\Omega$ is the impeller angular velocity, $g$ is the acceleration due to gravity, and $H$ is the total head rise across the pump. By combining (\ref{eq:torque2}), (\ref{eq:work}), and the kinematic relationship $U = r_2 \Omega$, we get
-\begin{align}
-    \frac{Hg}{U^2} = 1 - \frac{v_{2r}}{U} \cot{\beta_2} \label{eq:head}
-\end{align}
-Defining the head coefficient $\Psi$ and the flow coefficient $\Phi$ as
-\begin{align}
-    \Psi = \frac{Hg}{U^2} \quad \Phi = \frac{v_{2r}}{U} \label{eq:coefficients}
-\end{align}
-then (\ref{eq:head}) becomes
-\begin{align}
-    \Psi = 1 - \Phi \cot{\beta_2} \label{ideal_turbo_machinary}
-\end{align}
-also, $v_{2r}$ can be expressed by the continuity equation as 
-\begin{align}
-    v_{2r} = \frac{Q}{A_2} = \frac{Q}{b(2\pi r_2 - N w)} \label{eq:v2r}
-\end{align}
-where $Q$ is the flow rate, $A_2$ is the area of the exit, $b$ is the blade height at the exit, $N$ is the number of blades, and $w$ is the width of the blade. 
+Defining static deflection as 
+\begin{equation}
+    \mathbb{X}_0 = \frac{F_0}{k_e} \label{eq:Static Deflection}
+\end{equation}
+we can see that the $Y_0/2$ term in Eq. \ref{eq:Forced Vibration Solution} is static deflection.
 
-\subsection{Shutoff Head}
-The ideal shutoff head can be obtained as 
-\begin{align*}
-    H'_{\text{ideal}} = \frac{U^2}{g}
-\end{align*}
-by setting $\Phi = 0$ in (\ref{ideal_turbo_machinary}). If it is assumed that all kinetic energy is lost due to friction, then 
-\begin{align*}
-    \frac{KE}{\text{unit weight}} = \frac{U^2}{2g}
-\end{align*}
-where $KE$ is the kinetic energy. Therefore, the rule of thumb for the shutoff head is
+\subsection{Damped Spring Mass System}
+An energy dissipation method is added to the system to model the energy loss in the system. The most common approach is to add viscous damping, which is proportional to the velocity of the mass. The equation of motion from Eq. \ref{eq:Free Vibration Differential Equation} is modified to include damping as
+\begin{equation}
+    m_e\ddot{x} + c_e\dot{x} + k_ex = 0 \label{eq:Damped Vibration Differential Equation}
+\end{equation}
+where $c_e$ is the damping coefficient. Assuming the mass is given an initial displacement and zero initial velocity, the solution to Eq. \ref{eq:Damped Vibration Differential Equation} is given by
+\begin{equation}
+    x(t) = A e^{\- \zeta t}\cos\left(\sqrt{1 - \zeta^2}t \right) \label{eq:Damped Vibration Solution}
+\end{equation}
+where, 
+\begin{equation}
+    \zeta = \frac{c_e}{2m_e p} = \frac{c_e}{2\sqrt{k_e m_e}} \label{eq:Damping Ratio}
+\end{equation}
+The solution to Eq. \ref{eq:Damped Vibration Differential Equation} is a decaying sinusoidal function, plotted in Figure \ref{fig:Damped Response}. It can be shown that the peaks can be related by
 \begin{align}
-    H'_{\text{thumb}} &= \frac{U^2}{g} - \frac{U^2}{2g} \nonumber \\
-    H'_{\text{thumb}} &= \frac{U^2}{2g} = \frac{1}{2} H'_{\text{ideal}} \label{eq:thumb_head}
+    \delta = \ln \left(\frac{x_{n}}{x_{n+1}}\right) = \frac{2\pi}{\sqrt{1 - \zeta^2}} \label{eq:Decay Ratio Delta} 
 \end{align}
-
-\subsection{Affinity Laws}
-For large Reynolds numbers, the flow is dynamically similar in geometrically similar machines when the flow and head coefficients are the same. For geometrically similar machines operating at different conditions (i) and (ii) such that the head and flow coefficients are the same, the following relationships hold:
-\begin{align*}
-    \Psi_i &= \Psi_{ii}  \\
-    \frac{H_i}{U_i^2} &= \frac{H_{ii}}{U_{ii}^2} 
-\end{align*}
-so,
+From which, the damping ratio can be determined as 
 \begin{align}
-    \frac{H_i}{H_{ii}} &= \left(\frac{U_i}{U_{ii}}\right)^2 \approx \left(\frac{D_i \Omega_i}{D_{ii} \Omega_{ii}}\right)^2 \label{eq:affinity1}
+    \zeta = \frac{\delta}{\sqrt{4\pi^2 + \delta^2}} \label{eq:Damping Ratio Calculated With Delta}
 \end{align}
-where $D$ is the diameter of the impeller. Also,
-\begin{align}
-    \Phi_i &= \Phi_{ii}  \nonumber \\
-    \frac{v_{2ri}}{U_i} &= \frac{v_{2rii}}{U_{ii}} \label{eq:affinity2}
-\end{align}
-Assuming the blade width is negligible, from (\ref{eq:v2r}), we get
-\begin{align}
-    v_{2r} &= \frac{Q}{\pi D b}
-\end{align}
-so (\ref{eq:affinity2}) becomes
-\begin{align}
-    \frac{Q_i D_{ii} b_{ii}}{Q_{ii} D_i b_i} &= \frac{U_i}{U_{ii}} \nonumber \\
-    \frac{Q_i}{Q_{ii}} &= \frac{\Omega_i b_i}{\Omega_{ii} b_{ii}} \left(\frac{D_{i}}{D_{ii}}\right)^2 \label{eq:affinity3}
-\end{align}
-For geometrically similar machines, the ratios of $b/D$ are the same, so (\ref{eq:affinity3}) becomes
-\begin{align}
-    \frac{Q_i}{Q_{ii}} &= \frac{\Omega_i}{\Omega_{ii}} \left(\frac{D_{i}}{D_{ii}}\right)^3 \label{eq:affinity_law_for_flow}
-\end{align}
-
-\subsection{Transducer Head Adjustment}
-In this experiment, since the inlet and outlet pipe diameters are different, the transducer head, $H_t$, must be corrected for flow kinetic energy to give the pump stagnation head, $H$, as
-\begin{align}
-    H &= H_t + \frac{v_2^2}{2g} - \frac{v_1^2}{2g} \nonumber \\
-    H &= H_t + \frac{v_2^2}{2g} \left(1 - \left(\frac{v_1}{v_2}\right)^2\right) \label{eq:transducer_head}
-\end{align}
-where $H_t$ is the transducer head, $v_1$ is the velocity at the inlet, and $v_2$ is the velocity at the outlet. The volume flowrate through the system can be written as
-\begin{align}
-    Q = \frac{v_2 \pi D_2^2}{4} \label{eq:flowrate}
-\end{align}
-and with the pipe diameters $D_1$ at the inlet and $D_2$ at the outlet, mass conservation requires that
-\begin{align}
-    v_2 \pi D_2^2 = v_1 \pi D_1^2 \label{eq:mass_conservation}
-\end{align}
-With (\ref{eq:flowrate}) and (\ref{eq:mass_conservation}), (\ref{eq:transducer_head}) becomes
-\begin{align}
-    H &= H_t + \frac{8Q^2}{\pi^2 D_2^4 g} \left(1 - \left(\frac{D_2}{D_1}\right)^4\ \right) \label{eq:transducer_head2}
-\end{align}
-
-\subsection{Pumps in Series and Parallel}
-When pumps are connected in series, the total head is the sum of the individual heads, and the flow rate is the same as the individual flow rates. \textbf{CITE A FIGURE}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in series.png}
-    \caption{Pumps in Series}
-    \label{fig:series}
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/damped response.png}
+    \caption{Damped Response of a Spring-Mass System}
+    \label{fig:Damped Response}
 \end{figure}
-\begin{align}
-    H_{\text{series}, t} &= H_{1,t} + H_{2,t} \label{eq:series_head}  \\
-    Q_{\text{series}} &= Q_1 = Q_2 \label{eq:series_flow}
-\end{align} 
-When pumps are connected in parallel, the total head is the average of the individual heads, and the total flow rate is the sum of the individual flow rates.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Sections/Figures/pump in parallel.png}
-    \caption{Pumps in Parallel}
-    \label{fig:parallel}
-\end{figure}
-\begin{align}
-    H_{\text{parallel}, t} &= \frac{H_{1,t} + H_{2,t}}{2} \label{eq:parallel_head} \\
-    Q_{\text{parallel}} &= Q_1 + Q_2 \label{eq:parallel_flow}
-\end{align}

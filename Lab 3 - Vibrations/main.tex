@@ -6,6 +6,7 @@
 \usepackage{cite} % Handle citations
 \usepackage[final]{hyperref} % Add hyperlinks
 \usepackage{pgfplotstable, booktabs} % Enhance table handling
+\usepackage{multirow}
 \usepackage{placeins} % Control float placement
 \usepackage{tabularray} % Advanced tables
 \usepackage{titlesec} % Customize section titles
@@ -22,10 +23,22 @@
 \usepackage{tocloft}  % Table of contents formatting
 \usepackage{mathtools}
 \usepackage{pdfpages}
-\usepackage{times}
-\usepackage{mathastext}
+%\usepackage{mathptmx}
+\usepackage{newtxtext,newtxmath}
 \usepackage{color}
+\usepackage{amsmath}
+\usepackage{longtable} % Multipage tables
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{enumitem}
 
+% Long table caption settings
+\setlength{\LTcapwidth}{\textwidth} % Width of long table caption
+
+% tighter spacing for itemize and enumerate
+\setlist[enumerate]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
+\setlist[itemize]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
 
 % 1.5 spacing equivalent to word
 \usepackage{setspace}
@@ -95,7 +108,7 @@
 \pagestyle{fancy} % Use the fancy page style
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{MEC E 403} % Left-aligned header
-\fancyhead[C]{Lab 1: Centrifugal Pumps} % Center header
+\fancyhead[C]{} % Center header
 \fancyhead[R]{Alex Diep} % Right-aligned header
 \fancyfoot[C]{\thepage} % Centered page number in the footer
 
@@ -121,19 +134,31 @@
 %\newcommand{\forceindent}{{\setlength{\parindent}{2em}\indent}}
 
 % Custom SI Unit Definitions
+\DeclareSIUnit\inch{in} % Inch
 \DeclareSIUnit\LSB{LSB} % Least significant bit
+\DeclareSIUnit{\lb}{lb} % Pound
+\DeclareSIUnit{\inlb}{in-lb} % Inch-pound
+\DeclareSIUnit{\psi}{psi} % Psi
+\DeclareSIUnit{\rpm}{RPM} % Revolutions per minute
 
 % Custom Table of Contents Formatting
 \renewcommand\cftsecdotsep{\cftdot} % Use dots for section 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
 
-\sisetup{group-digits=false} % changes the default (true)
+% Siunitx Setup
+\sisetup{group-digits=false} % 666.666 -> 666666 for \qty
+\sisetup{detect-all} % Something to do about unit font and document font
+%\sisetup{per-mode=fraction} % Fractions for per unit typesetting
+
 % \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 % \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 % \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing*{\section}{0pt}{0.1\baselineskip}{0.2\baselineskip}
 \titlespacing*{\subsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
 \titlespacing*{\subsubsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+
+% Define Custom Table Column Types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 % End of Preamble
 %-------------------------------------------------------------------------------
@@ -146,7 +171,9 @@
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 403 \\Lab 1: Centrifugal Pumps} \\
+    % \Huge {MEC E 403 \\Lab 2: Bolted Connections} \\
+    % make a more interesting titel
+    \Huge {An Investigation of Simple Harmonic Oscillations of a Damped System} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -154,29 +181,15 @@
     \vspace{1cm} % Adjust vertical spacing
 
     % Date
-    \Large Date: March 1, 2023 \\ % or manually specify a date
+    \Large Date: March 20, 2023 \\ % or manually specify a date
     \vspace{2cm} % Adjust vertical spacing
-
-    % % CCID and Student ID in smtaller font
-    % \normalsize Instructor: Lisa Kinsale \\
-    % \normalsize TA: Enrique Millones \& Simin Shabani 
-    % \vspace{1cm} % Adjust vertical spacing
-
-    % \normalsize Group Members:
-    %     Ahmad, Safiya;
-    %     Allegretto, Luca; \\
-    %     Colabella, James; 
-    %     Dadhania, Karan; 
-    %     Sammam, S M Faiaz; 
-
-    % \vspace{1cm} % Adjust vertical spacing
 
     \begin{table}[h]
         \centering
         \begin{tabular}{ll}
             Instructor & Lisa Kinsale \\
-            TAs & Enrique Millones \\
-            & Simin Shabani \vspace{0.5cm} \\
+            TAs & Ahmed Elsherbiny \\
+            & Marjan Darabi \vspace{0.5cm} \\
             Group Members & Ahmad, Safiya \\
             & Allegretto, Luca \\
             & Colabella, James \\
@@ -188,20 +201,11 @@
             Group & 13 \\
         \end{tabular}
     \end{table}
-    % \normalsize CCID: abdiep \\
-    % \normalsize Student ID: 1664334 \\ 
-    % \normalsize Section: H41 \\
-    % \normalsize Group: 13 \\
-      
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.2\textwidth]{uofa_engineering_logo.png}
+        \includegraphics[width=0.1\textwidth]{uofa_engineering_logo.png}
     \end{figure}
-    % Additional content (e.g., university logo or other information)
-
     \vfill % Fill vertical space
-
-    
 \end{titlepage}
 \renewcommand\arraystretch{1.5}
 
@@ -210,53 +214,45 @@
 
 \input{Sections/Abstract.tex}
 \newpage
-
+% use roman numerals for page numbers in table of contents
+\pagenumbering{roman}
 % Table of Contents (Hyperlinks set to locally black)
 {
     \hypersetup{hidelinks}
     \tableofcontents
 }
-% use roman numerals for page numbers in table of contents
-\pagenumbering{roman}
-
+\newpage
+{
+    \hypersetup{linkcolor=black}
+    \listoffigures
+}
+\newpage
+{
+    \hypersetup{linkcolor=black}
+    \listoftables
+}
+\newpage
+\input{Sections/Nomenclature.tex}
 \newpage
 
 % seperate page count for main matter
 \pagenumbering{arabic}
 
-\input{Sections/Nomenclature.tex}
+
 \input{Sections/Introduction.tex}
 \input{Sections/Procedure.tex}
 \input{Sections/Theory.tex}
 \input{Sections/Results and Discussion.tex}
 \input{Sections/Conclusion.tex}
 
-% \newpage
-% \bibliographystyle{IEEEtran}
-% \bibliography{citations.bib}
-% \bibliography{}
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{citations.bib}
 
-% \newpage
-% \appendix
-% \renewcommand\thefigure{\thesection.\arabic{figure}}    
-% \renewcommand\thetable{\thesection.\arabic{table}}
-% \input{Appendix/Figures.tex}
-% \newpage
-% \input{Appendix/Tables.tex}
-% \newpage
-% \input{Appendix/Calibration.tex}
-% \newpage
-% \input{Appendix/Transient.tex}
-% \newpage
-% %\input{Appendix/Calibration_data.tex}
-% %\newpage
-% \input{Appendix/A}
-% \newpage
-% \input{Appendix/B}
-% \newpage
-% \input{Appendix/C}
-% \newpage
-% \input{Appendix/D}
-% \newpage
-% \input{Appendix/E}
+\newpage
+\appendix
+\renewcommand\thefigure{\thesection.\arabic{figure}}    
+\renewcommand\thetable{\thesection.\arabic{table}}
+\FloatBarrier
+\input{Appendix/table dump.tex}
 \end{document}

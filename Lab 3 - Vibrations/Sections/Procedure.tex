@@ -1,52 +1,63 @@
-% Apparatus
-% • Pump system that can be configured as a single pump or as two pumps in series or
-% parallel operation.
-% Mec E 403 2
-% Centrifugal Pumps
-% • Stop watch
-% • Strobotach
-% • Pressure transducers
-
-% Measurements of pump pressure differential vs. flow rate are required for various operating
-% speeds. The manufacturer’s specifications are given in the attached performance curves. The
-% impeller has a diameter of 108 mm as shown in Figure 3.
-% The pump pressure differential is measured using a calibrated pressure transducer connected
-% to pressure taps located upstream of the pump suction inlet and downstream from the outlet.
-% Mec E 403 8
-% Centrifugal Pumps
-% Figure 5: Two pumps operating in parallel
-% The suction line has a diameter of 50.8 mm and the discharge line has a diameter of 38.1 mm.
-% The flow rate is determined by diverting the flow to a weighing tank and using a stopwatch
-% to collect a known quantity of water.
-% 1. One pump should be tested individually at 3 speeds specified by the teaching assistant,
-% ranging from one-half to full speed. The speed of the pump will be determined using
-% the strobotach.
-% 2. At each pump speed, the flow rates at 4 different pressures should be recorded (shutoff,
-% full open and two other equally spaced intermediate settings). Make sure to adjust the
-% speed of the pump to the correct value when changing the pressures before taking any
-% other readings. At each operating condition you should record
-% a) pump speed (make sure it is set to the correct value),
-% b) pressure transducer output,
-% c) the moment arm and dyno mass (to determine the torque produced by the motor)
-% d) time required to collect a known quantity of water.
-% 3. This procedure will then be repeated for parallel and series system configurations with
-% both pumps set at full speed (or as specified by the teaching assistant).
-
 \section{Procedure}
-% \subsection{Equipment}
-% \begin{itemize}
-%     \item Pump system that can be configured as a single pump or as two pumps in series or parallel operation. This is the system being studied.
-%     \item Stopwatch to measure time to fill a container 
-%     \item Strobotach to verify pump rotational speed
-%     \item Mass scale to measure 200 lbs of water
-%     \item 1.401 kg mass to measure moment arm (torque) of motor
-%     \item Pressure transducers to measure pump pressure differential
-% \end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Sections/Figures/experimental setup.jpg}
+    \caption{Experimental Setup of the Spring-Mass System}
+\subsection{Equipment}
+\begin{itemize}
+    \item Air track, to provide a low friction surface for the carts
+    \item Two springs, to provide an oscillatory response as the cart is displaced or driven
+    \item Frequency counter, to measure the frequency of the forcing motor
+    \item A large and small cart, to test the system with different masses
+    \item Mass balance, to weigh the carts
+    \item Motor and driver cart, to simulate a forced vibration system
+    \item Pulleys, to record oscillations using software
+    \item Stopwatch, to record the time of 10 oscillations
+    \item Chart recorder, to record the oscillations of the system (not used in this experiment, software was used instead)
+    \item Weights, to add to the cart to determine the load-deflection relationship of the system
+    \item A pan, to hold the weights
+\end{itemize}
 
-% \subsection{Procedure}
-% \begin{enumerate}
-%     \item The pump system will be tested individually at 1800, 2700, and 3600 RPM. The speed of the pump will be verified using the strobotach.
-%     \item At each pump speed, the flow rates at 4 different pressures will be recorded (shutoff, full open, and two other equally spaced intermediate settings). The speed of the pump will be set to the correct value when changing the pressures before taking any other readings.
-%     \item At each operating condition, the pump speed, pressure transducer output, the moment arm and dyno mass (to determine the torque produced by the motor), and time required to collect a known quantity of water will be recorded.
-%     \item Items (2)-(4) will be repeated for parallel and series system configurations with both pumps set at 2700 RPM.
-% \end{enumerate} 
+% Shown above in Figure 1 is the lab apparatus used in this experiment. The air track provides a
+% low friction surface (assumed frictionless) for the carts to glide along. The springs attached to the
+% cart provide an oscillatory response as the cart is displaced or driven. The frequency counter
+% measures this oscillatory response. Two carts of different mass (will be referred to as big and
+% small) are tested, and weighed using the mass balance. The weights are added to the cart during
+% testing to determine the load-deflection relationship of the system. The motor and driver cart are
+% used to simulate a forced vibration system. The measurement system for this involves the
+% pulleys, stopwatch, and chart recorder. The pulleys connect to the cart and record oscillations
+% using software (note that this was used in place of the chart recorder). Finally, the stopwatch is
+% used to record the time of 10 oscillations.
+
+\subsection{Procedure}
+\subsubsection{Load Deflection Trial}
+
+\begin{enumerate}
+    \item Record the mass of the cart by using the mass balance. Balance the beam by increasing and decreasing the weights on the other side of the beam until the beam is level. The mass of the cart will be used to determine the effective mass of the system for natural frequency calculations.
+    \item Set the driving cart to a fixed position (i.e. undriven). This will reduce the system to a single degree of freedom.
+    \item Detach the measurement system from the cart. This will allow the cart to oscillate freely.
+    \item Turn on the air track to reduce friction between the cart and the track.
+    \item Attach the cart to the pan around the free pulley. This will allow the cart to oscillate freely.
+    \item Record the initial position of the cart. This will be used to determine the deflection of the cart.
+    \item Add a 50 g weight to the pan. Record the new position of the cart. This will be used to determine the deflection of the cart.
+    \item Repeat steps 7 and 8, increasing by 50 g until 300 g of weight is reached. This will be used to determine the load-deflection relationship and determine the effective stiffness of the system.
+\end{enumerate}
+
+\subsubsection{Free Vibrations}
+\begin{enumerate}
+    \item Remove the weights from the pan. This will allow the cart to oscillate freely.
+    \item Give the cart an ~10cm initial deflection and then release it. This will allow the cart to oscillate freely.
+    \item Record the time for the cart to complete ten oscillations using the stopwatch. This will be used to determine the natural frequency of the system.
+    \item Repeat steps 2 and 3 five times to get an average value. This will be used to determine the natural frequency of the system.
+    \item Redo steps 1-4 for the second, larger cart. This will be used to determine the natural frequency of the system for the larger cart.
+\end{enumerate}
+
+\subsubsection{Forced Vibrations}
+\begin{enumerate}
+    \item Attach the measurement system to the cart. This will allow the software to record the position of the cart.
+    \item Attach the driving cart to the motor. This will allow the motor to drive the system.
+    \item Turn on the motor and set the frequency below the determined natural frequency. This will allow the system to oscillate at a frequency below the natural frequency.
+    \item Once steady state is reached, record the oscillations using the software for about 20 seconds. This will be used to determine the dynamic response of the system.
+    \item Repeat steps 3 and 4 for four trials below the natural frequency and four trials above. This will be used to determine the dynamic response of the system.
+    \item Redo steps 3-5 for the second, larger cart. This will be used to determine the dynamic response of the system for the larger cart.
+\end{enumerate}

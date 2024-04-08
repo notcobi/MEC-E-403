@@ -10,7 +10,7 @@ df = pd.read_excel(
 # find the unique dataset in 'dataset' column
 datasets = df["dataset"].unique()
 
-df_results = pd.DataFrame(columns=["dataset", "frequency", "dmf"])
+df_results = pd.DataFrame(columns=["dataset", "frequency", "dmf", "Mean Amplitude"])
 # loop through each dataset and perform analysis
 for dataset in datasets:
     # filter the dataset
@@ -37,8 +37,11 @@ for dataset in datasets:
     dmf = 2 * mean_amplitude / 3.55  # 3.55 is the value from lab
 
     # append the results to the results dataframe with concat
-    df_results = pd.concat(
-        [df_results, pd.DataFrame([[dataset, frequency, dmf]], columns=df_results.columns)]
+    # df_results = pd.concat(
+    #     [df_results, pd.DataFrame([[dataset, frequency, dmf]], columns=df_results.columns)]
+    # )
+    df_results = df_results.append(
+        pd.DataFrame([[dataset, frequency, dmf, mean_amplitude]], columns=df_results.columns)
     )
 
 # save the results to a new excel file

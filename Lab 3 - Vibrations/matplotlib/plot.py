@@ -102,7 +102,7 @@ xmin = df[df["dataset"] == "small dmf vs omega over p"]["x"].min()
 xmax = df[df["dataset"] == "small dmf vs omega over p"]["x"].max()
 x = np.linspace(xmin, xmax, 500)
 y = 1 / np.abs(1 - x ** 2)
-plt.plot(x, y, "k--", label="Theoretical", linewidth=1)
+plt.plot(x, y, "k-", label="Theoretical", linewidth=1)
 plt.axvline(x=1, color="r", linestyle="--")
 plt.text(0.5, 0.5, 'In Phase')
 plt.text(1.2, 0.25, 'Out of Phase')
@@ -124,7 +124,11 @@ plt.plot(
 )
 
 # plot the theoretical curve
-plt.plot(x, y, "k--", label="Theoretical", linewidth=1)
+xmin = df[df["dataset"] == "big dmf vs omega over p"]["x"].min()
+xmax = df[df["dataset"] == "big dmf vs omega over p"]["x"].max()
+x = np.linspace(xmin, xmax, 500)
+y = 1 / np.abs(1 - x ** 2)
+plt.plot(x, y, "k-", label="Theoretical", linewidth=1)
 plt.axvline(x=1, color="r", linestyle="--")
 
 plt.text(0.5, 0.5, 'In Phase')

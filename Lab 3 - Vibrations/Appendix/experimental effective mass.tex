@@ -1,0 +1,58 @@
+\section{Effective Mass Calculation}
+This section outlines the calculations used to determine the experimental effective mass of the system. The effective mass is determined by comparing the natural frequency of the no-measurement-system (whose mass is known) to the natural frequency of the measurement system (whose mass is unknown). 
+
+Suppose the natural frequency of the no-measurement-system for the small cart is $p_{\text{small, no sys}}$ and the natural frequency of the measurement system for the small cart is $p_{\text{small, sys}}$. Using the definition of resonance,
+\begin{gather*}
+    p_{\text{small, no sys}} = \sqrt{\frac{k_e}{m_{e_{\text{small, no sys}}}}}, \quad p_{\text{small, sys}} = \sqrt{\frac{k_{e}}{m_{e_{\text{small, sys}}}}} \\
+    \implies \frac{p_{\text{small, no sys}}}{p_{\text{small, sys}}} = \sqrt{\frac{m_{e_{\text{small, sys}}}}{m_{e_{\text{small, no sys}}}}} \\
+    \implies m_{e_{\text{small, sys}}} = \left(\frac{p_{\text{small, no sys}}}{p_{\text{small, sys}}}\right)^2 m_{e_{\text{small, no sys}}}
+\end{gather*}
+% w/o measuring system	w/ measuring system	w/o measuring system	w/ measuring system
+
+% natural freq, p, derived from period (Hz)	1.131733816	0.909587047	0.857632933	0.751314801
+
+\begin{table}[H]
+    \centering
+    \caption{Natural Frequency Data from Free Vibration Trials}
+    \label{tab:natural_frequency_data_for_effective_mass_appendix}
+    \begin{tabular}{p{0.20\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
+    \toprule
+        %& Small Cart & Big Cart  \\
+        & \multicolumn{2}{c}{Small Cart} & \multicolumn{2}{c}{Big Cart} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        & w/o measuring system & w/ measuring system & w/o measuring system & w/ measuring system \\
+        & (Hz) & (Hz) & (Hz) & (Hz) \\
+        \midrule
+        Natural Frequency from Trials & 1.1317 & 0.9096 & 0.8576 & 0.7513 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% small	big
+% m_e, trials	0.409937862	0.581809051
+% m_e, th	0.40155	0.58325
+\begin{table}[H]
+    \centering
+    \caption{Effective Mass Data}
+    \label{tab:effective_mass_data_for_effective_mass_appendix}
+    \begin{tabular}{lcc}
+    \toprule
+        & Small Cart & Big Cart \\
+        & (kg) & (kg) \\
+        \midrule
+        Effective Mass from Trials & 0.4099 & 0.5818 \\
+        Effective Mass from Theory & 0.4016 & 0.5833 \\
+        \midrule 
+        Relative Error & 2.09\% & 0.25\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations will be shown for Table \ref{tab:effective_mass_data_for_effective_mass_appendix}. The effective mass of the small cart was found by using the natural frequency data from Table \ref{tab:natural_frequency_data_for_effective_mass_appendix}. Then, knowing tha mass of the small cart is 0.2648 kg, 
+\begin{align*}
+    m_{e_{\text{small, sys}}} &= \left(\frac{1.1317}{0.9096}\right)^2 \times 0.2648 \\
+    &= \boxed{0.4099}
+\end{align*}
+The theoretical effective mass of the small cart is 0.4016 kg. The percent error is
+\begin{align*}
+    \text{Percent Error} &= \frac{0.4099 - 0.4016}{0.4016} \times 100\% \\
+    &= \boxed{2.09\%}
+\end{align*}

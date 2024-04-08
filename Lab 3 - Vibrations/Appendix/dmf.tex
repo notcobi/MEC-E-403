@@ -1,0 +1,68 @@
+\section{Appendix: Dynamic Magnification Factor}
+\label{app:dmf}
+% Calculate the experimental dynamic magnification factor
+% 2 x
+% Y0
+% from the measured displacements for both masses and plot these values versus the
+% frequency ratio ω
+% p . Indicate on the plot (a) the theoretical DMF (equation (8)) as a
+% solid line and (b) the regions of the curve where the two masses are in-phase and 180◦
+% out-of-phase. Provide separate graphs for each mass. Comment on the agreement
+% between theory and experiment.
+
+% dataset	frequency	dmf	freq/p	Mean Amplitude
+% small 0.22hz	0.22	1.039647887	0.241868	1.845375
+% small 0.35hz	0.35	1.128692153	0.38479	2.003428571
+% small 0.53hz	0.53	1.559769526	0.582682	2.768590909
+% small 1.15hz	1.15	1.242669933	1.26431	2.20573913
+% small 1.25hz	1.25	0.958841941	1.37425	1.701944444
+% small 1.35hz	1.35	0.701959584	1.48419	1.245978261
+% small 1.45hz	1.45	0.586846295	1.59413	1.041652174
+% big 0.25hz	0.25	0.94371831	0.33275	1.6751
+% big 0.36hz	0.36	1.308779343	0.47916	2.323083333
+% big 0.45hz	0.45	1.517589984	0.59895	2.693722222
+% big 0.54hz	0.54	2.080947503	0.71874	3.693681818
+% big 1.00hz	1	1.002852113	1.331	1.7800625
+% big 1.11hz	1.11	0.712910798	1.47741	1.265416667
+% big 1.20hz	1.2	0.532661231	1.5972	0.945473684
+% big 1.31hz	1.31	0.42843729	1.74361	0.76047619
+
+\begin{table}[H]
+    \centering
+    \caption{Dynamic Magnification Factor Data}
+    \label{tab:dmf_data}
+    \begin{tabular}{cccccc}
+    \toprule
+        Dataset & Frequency (Hz) & DMF & $\frac{f}{p}$ & Mean Amplitude, $A$ \\
+        \midrule
+        Small 0.22 Hz & 0.22 & 1.0396 & 0.2419 & 1.8454 \\
+        Small 0.35 Hz & 0.35 & 1.1287 & 0.3848 & 2.0034 \\
+        Small 0.53 Hz & 0.53 & 1.5598 & 0.5827 & 2.7686 \\
+        Small 1.15 Hz & 1.15 & 1.2427 & 1.2643 & 2.2057 \\
+        Small 1.25 Hz & 1.25 & 0.9588 & 1.3743 & 1.7019 \\
+        Small 1.35 Hz & 1.35 & 0.7020 & 1.4842 & 1.2460 \\
+        Small 1.45 Hz & 1.45 & 0.5868 & 1.5941 & 1.0417 \\
+        Big 0.25 Hz & 0.25 & 0.9437 & 0.3328 & 1.6751 \\
+        Big 0.36 Hz & 0.36 & 1.3088 & 0.4792 & 2.3231 \\
+        Big 0.45 Hz & 0.45 & 1.5176 & 0.5990 & 2.6937 \\
+        Big 0.54 Hz & 0.54 & 2.0809 & 0.7187 & 3.6937 \\
+        Big 1.00 Hz & 1.00 & 1.0029 & 1.3310 & 1.7801 \\
+        Big 1.11 Hz & 1.11 & 0.7129 & 1.4774 & 1.2654 \\
+        Big 1.20 Hz & 1.20 & 0.5327 & 1.5972 & 0.9455 \\
+        Big 1.31 Hz & 1.31 & 0.4284 & 1.7436 & 0.7605 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Sample calculations for the dynamic magnification factor are shown for the small 0.22 Hz dataset. The mean amplitude was found by Excel by averaging the amplitudes across the number of cycles. The dynamic magnification factor was found by
+\begin{align*}
+    \text{DMF} &= \frac{2 \times A}{Y_0} \\
+    &= \frac{2 \times \qty{1.8454}{\centi\meter}}{\qty{3.55}{\centi\meter}} \\
+    &= \boxed{1.0396}
+\end{align*}
+The ratio of the frequency to the experimental natural frequency was found by
+\begin{align*}
+    \frac{f}{p} &= \frac{\qty{0.22}{\hertz}}{\qty{0.909587047}{\hertz}} \\
+    &= \boxed{0.2419}
+\end{align*}
+where $Y_0$ is 3.55 cm

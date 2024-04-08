@@ -103,9 +103,9 @@ def plot_peaks_and_valleys(data, peaks_driven, valleys_driven, peaks_driving, va
     file = file.split(".xls")[0]
 
     # Add labels and title
-    plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude")
-    plt.title("Driven Amplitude Peaks and Valleys for " + file)
+    plt.xlabel("$t$, Time (s)")
+    plt.ylabel("$A$, Amplitude")
+    # plt.title("Driven Amplitude Peaks and Valleys for " + file)
 
     # plt.show()
 
@@ -124,9 +124,9 @@ def plot_peaks_and_valleys(data, peaks_driven, valleys_driven, peaks_driving, va
     plt.plot(time[valleys_driving["Index"]], driving_amplitude[valleys_driving["Index"]], "x", label="Driving Valleys")
 
     # Add labels and title
-    plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude")
-    plt.title("Driving Amplitude Peaks and Valleys for " + file)
+    plt.xlabel("$t$, Time (s)")
+    plt.ylabel("$A$, Amplitude (cm)")
+    # plt.title("Driving Amplitude Peaks and Valleys for " + file)
 
     # plt.show()
 

@@ -1,0 +1,92 @@
+\section{Appendix: Natural Frequency}
+\label{app:Natural Frequency Derivation}
+\subsection{Period Calculation}
+\begin{table}[H]
+    \centering
+    \caption{Natural Frequency Trial Data}
+    \label{tab:natural_frequency}
+    \begin{tabular}{cccccc}
+    \toprule
+        %Trial & $f_{\text{no measure}}$ & $f_{\text{measure}}$ & $f_{\text{no measure}}$ & $f_{\text{measure}}$ \\
+        & \multicolumn{2}{c}{Small} & \multicolumn{2}{c}{Big} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        Trial & 10$\tau_{\text{no sys}}$ & 10$\tau_{\text{sys}}$ & 10$\tau_{\text{no sys}}$ & 10$\tau_{\text{sys}}$ \\
+        & (s) & (s) & (s) & (s) \\
+        \midrule
+        1 & 8.81 & 11.13 & 11.49 & 13.7 \\
+        2 & 8.71 & 10.98 & 11.67 & 13.14 \\
+        3 & 8.85 & 11.01 & 11.69 & 13.31 \\
+        4 & 8.88 & 10.90 & 11.84 & 13.19 \\
+        5 & 8.93 & 10.95 & 11.61 & 13.21 \\
+        \midrule
+        \midrule
+        Average & 8.836 & 10.994 & 11.66 & 13.31 \\
+        $\tau$ & 0.8836 & 1.0994 & 1.166 & 1.331 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+The experimental data for the period of the system is shown in Table \ref{tab:natural_frequency}. Sample calculations for the period are shown for the small no system trial. The average was found by Excel,
+\begin{align*}
+    (10\tau_{\text{no sys}})_{\text{avg}} &= \frac{1}{5} \sum_{i=1}^{5} (10\tau_{\text{no sys}})_i \\
+    &= \frac{1}{5} \times (8.81 + 8.71 + 8.85 + 8.88 + 8.93) \\
+    &= 8.836
+\end{align*}
+The period was found by
+\begin{align*}
+    \tau_{\text{no sys}} &= \frac{(10\tau_{\text{no sys}})_{\text{avg}}}{10} \\
+    &= \frac{8.836}{10} \\
+    &= \boxed{0.8836}
+\end{align*}
+
+\subsection{Natural Frequency Calculation}
+\begin{table}[H]
+    \centering
+    \caption{Natural Frequency Data}
+    \label{tab:natural_frequency_data}
+    \begin{tabular}{cccccc}
+    \toprule
+        & \multicolumn{2}{c}{Small} & \multicolumn{2}{c}{Big} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        & $f_{\text{sys}}$ & $f_{\text{no sys}}$ & $f_{\text{sys}}$ & $f_{\text{no sys}}$ \\
+        & (Hz) & (Hz) & (Hz) & (Hz) \\
+        \midrule
+        Derived from period & 1.1317 & 0.9096 & 0.8576 & 0.7513 \\
+        Derived from using $k_e$ and $m_e$ & 1.1355 & 0.9221 & 0.8744 & 0.7651 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Effective Mass Data}
+    \label{tab:effective_stiffness_mass}
+    \begin{tabular}{ccc}
+    \toprule
+        & System & No System \\
+        & (kg) & (kg) \\
+        \midrule
+        $m_e$, Small & 0.40155 & 0.2648 \\
+        $m_e$, Big & 0.58325 & 0.4465 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+The natural frequency of the system was calculated using the period data in Table \ref{tab:natural_frequency_data}. Sample calculations for the natural frequency are shown for the small system trial. The natural frequency was found by
+\begin{align*}
+    f_{\text{sys}} &= \frac{1}{\tau_{\text{sys}}} \\
+    &= \frac{1}{1.0994} \\
+    &= \boxed{0.9096}
+\end{align*}
+The natural frequency was also calculated using the effective stiffness and mass data. The effective mass data is shown in Table \ref{tab:effective_stiffness_mass}. The effective mass for the system was found by 
+\begin{align*}
+    m_{e, \text{sys}} &= m_{\text{cart}} + \frac{1}{2} m_{\text{big pulley}} + \frac{1}{2} m_{\text{small pulley}} \\
+    &= \qty{0.2648}{\kilo\gram} + \frac{1}{2} \qty{0.2599}{\kilo\gram} + \frac{1}{2} \qty{0.0136}{\kilo\gram} \\
+    &= \qty{0.40155}{\kilo\gram}
+\end{align*}
+The natural frequency was found by 
+\begin{align*}
+    f_{\text{sys}} &= \frac{1}{2\pi} \sqrt{\frac{k_e}{m_e}} \\
+    &= \frac{1}{2\pi} \sqrt{\frac{\qty{13.5}{\newton\per\meter}}{\qty{0.40155}{\kilo\gram}}} \\
+    &= \boxed{1.1355}
+\end{align*}
+% natural freq, p, derived from period (Hz)	1.131733816	0.909587047	0.857632933	0.751314801
+% natural freq, p, derived from using k_e (Hz)	1.135465446	0.922068313	0.874424226	0.765077692

@@ -56,3 +56,38 @@ The theoretical effective mass of the small cart is 0.4016 kg. The percent error
     \text{Percent Error} &= \frac{0.4099 - 0.4016}{0.4016} \times 100\% \\
     &= \boxed{2.09\%}
 \end{align*}
+
+\subsection{Effective Mass Error Analysis}
+% w/o measuring system	w/ measuring system	w/o measuring system	w/ measuring system
+% p (Hz) 1.131733816	0.909587047	0.857632933	0.751314801
+% \delta_p (Hz) 0.013	0.009	0.012	0.016
+% uncertainty	0.008768967	0.020184956
+
+\begin{table}[H]
+    \centering
+    \caption{Natural Frequency Error Data}
+    \label{tab:natural_frequency_error_data_for_effective_mass_appendix}
+    \begin{tabular}{ccc}
+        \toprule
+        & Small Cart & Big Cart \\
+        w/ measuring system  & w/ measuring system \\
+        \midrule
+        $p$ (Hz) & 0.9096 & 0.7513 \\
+        $\delta_p$ (Hz) & 0.009 & 0.016 \\
+        \midrule
+        $\delta_{m_e}$ (kg) & 0.009 & 0.020 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations will be shown for Table \ref{tab:natural_frequency_error_data_for_effective_mass_appendix} for the small cart. The equation for $m_e$ is
+\begin{align*}
+    m_e &= \left(\frac{p_{\text{small, no sys}}}{p_{\text{small, sys}}}\right)^2 m_{e_{\text{small, no sys}}} \\
+    &= p_{\text{small, no sys}}^2 p_{\text{small, sys}}^{-2} m_{e_{\text{small, no sys}}}^{1} 
+\end{align*}
+This is the special case of the general formula for error propagation Eq. (\ref{eq:error_propagation_pure_multiplicative}),
+\begin{align*}
+    \delta_{m_e} &= \sqrt{\left((2) \frac{\delta_{p_{\text{small, no sys}}}}{p_{\text{small, no sys}}}\right)^2 + \left((-2) \left(\frac{\delta_{p_{\text{small, sys}}}}{p_{\text{small, sys}}}\right)^2\right)} m_e \\
+    &= \sqrt{\left((2) \frac{0.013}{1.1317}\right)^2 + \left((-2) \left(\frac{0.009}{0.9096}\right)^2\right)} \times 0.2648 \\
+    &= \boxed{0.009}
+\end{align*}
+The error in the effective mass of the small cart is 0.009 kg. The error in the effective mass of the big cart is 0.020 kg.

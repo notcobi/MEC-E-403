@@ -88,5 +88,50 @@ The natural frequency was found by
     &= \frac{1}{2\pi} \sqrt{\frac{\qty{13.5}{\newton\per\meter}}{\qty{0.40155}{\kilo\gram}}} \\
     &= \boxed{1.1355}
 \end{align*}
-% natural freq, p, derived from period (Hz)	1.131733816	0.909587047	0.857632933	0.751314801
-% natural freq, p, derived from using k_e (Hz)	1.135465446	0.922068313	0.874424226	0.765077692
+
+\subsection{Natural Frequency Error Analysis}
+Important values for uncertainty analysis are presented in Table \ref{tab:natural_frequency_data}.  
+\begin{table}[h]
+    \centering
+    \caption{Natural Frequency Error Analysis}
+    \label{tab:natural_frequency_error_analysis}
+    \begin{tabular}{cccccc}
+    \toprule
+        & \multicolumn{2}{c}{Small} & \multicolumn{2}{c}{Big} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        & w/ sys & w/o sys & w/ sys & w/o sys \\
+        \midrule
+        Stdev 10$\tau$ (s) & 0.0829 & 0.0862 & 0.1273 & 0.2266 \\
+        t-inv value & 2.7764 & 2.7764 & 2.7764 & 2.7764 \\
+        $P_{10\tau}$ (s) & 0.1030 & 0.1070 & 0.1580 & 0.2814 \\
+        $B_{10\tau}$ (s)& 0.01 & 0.01 & 0.01 & 0.01 \\
+        $\delta_{\tau}$ (s) & 0.0103 & 0.0107 & 0.0158 & 0.0281 \\
+        $\delta_p$ (Hz) & 0.013 & 0.009 & 0.012 & 0.016 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Sample calculations for the error analysis are shown for the small system trial. The standard deviation was calculated by Excel. The precision error for $10\tau$ was found by
+\begin{align*}
+    P_{10\tau} &= t_{\alpha/2, n-1} \times \frac{\text{stdev } 10\tau}{\sqrt{n}} \\
+    &= 2.7764 \times \frac{0.0829}{\sqrt{5}} \\
+    &= 0.1030
+\end{align*}
+where $t_{\alpha/2, n-1} = 2.7764$ for a 95\% confidence interval. The bias error for $\tau$ was set to be the resolution of the stopwatch. Next, the uncertainty for $10\tau$ was found by
+\begin{align*}
+    \delta_{\tau} &= \sqrt{P_{10\tau}^2 + B_{10\tau}^2} \\
+    &= \sqrt{0.1030^2 + 0.01^2} \\
+    &= \qty{0.0103}{\second}
+\end{align*}
+The uncertainty for $\tau$ was found by
+\begin{align*}
+    \delta_p &= \sqrt{\left(\frac{\partial 10 \tau}{10} \delta_{\tau}\right)^2} \\
+    &= \frac{1}{10} \delta_{\tau} \\
+    &= \frac{0.0103}{10} \\
+    &= \boxed{0.0010}
+\end{align*}
+Lastly, $p = \frac{1}{\tau} = \tau^{-1}$. Since this is the special multiplicative case as derived in Eq. (\ref{eq:error_propagation_pure_multiplicative}),
+\begin{align*}
+    \delta_p &= p \frac{\delta_{\tau}}{\tau} \\
+    &= 0.9096 \times \frac{0.0103}{1.0994} \\
+    &= \boxed{0.013}
+\end{align*}
